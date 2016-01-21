@@ -8,8 +8,22 @@
 
 #import "PreviewController.h"
 #import "BlackboardViewController.h"
+#import "UITableViewFunctionalCell.h"
 
-@interface PreviewController ()
+#import "UIColor+Theme.h"
+#import "Craig.h"
+
+@interface PreviewController()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
+
+@property( nonatomic, strong ) UITableView *bear;
+@property( nonatomic, strong ) NSIndexPath *weightIndexPath;
+@property( nonatomic, assign ) CGFloat      textPreviewFontsize;
+@property( nonatomic, strong ) NSString    *textPreviewText;
+@property( nonatomic, strong ) UIView      *textPreviewHeaderView;
+@property( nonatomic, strong ) UIView      *fontsizeHeaderView;
+@property( nonatomic, strong ) UIView      *fontweightHeaderView;
+
+@property( nonatomic, strong ) NSArray     *weight;
 
 @end
 
@@ -19,12 +33,206 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"San Francisco";
     
+    self.textPreviewFontsize = 16.0f;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                                            target:self
-                                                                                           action:@selector(blackboard)];    
-    [self displayOrText];
+                                                                                           action:@selector(blackboard)];
+    [self doBear];
+}
+
+- (void)setFontAsset:(FontAsset *)fontAsset{
+    _fontAsset = fontAsset;
+    
+//    [schedule sortedArrayUsingComparator:^(id obj1, id obj2){
+//        NSUInteger number1 = intergerFromTimeString((NSString *)obj1[3]);
+//        NSUInteger number2 = intergerFromTimeString((NSString *)obj2[3]);
+//        
+//        if( number1 < number2 )
+//            return (NSComparisonResult)NSOrderedAscending;
+//        
+//        if( number1 > number2 )
+//            return (NSComparisonResult)NSOrderedDescending;
+//        
+//        return (NSComparisonResult)NSOrderedSame;
+//    }];
+    
+    NSArray *order = @[ @"ultralight", @"thin" ];
+    
+    [[UIFont fontNamesForFamilyName:fontAsset.fontName] sortedArrayUsingComparator:^(NSString *str1, NSString *str2){
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    self.title = self.fontAsset.name;
+    self.weightIndexPath     = [NSIndexPath indexPathForRow:0 inSection:2];
+    self.textPreviewText     = self.fontAsset.intro;
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSFontAttributeName: self.fontAsset.font
+                                                           }];
+}
+
+- (void)adjustTextSize:(UISlider *)slider{
+    self.textPreviewFontsize = (NSUInteger)slider.value;
+    
+    ((UILabel *)self.fontsizeHeaderView.subviews.firstObject).text = [NSString stringWithFormat:@"Fontsize: %ldpt", (NSUInteger)slider.value];
+    
+    [self.bear reloadRowsAtIndexPaths:@[
+                                        [NSIndexPath indexPathForRow:0 inSection:0]
+                                        ]
+                     withRowAnimation:UITableViewRowAnimationNone];
+}
+
+- (void)doBear{
+    self.bear = ({
+        UITableView *bear = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
+        bear.translatesAutoresizingMaskIntoConstraints = NO;
+        bear.showsHorizontalScrollIndicator = NO;
+        bear.showsVerticalScrollIndicator = NO;
+        bear.sectionFooterHeight = 0.0f;
+        bear.contentInset    = UIEdgeInsetsMake(0, 0, 44, 0);
+        bear.allowsMultipleSelectionDuringEditing = NO;
+        bear.delegate = self;
+        bear.dataSource = self;
+        bear;
+    });
+    
+    [self.view addSubview:self.bear];
+    [self.bear.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
+    [self.bear.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+    [self.bear.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
+    [self.bear.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 4;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if( section == 0 )
+        return 1;
+    else if( section == 1 )
+        return 1;
+    else if( section == 2 )
+        return [UIFont fontNamesForFamilyName:self.fontAsset.fontName].count;
+    else if( section == 3 )
+        return 1;
+    
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 44.0f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if( indexPath.section == 0 && indexPath.row == 0 )
+        return 128.0f;
+    
+    return 44;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    if( section == 1 ){
+        if( self.fontsizeHeaderView == nil ){
+            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 24pt"];
+        }
+        
+        return self.fontsizeHeaderView;
+    }else if( section == 0 ){
+        if( self.textPreviewHeaderView == nil ){
+            self.textPreviewHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Text preview"];
+        }
+        
+        return self.textPreviewHeaderView;
+    }else if( section == 2 ){
+        if( self.fontweightHeaderView == nil ){
+            self.fontweightHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Font weight"];
+        }
+        
+        return self.fontweightHeaderView;
+    }
+    
+    return [Craig tableHeaderContentViewWithTitle:nil];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *const TABLEVIEW_CELL_ID = @"TABLEVIEW_CELL_ID_FOR_LANG";
+    
+    UITableViewFunctionalCell *functionalCell;
+    
+    if( indexPath.row == 0 && indexPath.section == 0 ){
+        functionalCell = [tableView dequeueReusableCellWithIdentifier:REUSE_FUNCTIONAL_CELL_ID_TEXT];
+        if( functionalCell == nil ){
+            functionalCell =  [[UITableViewFunctionalCell alloc] initWithReuseString:REUSE_FUNCTIONAL_CELL_ID_TEXT];
+            functionalCell.textView.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+            functionalCell.textView.delegate  = self;
+        }
+        
+        functionalCell.textView.text = self.textPreviewText;
+        functionalCell.textView.font = [UIFont fontWithName:[UIFont fontNamesForFamilyName:self.fontAsset.fontName][self.weightIndexPath.row]
+                                                       size:self.textPreviewFontsize];
+        
+        return functionalCell;
+    }else if( indexPath.row == 0 && indexPath.section == 1 ){
+        functionalCell = [tableView dequeueReusableCellWithIdentifier:REUSE_FUNCTIONAL_CELL_ID_SLIDER];
+        if( functionalCell == nil ){
+            functionalCell = [[UITableViewFunctionalCell alloc] initWithReuseString:REUSE_FUNCTIONAL_CELL_ID_SLIDER];
+            functionalCell.slider.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+            functionalCell.slider.minimumValue = 16;
+            functionalCell.slider.maximumValue = 64;
+            
+            [functionalCell.slider addTarget:self action:@selector(adjustTextSize:) forControlEvents:UIControlEventValueChanged];
+        }
+        
+        return functionalCell;
+    }else if( indexPath.row == 0 && indexPath.section == 3 ){
+        functionalCell = [tableView dequeueReusableCellWithIdentifier:REUSE_FUNCTIONAL_CELL_ID_BUTTON];
+        if( functionalCell == nil ){
+            functionalCell =  [[UITableViewFunctionalCell alloc] initWithReuseString:REUSE_FUNCTIONAL_CELL_ID_BUTTON];
+            functionalCell.textLabel.textColor = [UIColor colorWithHex:CLThemeRedlight alpha:1];
+            functionalCell.textLabel.text = @"Add favorite";
+        }
+        
+        return functionalCell;
+    }
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_ID];
+    if( cell == nil ){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
+    }
+    
+    if( indexPath.row == self.weightIndexPath.row && indexPath.section == self.weightIndexPath.section )
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    else
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    cell.textLabel.text = [UIFont fontNamesForFamilyName:self.fontAsset.fontName][indexPath.row];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if( indexPath.row == 0 && (indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 3) ){
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }else if( indexPath.section == 2 && indexPath.row != self.weightIndexPath.row ){
+        [tableView cellForRowAtIndexPath:self.weightIndexPath].accessoryType = UITableViewCellAccessoryNone;
+        [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        [self setWeightIndexPath:indexPath];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        [tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:0 inSection:0] ]
+                         withRowAnimation:UITableViewRowAnimationNone];
+    }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    self.textPreviewText = textView.text;
 }
 
 - (void)displayOrText{
@@ -50,6 +258,7 @@
     
     UISegmentedControl *segmented = [[UISegmentedControl alloc] initWithItems:@[ @"Text", @"Display" ]];
     segmented.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+    segmented.selectedSegmentIndex = 0;
     segmented.translatesAutoresizingMaskIntoConstraints = NO;
     
     [visual.contentView addSubview:segmented];
@@ -60,7 +269,15 @@
 }
 
 - (void)blackboard{
-    [self presentViewController:[BlackboardViewController new] animated:YES completion:nil];
+    [self presentViewController:({
+        BlackboardViewController *blackboard = [[BlackboardViewController alloc] init];
+        blackboard.boardString = self.textPreviewText;
+        blackboard.boardFont   = [UIFont fontWithName:[UIFont fontNamesForFamilyName:self.fontAsset.fontName][self.weightIndexPath.row]
+                                                 size:self.textPreviewFontsize];
+        blackboard;
+    })
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

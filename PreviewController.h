@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FontAsset.h"
 
 @interface PreviewController : UIViewController
+
+@property( nonatomic, strong ) FontAsset  *fontAsset;
+@property( nonatomic, assign ) NSUInteger  previewType;
 
 @end

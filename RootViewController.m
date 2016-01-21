@@ -28,9 +28,17 @@
     [self UI];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           NSFontAttributeName: [UIFont systemFontOfSize:17 weight:UIFontWeightMedium]
+                                                           }];
+}
+
 - (void)UI{
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithWhite:51 / 255.0 alpha:1]];
+    
     self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"English"
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
@@ -69,7 +77,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 44.0f;
+    return 36.0f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -88,7 +96,10 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = [FontsManager shareManager].fonts[indexPath.row];
+    cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
+    cell.textLabel.font = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).font;
+    
+//    NSLog(@"%@", ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).font);
     
     return cell;
 }
@@ -104,12 +115,19 @@
     self.indexPath = indexPath;
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:[PreviewController new] animated:YES];
+        [self.navigationController pushViewController:({
+            PreviewController *previewController = [[PreviewController alloc] init];
+            previewController.fontAsset          = [FontsManager shareManager].fonts[indexPath.row];
+            previewController;
+        })
+                                             animated:YES];
     });
 }
 
 - (void)languageType{
-    [self presentViewController:[LanguageViewController new] animated:YES completion:nil];
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:[[LanguageViewController alloc] init]]
+                       animated:YES
+                     completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

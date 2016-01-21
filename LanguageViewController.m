@@ -7,10 +7,10 @@
 //
 
 #import "LanguageViewController.h"
+#import "UIColor+Theme.h"
 
 @interface LanguageViewController()<UITableViewDataSource, UITableViewDelegate>
 
-@property( nonatomic, strong ) UINavigationBar *bar;
 @property( nonatomic, strong ) UITableView *bear;
 
 @property( nonatomic, strong ) NSIndexPath *currentIndexPath;
@@ -24,35 +24,23 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    self.title = @"Languages";
     self.langs = @[ @"English", @"中文", @"Japanese" ];
+    self.currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     [self letBear];
 }
 
 - (void)letBear{
-    self.bar = ({
-        UINavigationBar *bar = [[UINavigationBar alloc] initWithFrame:({
-            CGRect rect = self.view.bounds;
-            rect.size.height = [UIApplication sharedApplication].statusBarFrame.size.height + 44;
-            rect;
-        })];
-        
-        UINavigationItem *item  = [[UINavigationItem alloc] initWithTitle:@"Language"];
-        item.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                target:self
-                                                                                action:@selector(dismissSelf)];
-        item.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                target:self
-                                                                                action:@selector(doneSelf)];
-        item.leftBarButtonItem.tintColor = [UIColor redColor];
-        
-        [bar pushNavigationItem:item animated:NO];
-        [self.view addSubview:bar];
-        
-        bar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        bar;
-    });
+    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                           target:self
+                                                                                           action:@selector(dismissSelf)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                                           target:self
+                                                                                           action:@selector(doneSelf)];
+    self.navigationItem.leftBarButtonItem.tintColor  = [UIColor colorWithHex:CLThemeRedlight alpha:1];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+    
     
     self.bear = ({
         UITableView *bear = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
@@ -60,14 +48,14 @@
         bear.showsHorizontalScrollIndicator = NO;
         bear.showsVerticalScrollIndicator = NO;
         bear.sectionFooterHeight = 0.0f;
-        bear.contentInset    = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height + 44, 0, 0, 0);
+        bear.sectionHeaderHeight = 36.0f;
         bear.allowsMultipleSelectionDuringEditing = NO;
         bear.delegate = self;
         bear.dataSource = self;
         bear;
     });
     
-    [self.view insertSubview:self.bear belowSubview:self.bar];
+    [self.view addSubview:self.bear];
     [self.bear.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
     [self.bear.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
     [self.bear.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
@@ -75,11 +63,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.langs.count;
+    return section == 0 ? self.langs.count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -89,10 +77,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
     }
     
-    if( indexPath.row == self.currentIndexPath.row )
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    cell.textLabel.text = self.langs[indexPath.row];
+    if( indexPath.section == 0 ){
+        if( indexPath.row == self.currentIndexPath.row )
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        cell.textLabel.text = self.langs[indexPath.row];
+    }else{
+        cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"License";
+    }
     
     return cell;
 }
@@ -100,10 +93,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    ((UITableViewCell *)[tableView cellForRowAtIndexPath:self.currentIndexPath]).accessoryType = UITableViewCellAccessoryNone;
-    ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    self.currentIndexPath = indexPath;
+    if( indexPath.section == 0 ){
+        ((UITableViewCell *)[tableView cellForRowAtIndexPath:self.currentIndexPath]).accessoryType = UITableViewCellAccessoryNone;
+        ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).accessoryType = UITableViewCellAccessoryCheckmark;
+        
+        self.currentIndexPath = indexPath;
+    }else if( indexPath.section == 1 ){
+        
+    }
 }
 
 - (void)doneSelf{

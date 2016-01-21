@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     [self blankboard];
     
@@ -79,7 +79,7 @@
 - (void)hideOrShowSetting{
     [self.view.constraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *con, NSUInteger index, BOOL *sS){
         if( con.firstItem == self.settingContainer && con.firstAttribute == NSLayoutAttributeLeft ){
-            con.constant = con.constant == 0 ? -44 : 0;
+            con.constant = con.constant == 0 ? -52 : 0;
             [UIView animateWithDuration:0.25 delay:0.0f options:(7 << 16)
                              animations:^{
                                  [self.view layoutIfNeeded];
@@ -101,8 +101,10 @@
         board.transform = CGAffineTransformMakeRotation(M_PI_2);
         board.translatesAutoresizingMaskIntoConstraints = NO;
         
-        board.textColor = [UIColor whiteColor];
-        board.text = @"Get your apps ready with the latest beta versions of the San Francisco fonts for iOS 9, OS X El Capitan, watchOS 2, and tvOS. To download, sign in with your Apple ID associated with your Apple Developer Program membership.";
+        board.textColor = [UIColor blackColor];
+//        board.text = @"Get your apps ready with the latest beta versions of the San Francisco fonts for iOS 9, OS X El Capitan, watchOS 2, and tvOS. To download, sign in with your Apple ID associated with your Apple Developer Program membership.";
+        board.font = self.boardFont;
+        board.text = self.boardString;
         
         [self.view addSubview:board];
         [board.widthAnchor constraintEqualToAnchor:self.view.heightAnchor].active = YES;
@@ -119,7 +121,7 @@
         
         [self.view addSubview:settingContainer];
         [settingContainer.topAnchor constraintEqualToAnchor:self.view.topAnchor].active = YES;
-        [settingContainer.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
+        [settingContainer.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant:-52].active = YES;
         [settingContainer.widthAnchor constraintEqualToConstant:44].active = YES;
         [settingContainer.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
         
@@ -130,7 +132,7 @@
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ @"Black", @"Gray", @"Blue", @"White" ]];
         segmentedControl.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         segmentedControl.transform = CGAffineTransformMakeRotation(M_PI_2);
-        segmentedControl.selectedSegmentIndex = 1;
+        segmentedControl.selectedSegmentIndex = 3;
         segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
         
         [segmentedControl addTarget:self action:@selector(changeBackgroundColor) forControlEvents:UIControlEventValueChanged];

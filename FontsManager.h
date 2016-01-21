@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FontAsset.h"
 
 @interface FontsManager : NSObject
 
-@property( nonatomic, strong ) NSArray *fonts;
+@property( nonatomic, strong ) NSArray<FontAsset *> *fonts;
 @property( nonatomic, strong ) NSArray *langs;
 
 + (instancetype)shareManager;
