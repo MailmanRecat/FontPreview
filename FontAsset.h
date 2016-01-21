@@ -15,13 +15,13 @@
 @property( nonatomic, strong ) NSString *intro;
 @property( nonatomic, strong ) UIFont   *font;
 @property( nonatomic, strong ) NSString *fontName;
+@property( nonatomic, strong ) NSString *prefix;
 @property( nonatomic, strong ) NSString *type;
 
 + (instancetype)assetFromAuth:(NSString *)auth
-                         Name:(NSString *)name
-                        intro:(NSString *)intro
+                         Name:(NSString *)name intro:(NSString *)intro
                          font:(UIFont *)font
-                     fontName:(NSString *)fontName
+                     fontName:(NSString *)fontName prefix:(NSString *)prefix
                          type:(NSString *)type;
 
 @end

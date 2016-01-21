@@ -28,12 +28,6 @@
     [self UI];
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSFontAttributeName: [UIFont systemFontOfSize:17 weight:UIFontWeightMedium]
-                                                           }];
-}
-
 - (void)UI{
     self.view.backgroundColor = [UIColor whiteColor];
     

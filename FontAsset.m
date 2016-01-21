@@ -14,7 +14,7 @@
                          Name:(NSString *)name
                         intro:(NSString *)intro
                          font:(UIFont *)font
-                     fontName:(NSString *)fontName
+                     fontName:(NSString *)fontName prefix:(NSString *)prefix
                          type:(NSString *)type{
     
     FontAsset *asset = [[FontAsset alloc] init];
@@ -24,6 +24,7 @@
     asset.intro    = intro;
     asset.font     = font;
     asset.fontName = fontName;
+    asset.prefix   = prefix;
     asset.type     = type;
     
     return asset;

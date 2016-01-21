@@ -23,7 +23,7 @@
 @property( nonatomic, strong ) UIView      *fontsizeHeaderView;
 @property( nonatomic, strong ) UIView      *fontweightHeaderView;
 
-@property( nonatomic, strong ) NSArray     *weight;
+@property( nonatomic, strong ) NSArray     *fontWeight;
 
 @end
 
@@ -33,7 +33,9 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.title = self.fontAsset.name;
+    self.weightIndexPath     = [NSIndexPath indexPathForRow:0 inSection:2];
+    self.textPreviewText     = self.fontAsset.intro;
     self.textPreviewFontsize = 16.0f;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                                            target:self
@@ -44,33 +46,38 @@
 - (void)setFontAsset:(FontAsset *)fontAsset{
     _fontAsset = fontAsset;
     
-//    [schedule sortedArrayUsingComparator:^(id obj1, id obj2){
-//        NSUInteger number1 = intergerFromTimeString((NSString *)obj1[3]);
-//        NSUInteger number2 = intergerFromTimeString((NSString *)obj2[3]);
-//        
-//        if( number1 < number2 )
-//            return (NSComparisonResult)NSOrderedAscending;
-//        
-//        if( number1 > number2 )
-//            return (NSComparisonResult)NSOrderedDescending;
-//        
-//        return (NSComparisonResult)NSOrderedSame;
-//    }];
+    NSUInteger prefix = self.fontAsset.prefix.length;
     
-    NSArray *order = @[ @"ultralight", @"thin" ];
+    self.fontWeight = [[UIFont fontNamesForFamilyName:fontAsset.fontName] sortedArrayUsingComparator:
+                       ^(NSString *str1, NSString *str2){
+                           NSString *weight1  = str1.length > prefix ? [str1 substringFromIndex:prefix] : str1;
+                           NSString *weight2  = str2.length > prefix ? [str2 substringFromIndex:prefix] : str2;
+                           
+                           NSUInteger number1 = [Craig positionOfFontWeight:weight1];
+                           NSUInteger number2 = [Craig positionOfFontWeight:weight2];
+                           
+                           if( number1 < number2 )
+                               return (NSComparisonResult)NSOrderedAscending;
+                           
+                           if( number1 > number2 )
+                               return (NSComparisonResult)NSOrderedDescending;
+                           
+                           return (NSComparisonResult)NSOrderedSame;
+                       }];
     
-    [[UIFont fontNamesForFamilyName:fontAsset.fontName] sortedArrayUsingComparator:^(NSString *str1, NSString *str2){
-        return (NSComparisonResult)NSOrderedSame;
+    NSMutableArray *weight = [[NSMutableArray alloc] initWithArray:self.fontWeight];
+    [weight enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
+        if( name.length > prefix )
+            [weight replaceObjectAtIndex:index withObject:[name substringFromIndex:prefix]];
     }];
+    
+    self.fontWeight = (NSArray *)weight;
+    if( self.fontWeight.count == 0 )
+        self.fontWeight = @[ @"" ];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    self.title = self.fontAsset.name;
-    self.weightIndexPath     = [NSIndexPath indexPathForRow:0 inSection:2];
-    self.textPreviewText     = self.fontAsset.intro;
-    [[UINavigationBar appearance] setTitleTextAttributes:@{
-                                                           NSFontAttributeName: self.fontAsset.font
-                                                           }];
+
 }
 
 - (void)adjustTextSize:(UISlider *)slider{
@@ -115,7 +122,7 @@
     else if( section == 1 )
         return 1;
     else if( section == 2 )
-        return [UIFont fontNamesForFamilyName:self.fontAsset.fontName].count;
+        return self.fontWeight.count;
     else if( section == 3 )
         return 1;
     
@@ -136,7 +143,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if( section == 1 ){
         if( self.fontsizeHeaderView == nil ){
-            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 24pt"];
+            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 16pt"];
         }
         
         return self.fontsizeHeaderView;
@@ -171,7 +178,8 @@
         }
         
         functionalCell.textView.text = self.textPreviewText;
-        functionalCell.textView.font = [UIFont fontWithName:[UIFont fontNamesForFamilyName:self.fontAsset.fontName][self.weightIndexPath.row]
+        functionalCell.textView.font = [UIFont fontWithName:
+                                        [NSString stringWithFormat:@"%@%@", self.fontAsset.prefix, self.fontWeight[self.weightIndexPath.row]]
                                                        size:self.textPreviewFontsize];
         
         return functionalCell;
@@ -198,31 +206,41 @@
         return functionalCell;
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_ID];
-    if( cell == nil ){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
+    if( indexPath.section == 2 ){
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_ID];
+        if( cell == nil ){
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
+        }
+        
+        if( indexPath.row == self.weightIndexPath.row && indexPath.section == self.weightIndexPath.section )
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        else
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        
+        if( [self.fontWeight[indexPath.row] isEqualToString:@""] )
+            cell.textLabel.text = self.fontAsset.fontName;
+        else
+            cell.textLabel.text = self.fontWeight[indexPath.row];
+        
+        return cell;
     }
     
-    if( indexPath.row == self.weightIndexPath.row && indexPath.section == self.weightIndexPath.section )
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    else
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    
-    cell.textLabel.text = [UIFont fontNamesForFamilyName:self.fontAsset.fontName][indexPath.row];
-    
-    return cell;
+    return [UITableViewCell new];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if( indexPath.row == 0 && (indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 3) ){
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
     }else if( indexPath.section == 2 && indexPath.row != self.weightIndexPath.row ){
         [tableView cellForRowAtIndexPath:self.weightIndexPath].accessoryType = UITableViewCellAccessoryNone;
         [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
         [self setWeightIndexPath:indexPath];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         
-        [tableView reloadRowsAtIndexPaths:@[ [NSIndexPath indexPathForRow:0 inSection:0] ]
+        [tableView reloadRowsAtIndexPaths:@[
+                                            [NSIndexPath indexPathForRow:0 inSection:0]
+                                            ]
                          withRowAnimation:UITableViewRowAnimationNone];
     }
 }
@@ -272,7 +290,8 @@
     [self presentViewController:({
         BlackboardViewController *blackboard = [[BlackboardViewController alloc] init];
         blackboard.boardString = self.textPreviewText;
-        blackboard.boardFont   = [UIFont fontWithName:[UIFont fontNamesForFamilyName:self.fontAsset.fontName][self.weightIndexPath.row]
+        blackboard.boardFont   = [UIFont fontWithName:
+                                  [NSString stringWithFormat:@"%@%@", self.fontAsset.prefix, self.fontWeight[self.weightIndexPath.row]]
                                                  size:self.textPreviewFontsize];
         blackboard;
     })
@@ -284,15 +303,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

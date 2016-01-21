@@ -12,5 +12,6 @@
 
 + (UIVisualEffectView *)tableViewSelectedBackgroundEffectView:(UIBlurEffectStyle)style;
 + (UIView *)tableHeaderContentViewWithTitle:(NSString *)title;
++ (NSUInteger)positionOfFontWeight:(NSString *)weight;
 
 @end

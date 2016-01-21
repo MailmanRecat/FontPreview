@@ -40,4 +40,36 @@
     return content;
 }
 
++ (NSUInteger)positionOfFontWeight:(NSString *)weight{
+    NSDictionary *line = @{
+                            @"ultralight"           : @0,
+                            @"ultralightitalic"     : @5,
+                            @"thin"                 : @10,
+                            @"thinitalic"           : @15,
+                            @"light"                : @20,
+                            @"lightitalic"          : @25,
+                            @"regular"              : @30,
+                            @"italic"               : @35,
+                            @"regularitalic"        : @40,
+                            @"medium"               : @45,
+                            @"mediumitalic"         : @50,
+                            @"semibold"             : @55,
+                            @"semibolditalic"       : @60,
+                            @"bold"                 : @65,
+                            @"bolditalic"           : @70,
+                            @"condensedbold"        : @71,
+                            @"heavy"                : @75,
+                            @"heavyitalic"          : @80,
+                            @"black"                : @85,
+                            @"blackitalic"          : @90,
+                            @"condensedblack"       : @95
+                            };
+    
+    NSNumber *position = [line objectForKey:[weight lowercaseString]];
+    if( position )
+        return [position integerValue];
+    
+    return 32;
+}
+
 @end
