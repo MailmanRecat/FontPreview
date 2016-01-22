@@ -63,11 +63,32 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return section == 0 ? self.langs.count : 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if( section == 2 )
+        return 76.0f;
+    
+    return 0.0f;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if( section == 2 ){
+        UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"APP_INFO"];
+        if( footer == nil ){
+            footer =  [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"APP_INFO"];
+            footer.textLabel.text = @"Version: 9.0 \n Author: mailman \n    Email: mailmanrecat@gmail.com";
+        }
+        
+        return footer;
+    }
+    
+    return [UIView new];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -82,9 +103,11 @@
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
         cell.textLabel.text = self.langs[indexPath.row];
-    }else{
+    }else if( indexPath.section == 1 ){
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
+    }else{
+        cell.textLabel.text = @"Feedback";
     }
     
     return cell;
@@ -98,8 +121,9 @@
         ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).accessoryType = UITableViewCellAccessoryCheckmark;
         
         self.currentIndexPath = indexPath;
-    }else if( indexPath.section == 1 ){
-        
+    }else if( indexPath.section == 2 ){
+//        NSURL *url = [NSURL URLWithString:@"mailto:mailmanrecat@gmail.com?&subject=Hello from California!"];
+//        [[UIApplication sharedApplication] openURL:url];
     }
 }
 

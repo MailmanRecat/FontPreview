@@ -6,6 +6,9 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
+#define PREVIEW_FONTSIZE_MIN 16
+#define PREVIEW_FONTSIZE_MAX 72
+
 #import "PreviewController.h"
 #import "BlackboardViewController.h"
 #import "UITableViewFunctionalCell.h"
@@ -36,7 +39,7 @@
     self.title = self.fontAsset.name;
     self.weightIndexPath     = [NSIndexPath indexPathForRow:0 inSection:2];
     self.textPreviewText     = self.fontAsset.intro;
-    self.textPreviewFontsize = 16.0f;
+    self.textPreviewFontsize = 24.0f;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                                            target:self
                                                                                            action:@selector(blackboard)];
@@ -113,7 +116,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -135,7 +138,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if( indexPath.section == 0 && indexPath.row == 0 )
-        return 128.0f;
+        return 156.0f;
     
     return 44;
 }
@@ -143,7 +146,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if( section == 1 ){
         if( self.fontsizeHeaderView == nil ){
-            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 16pt"];
+            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 24pt"];
         }
         
         return self.fontsizeHeaderView;
@@ -188,8 +191,9 @@
         if( functionalCell == nil ){
             functionalCell = [[UITableViewFunctionalCell alloc] initWithReuseString:REUSE_FUNCTIONAL_CELL_ID_SLIDER];
             functionalCell.slider.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
-            functionalCell.slider.minimumValue = 16;
-            functionalCell.slider.maximumValue = 64;
+            functionalCell.slider.minimumValue = PREVIEW_FONTSIZE_MIN;
+            functionalCell.slider.maximumValue = PREVIEW_FONTSIZE_MAX;
+            functionalCell.slider.value        = self.textPreviewFontsize;
             
             [functionalCell.slider addTarget:self action:@selector(adjustTextSize:) forControlEvents:UIControlEventValueChanged];
         }
