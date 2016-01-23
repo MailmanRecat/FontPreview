@@ -42,13 +42,13 @@
 //                                                                             target:nil
 //                                                                             action:nil];
     
-    self.searchController = ({
-        UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-        searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
-        searchController;
-    });
+//    self.searchController = ({
+//        UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+//        searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
+//        searchController;
+//    });
     
-    self.definesPresentationContext = YES;
+//    self.definesPresentationContext = YES;
     
     self.bear = ({
         UITableView *bear = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
@@ -57,7 +57,7 @@
         bear.showsVerticalScrollIndicator = NO;
         bear.sectionFooterHeight = 0.0f;
         bear.allowsMultipleSelectionDuringEditing = NO;
-        bear.tableHeaderView = self.searchController.searchBar;
+//        bear.tableHeaderView = self.searchController.searchBar;
         bear.delegate = self;
         bear.dataSource = self;
         bear;

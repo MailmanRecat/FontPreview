@@ -8,6 +8,8 @@
 
 #import "LanguageViewController.h"
 #import "UIColor+Theme.h"
+#import "LicenseViewController.h"
+#import "TXTContentViewController.h"
 
 @interface LanguageViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -72,7 +74,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     if( section == 2 )
-        return 76.0f;
+        return 56.0f;
     
     return 0.0f;
 }
@@ -82,7 +84,7 @@
         UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"APP_INFO"];
         if( footer == nil ){
             footer =  [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"APP_INFO"];
-            footer.textLabel.text = @"Version: 9.0 \n Author: mailman \n    Email: mailmanrecat@gmail.com";
+            footer.textLabel.text = @"Version: 9.0 \nAuthor: mailman";
         }
         
         return footer;
@@ -102,11 +104,14 @@
         if( indexPath.row == self.currentIndexPath.row )
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
+        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
         cell.textLabel.text = self.langs[indexPath.row];
     }else if( indexPath.section == 1 ){
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
+        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
     }else{
+        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
         cell.textLabel.text = @"Feedback";
     }
     
@@ -121,6 +126,9 @@
         ((UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).accessoryType = UITableViewCellAccessoryCheckmark;
         
         self.currentIndexPath = indexPath;
+    }else if( indexPath.section == 1 ){
+//        [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
+        [self.navigationController pushViewController:[[TXTContentViewController alloc] initWithFilename:@"licenseRoboto"] animated:YES];
     }else if( indexPath.section == 2 ){
 //        NSURL *url = [NSURL URLWithString:@"mailto:mailmanrecat@gmail.com?&subject=Hello from California!"];
 //        [[UIApplication sharedApplication] openURL:url];

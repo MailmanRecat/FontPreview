@@ -19,6 +19,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSString *b = [[NSBundle mainBundle] pathForResource:@"licenseRoboto" ofType:@"txt"];
+    
+//    NSLog(@"%@", b);
+    
+//    NSString *string = [NSString stringWithContentsOfURL:[NSURL URLWithString:b] encoding:NSUTF8StringEncoding error:nil];
+    NSString *string = [NSString stringWithContentsOfFile:b encoding:NSUTF8StringEncoding error:nil];
+    
+    NSLog(@"%@", string);
 }
 
 - (void)didReceiveMemoryWarning {

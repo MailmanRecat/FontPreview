@@ -6,7 +6,7 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-#define PREVIEW_FONTSIZE_MIN 16
+#define PREVIEW_FONTSIZE_MIN 12
 #define PREVIEW_FONTSIZE_MAX 72
 
 #import "PreviewController.h"
@@ -67,16 +67,6 @@
                            
                            return (NSComparisonResult)NSOrderedSame;
                        }];
-    
-    NSMutableArray *weight = [[NSMutableArray alloc] initWithArray:self.fontWeight];
-    [weight enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
-        if( name.length > prefix )
-            [weight replaceObjectAtIndex:index withObject:[name substringFromIndex:prefix]];
-    }];
-    
-    self.fontWeight = (NSArray *)weight;
-    if( self.fontWeight.count == 0 )
-        self.fontWeight = @[ @"" ];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -181,8 +171,7 @@
         }
         
         functionalCell.textView.text = self.textPreviewText;
-        functionalCell.textView.font = [UIFont fontWithName:
-                                        [NSString stringWithFormat:@"%@%@", self.fontAsset.prefix, self.fontWeight[self.weightIndexPath.row]]
+        functionalCell.textView.font = [UIFont fontWithName:(NSString *)self.fontWeight[self.weightIndexPath.row]
                                                        size:self.textPreviewFontsize];
         
         return functionalCell;
@@ -224,7 +213,14 @@
         if( [self.fontWeight[indexPath.row] isEqualToString:@""] )
             cell.textLabel.text = self.fontAsset.fontName;
         else
-            cell.textLabel.text = self.fontWeight[indexPath.row];
+            cell.textLabel.text = ({
+                NSString *weight = (NSString *)self.fontWeight[indexPath.row];
+                NSRange   range  = [weight rangeOfString:@"-"];
+                if( range.location != NSNotFound )
+                    weight = [weight substringFromIndex:range.location + 1];
+                    
+                weight;
+            });
         
         return cell;
     }
@@ -294,8 +290,7 @@
     [self presentViewController:({
         BlackboardViewController *blackboard = [[BlackboardViewController alloc] init];
         blackboard.boardString = self.textPreviewText;
-        blackboard.boardFont   = [UIFont fontWithName:
-                                  [NSString stringWithFormat:@"%@%@", self.fontAsset.prefix, self.fontWeight[self.weightIndexPath.row]]
+        blackboard.boardFont   = [UIFont fontWithName:(NSString *)self.fontWeight[self.weightIndexPath.row]
                                                  size:self.textPreviewFontsize];
         blackboard;
     })
