@@ -14,10 +14,14 @@
 - (instancetype)init{
     self = [super init];
     if( self ){
-        [Fonts setLang:LANG_ENGLISH];
-        self.fonts = [Fonts Fonts];
+        [self update];
     }
     return self;
+}
+
+- (void)update{
+    self.fonts = [Fonts Fonts];
+    self.lang  = [Fonts lang];
 }
 
 + (instancetype)shareManager{

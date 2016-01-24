@@ -16,10 +16,9 @@ static NSString *const FontLanguageJapanese = @"";
 @interface FontsManager : NSObject
 
 @property( nonatomic, strong ) NSArray<FontAsset *> *fonts;
-@property( nonatomic, strong ) NSArray *langs;
-
-@property( nonatomic, strong ) NSString *currentLanguage;
+@property( nonatomic, strong ) NSString *lang;
 
 + (instancetype)shareManager;
+- (void)update;
 
 @end

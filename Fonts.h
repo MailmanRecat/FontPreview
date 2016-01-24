@@ -17,5 +17,6 @@ static NSString *const LANG_JAPANESE = @"JAPANESE";
 + (NSArray *)Fonts;
 
 + (void)setLang:(NSString *)lang;
++ (NSString *)lang;
 
 @end

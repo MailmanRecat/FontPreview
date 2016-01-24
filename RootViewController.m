@@ -26,6 +26,26 @@
     [super viewDidLoad];
     
     [self UI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(langChanged)
+                                                 name:DidFontLanguageChangeNotification
+                                               object:nil];
+}
+
+- (void)langChanged{
+    if( [[FontsManager shareManager].lang isEqualToString:@"ENGLISH"] ){
+        self.navigationItem.leftBarButtonItem.title = @"English";
+        self.title = @"Fonts";
+    }else if( [[FontsManager shareManager].lang isEqualToString:@"CHINSES"] ){
+        self.navigationItem.leftBarButtonItem.title = @"中文";
+        self.title = @"字体";
+    }else if( [[FontsManager shareManager].lang isEqualToString:@"JAPANESE"] ){
+        self.navigationItem.leftBarButtonItem.title = @"日本語";
+        self.title = @"フォント";
+    }
+    
+    [self.bear reloadData];
 }
 
 - (void)UI{
@@ -55,7 +75,6 @@
         bear.translatesAutoresizingMaskIntoConstraints = NO;
         bear.showsHorizontalScrollIndicator = NO;
         bear.showsVerticalScrollIndicator = NO;
-        bear.sectionFooterHeight = 0.0f;
         bear.allowsMultipleSelectionDuringEditing = NO;
 //        bear.tableHeaderView = self.searchController.searchBar;
         bear.delegate = self;
@@ -74,12 +93,34 @@
     return 36.0f;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 44.0f;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [FontsManager shareManager].fonts.count;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"NUMBER_OF_FONTS"];
+    if( header == nil ){
+        header =  [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"NUMBER_OF_FONTS"];
+        header.textLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    if( [[FontsManager shareManager].lang isEqualToString:@"ENGLISH"] ){
+        header.textLabel.text = [NSString stringWithFormat:@"%ld fonts", [tableView numberOfRowsInSection:0]];
+    }else if( [[FontsManager shareManager].lang isEqualToString:@"CHINSES"] ){
+        header.textLabel.text = [NSString stringWithFormat:@"%ld 种字体", [tableView numberOfRowsInSection:0]];
+    }else if( [[FontsManager shareManager].lang isEqualToString:@"JAPANESE"] ){
+        header.textLabel.text = [NSString stringWithFormat:@"%ld フォント", [tableView numberOfRowsInSection:0]];
+    }
+    
+    return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,8 +133,6 @@
     
     cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
     cell.textLabel.font = [UIFont fontWithName:((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).introFontName size:17];
-    
-//    NSLog(@"%@", ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).font);
     
     return cell;
 }

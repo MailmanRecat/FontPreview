@@ -63,6 +63,29 @@
         <string>Roboto-Medium.ttf</string>	
         <string>Roboto-Thin.ttf</string>
         
+        <string>RobotoSlab-Bold.ttf</string>
+        <string>RobotoSlab-Light.ttf</string>
+        <string>RobotoSlab-Regular.ttf</string>
+        <string>RobotoSlab-Thin.ttf</string>
+        
+        <string>RobotoMono-Bold.ttf</string>
+        <string>RobotoMono-BoldItalic.ttf</string>
+        <string>RobotoMono-Italic.ttf</string>
+        <string>RobotoMono-Light.ttf</string>
+        <string>RobotoMono-LightItalic.ttf</string>
+        <string>RobotoMono-Medium.ttf</string>
+        <string>RobotoMono-MediumItalic.ttf</string>
+        <string>RobotoMono-Regular.ttf</string>
+        <string>RobotoMono-Thin.ttf</string>
+        <string>RobotoMono-ThinItalic.ttf</string>
+        
+        <string>RobotoCondensed-Bold.ttf</string>
+        <string>RobotoCondensed-BoldItalic.ttf</string>
+        <string>RobotoCondensed-Italic.ttf</string>
+        <string>RobotoCondensed-Light.ttf</string>
+        <string>RobotoCondensed-LightItalic.ttf</string>
+        <string>RobotoCondensed-Regular.ttf</string>
+        
         <string>Ubuntu-Bold.ttf</string>
         <string>Ubuntu-BoldItalic.ttf</string>
         <string>Ubuntu-Italic.ttf</string>
@@ -95,6 +118,14 @@
         <string>Chewy.ttf</string>
         
         <string>ComingSoon.ttf</string>
+        
+        <string>simsun.ttc</string>
+        <string>Yuanti.ttc</string>
+        
+        <string>Klee.ttc</string>
+        <string>TsukushiAMaruGothic.ttc</string>
+        <string>TsukushiBMaruGothic.ttc</string>
+        <string>YuMincho.ttc</string>
     </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

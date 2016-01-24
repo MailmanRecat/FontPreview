@@ -21,16 +21,28 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (NSArray *)Fonts{
-    
-    NSLog(@"%@", [UIFont familyNames]);
-//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Ubuntu"]);
-    
++ (NSString *)lang{
     NSString *l = [[NSUserDefaults standardUserDefaults] stringForKey:CURRENT_LANG_KEY];
     if( l == nil ){
         l =  LANG_ENGLISH;
         [[NSUserDefaults standardUserDefaults] setObject:l forKey:CURRENT_LANG_KEY];
     }
+    
+    return l;
+}
+
++ (NSArray *)Fonts{
+    
+//    NSLog(@"%@", [UIFont familyNames]);
+//    NSString *target = @"yuanti";
+//    [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
+//        if( [[name lowercaseString] rangeOfString:target].location != NSNotFound ){
+//            NSLog(@"%@", name);
+//        }
+//    }];
+//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Yuanti SC"]);
+    
+    NSString *l = [Fonts lang];
     
     if( [l isEqualToString:LANG_ENGLISH] )
         return [Fonts englishFonts];
@@ -74,6 +86,24 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Roboto-Regular"
                              fontName:@"Roboto"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Roboto Slab"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"RobotoSlab-Regular"
+                             fontName:@"Roboto Slab"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Roboto Mono"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"RobotoMono-Regular"
+                             fontName:@"Roboto Mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Roboto Condensed"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"RobotoCondensed-Regular"
+                             fontName:@"Roboto Condensed"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Menlo"
@@ -170,12 +200,53 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Heiti SC"
                              fontName:@"Heiti SC"
                                  type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"圆体 简体"
+                                intro:@"圆体 简体"
+                        introFontName:@"STYuanti-SC-Regular"
+                             fontName:@"Yuanti SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"宋体"
+                                intro:@"宋体"
+                        introFontName:@"SimSun"
+                             fontName:@"SimSun"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"新宋体"
+                                intro:@"新宋体"
+                        introFontName:@"NSimSun"
+                             fontName:@"NSimSun"
+                                 type:TYPE_UNKNOW]
+             
              ];
 }
 
 + (NSArray *)japansesFonts{
     return @[
+             [FontAsset assetFromName:@"Klee"
+                                intro:@"フォント"
+                        introFontName:@"Klee"
+                             fontName:@"Klee"
+                                 type:TYPE_UNKNOW],
              
+             [FontAsset assetFromName:@"YuMincho +36p Kana"
+                                intro:@"フォント"
+                        introFontName:@"YuMincho +36p Kana"
+                             fontName:@"YuMincho +36p Kana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tsukushi A Round Gothic"
+                                intro:@"フォント"
+                        introFontName:@"Tsukushi A Round Gothic"
+                             fontName:@"Tsukushi A Round Gothic"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tsukushi B Round Gothic"
+                                intro:@"フォント"
+                        introFontName:@"Tsukushi B Round Gothic"
+                             fontName:@"Tsukushi B Round Gothic"
+                                 type:TYPE_UNKNOW]
              ];
 }
 
