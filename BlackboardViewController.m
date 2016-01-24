@@ -91,6 +91,17 @@
 }
 
 - (void)blankboard{
+    
+    UIInterfaceOrientation orientation = ({
+        UIInterfaceOrientation result;
+        if( self.view.frame.size.width <= self.view.frame.size.height )
+            result = UIInterfaceOrientationPortrait;
+        else
+            result = UIInterfaceOrientationLandscapeLeft;
+        
+        result;
+    });
+    
     self.contentLabel = ({
         UILabel *board = [[UILabel alloc] init];
         board.userInteractionEnabled = NO;
@@ -98,7 +109,6 @@
         board.numberOfLines = 0;
         board.textAlignment = NSTextAlignmentCenter;
         board.font = [UIFont systemFontOfSize:64 weight:UIFontWeightUltraLight];
-        board.transform = CGAffineTransformMakeRotation(M_PI_2);
         board.translatesAutoresizingMaskIntoConstraints = NO;
         
         board.textColor = [UIColor blackColor];
@@ -107,10 +117,17 @@
         board.text = self.boardString;
         
         [self.view addSubview:board];
-        [board.widthAnchor constraintEqualToAnchor:self.view.heightAnchor].active = YES;
-        [board.heightAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
         [board.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
         [board.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
+        
+        if( orientation == UIInterfaceOrientationPortrait ){
+            [board setTransform:CGAffineTransformMakeRotation(M_PI_2)];
+            [board.widthAnchor constraintEqualToAnchor:self.view.heightAnchor].active = YES;
+            [board.heightAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+        }else{
+            [board.widthAnchor constraintEqualToAnchor:self.view.widthAnchor].active = YES;
+            [board.heightAnchor constraintEqualToAnchor:self.view.heightAnchor].active = YES;
+        }
         
         board;
     });
@@ -170,6 +187,10 @@
     if( self.lock == NO ){
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (BOOL)shouldAutorotate{
+    return NO;
 }
 
 - (BOOL)prefersStatusBarHidden{

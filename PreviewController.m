@@ -6,6 +6,7 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
+#define PREVIEW_TEXTVIEW_HEI 172
 #define PREVIEW_FONTSIZE_MIN 12
 #define PREVIEW_FONTSIZE_MAX 72
 
@@ -67,6 +68,9 @@
                            
                            return (NSComparisonResult)NSOrderedSame;
                        }];
+    
+    if( self.fontWeight.count == 0 )
+        self.fontWeight = @[ fontAsset.fontName ];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -128,7 +132,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if( indexPath.section == 0 && indexPath.row == 0 )
-        return 156.0f;
+        return PREVIEW_TEXTVIEW_HEI;
     
     return 44;
 }

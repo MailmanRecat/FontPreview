@@ -9,7 +9,6 @@
 #import "LanguageViewController.h"
 #import "UIColor+Theme.h"
 #import "LicenseViewController.h"
-#import "TXTContentViewController.h"
 
 @interface LanguageViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -40,6 +39,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                            target:self
                                                                                            action:@selector(doneSelf)];
+    self.navigationController.navigationBar.tintColor= [UIColor colorWithWhite:51 / 255.0 alpha:1];
     self.navigationItem.leftBarButtonItem.tintColor  = [UIColor colorWithHex:CLThemeRedlight alpha:1];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
     
@@ -104,14 +104,11 @@
         if( indexPath.row == self.currentIndexPath.row )
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         
-        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
         cell.textLabel.text = self.langs[indexPath.row];
     }else if( indexPath.section == 1 ){
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
-        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
     }else{
-        cell.textLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightMedium];
         cell.textLabel.text = @"Feedback";
     }
     
@@ -127,8 +124,7 @@
         
         self.currentIndexPath = indexPath;
     }else if( indexPath.section == 1 ){
-//        [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
-        [self.navigationController pushViewController:[[TXTContentViewController alloc] initWithFilename:@"licenseRoboto"] animated:YES];
+        [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
     }else if( indexPath.section == 2 ){
 //        NSURL *url = [NSURL URLWithString:@"mailto:mailmanrecat@gmail.com?&subject=Hello from California!"];
 //        [[UIApplication sharedApplication] openURL:url];

@@ -12,15 +12,40 @@
 static NSString *const THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = @"the quick brown fox jumps over the lazy dog";
 static NSString *const TYPE_UNKNOW = @"Unknow";
 
+static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
+
 @implementation Fonts
+
++ (void)setLang:(NSString *)lang{
+    [[NSUserDefaults standardUserDefaults] setObject:lang forKey:CURRENT_LANG_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 + (NSArray *)Fonts{
     
-//    NSLog(@"%@", [UIFont familyNames]);
-    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Times New Roman"]);
+    NSLog(@"%@", [UIFont familyNames]);
+//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"PingFang SC"]);
     
+    NSString *l = [[NSUserDefaults standardUserDefaults] stringForKey:CURRENT_LANG_KEY];
+    if( l == nil ){
+        l =  LANG_ENGLISH;
+        [[NSUserDefaults standardUserDefaults] setObject:l forKey:CURRENT_LANG_KEY];
+    }
+    
+    if( [l isEqualToString:LANG_ENGLISH] )
+        return [Fonts englishFonts];
+    
+    if( [l isEqualToString:LANG_CHINESE] )
+        return [Fonts chinsesFonts];
+    
+    if( [l isEqualToString:LANG_JAPANESE] )
+        return [Fonts japansesFonts];
+
+    return [Fonts englishFonts];
+}
+
++ (NSArray *)englishFonts{
     return @[
-             
              [FontAsset assetFromAuth:@"SF-UI-Display"
                                  Name:@"San Francisco Display"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
@@ -69,14 +94,6 @@ static NSString *const TYPE_UNKNOW = @"Unknow";
                                prefix:@"Menlo-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Heiti SC"
-                                 Name:@"Heiti SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"Heiti SC" size:17]
-                             fontName:@"Heiti SC"
-                               prefix:@"Heiti SC"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromAuth:@"Helvetica Neue"
                                  Name:@"Helvetica Neue"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
@@ -91,7 +108,32 @@ static NSString *const TYPE_UNKNOW = @"Unknow";
                                  font:[UIFont fontWithName:@"Times New Roman" size:17]
                              fontName:@"Times New Roman"
                                prefix:@"TimesNewRomanPS-"
+                                 type:TYPE_UNKNOW]
+             ];
+}
+
++ (NSArray *)chinsesFonts{
+    return @[
+             [FontAsset assetFromAuth:@"PingFang SC"
+                                 Name:@"苹方 简体"
+                                intro:@"苹方字体"
+                                 font:[UIFont fontWithName:@"PingFang SC" size:17]
+                             fontName:@"PingFang SC"
+                               prefix:@"PingFangSC"
                                  type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromAuth:@"Heiti SC"
+                                 Name:@"黑体 简体"
+                                intro:@"黑体 简体"
+                                 font:[UIFont fontWithName:@"Heiti SC" size:17]
+                             fontName:@"Heiti SC"
+                               prefix:@"Heiti SC"
+                                 type:TYPE_UNKNOW],
+             ];
+}
+
++ (NSArray *)japansesFonts{
+    return @[
              
              ];
 }
