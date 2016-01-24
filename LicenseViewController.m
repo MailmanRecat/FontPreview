@@ -27,13 +27,15 @@
     self.licenses = @[
                       @"Apache",
                       @"San Francisco UI",
-                      @"San Francisco Compact"
+                      @"San Francisco Compact",
+                      @"Ubuntu"
                       ];
     
     self.txt      = @{
                       @"Apache": @"licenseRoboto",
                       @"San Francisco UI": @"licenseAgreementForSFUIFont",
-                      @"San Francisco Compact": @"licenseAgreementForSFCompactFont"
+                      @"San Francisco Compact": @"licenseAgreementForSFCompactFont",
+                      @"Ubuntu": @"licenseUbuntu"
                       };
     
     [self letBear];

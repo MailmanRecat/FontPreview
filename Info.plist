@@ -63,6 +63,38 @@
         <string>Roboto-Medium.ttf</string>	
         <string>Roboto-Thin.ttf</string>
         
+        <string>Ubuntu-Bold.ttf</string>
+        <string>Ubuntu-BoldItalic.ttf</string>
+        <string>Ubuntu-Italic.ttf</string>
+        <string>Ubuntu-Light.ttf</string>
+        <string>Ubuntu-LightItalic.ttf</string>
+        <string>Ubuntu-Medium.ttf</string>
+        <string>Ubuntu-MediumItalic.ttf</string>
+        <string>Ubuntu-Regular.ttf</string>
+        
+        <string>UbuntuCondensed-Regular.ttf</string>
+        
+        <string>UbuntuMono-Bold.ttf</string>
+        <string>UbuntuMono-BoldItalic.ttf</string>
+        <string>UbuntuMono-Italic.ttf</string>
+        <string>UbuntuMono-Regular.ttf</string>
+        
+        <string>Aclonica.ttf</string>
+        
+        <string>Arimo-Bold.ttf</string>
+        <string>Arimo-BoldItalic.ttf</string>
+        <string>Arimo-Italic.ttf</string>
+        <string>Arimo-Regular.ttf</string>
+        
+        <string>Calligraffitti-Regular.ttf</string>
+        
+        <string>Schoolbell.ttf</string>
+        
+        <string>CherryCreamSoda.ttf</string>
+        
+        <string>Chewy.ttf</string>
+        
+        <string>ComingSoon.ttf</string>
     </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>

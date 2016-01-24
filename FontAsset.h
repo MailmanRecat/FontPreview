@@ -10,18 +10,15 @@
 
 @interface FontAsset : NSObject
 
-@property( nonatomic, strong ) NSString *auth;
 @property( nonatomic, strong ) NSString *name;
 @property( nonatomic, strong ) NSString *intro;
-@property( nonatomic, strong ) UIFont   *font;
+@property( nonatomic, strong ) NSString *introFontName;
 @property( nonatomic, strong ) NSString *fontName;
-@property( nonatomic, strong ) NSString *prefix;
 @property( nonatomic, strong ) NSString *type;
 
-+ (instancetype)assetFromAuth:(NSString *)auth
-                         Name:(NSString *)name intro:(NSString *)intro
-                         font:(UIFont *)font
-                     fontName:(NSString *)fontName prefix:(NSString *)prefix
++ (instancetype)assetFromName:(NSString *)name
+                        intro:(NSString *)intro introFontName:(NSString *)introFontName
+                     fontName:(NSString *)fontName
                          type:(NSString *)type;
 
 @end

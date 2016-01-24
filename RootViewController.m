@@ -91,7 +91,7 @@
     }
     
     cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
-    cell.textLabel.font = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).font;
+    cell.textLabel.font = [UIFont fontWithName:((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).introFontName size:17];
     
 //    NSLog(@"%@", ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).font);
     

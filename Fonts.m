@@ -24,7 +24,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)Fonts{
     
     NSLog(@"%@", [UIFont familyNames]);
-//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"PingFang SC"]);
+//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Ubuntu"]);
     
     NSString *l = [[NSUserDefaults standardUserDefaults] stringForKey:CURRENT_LANG_KEY];
     if( l == nil ){
@@ -46,88 +46,129 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 
 + (NSArray *)englishFonts{
     return @[
-             [FontAsset assetFromAuth:@"SF-UI-Display"
-                                 Name:@"San Francisco Display"
+             [FontAsset assetFromName:@"San Francisco Display"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"SFUIDisplay-Regular" size:17]
+                        introFontName:@"SFUIDisplay-Regular"
                              fontName:@"SF UI Display"
-                               prefix:@"SFUIDisplay-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"SF-UI-Text"
-                                 Name:@"San Francisco Text"
+             [FontAsset assetFromName:@"San Francisco Text"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"SFUIDisplay-Regular" size:17]
+                        introFontName:@"SFUIDisplay-Regular"
                              fontName:@"SF UI Text"
-                               prefix:@"SFUIText-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"SF-Compact-Display"
-                                 Name:@"San Francisco Compact Display"
+             [FontAsset assetFromName:@"San Francisco Compact Display"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"SFCompactDisplay-Medium" size:17]
+                        introFontName:@"SFCompactDisplay-Medium"
                              fontName:@"SF Compact Display"
-                               prefix:@"SFCompactDisplay-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"SF-Compact-Text"
-                                 Name:@"San Francisco Compact Text"
+             [FontAsset assetFromName:@"SF-Compact-Text"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"SF Compact Text" size:17]
+                        introFontName:@"SF Compact Text"
                              fontName:@"SF Compact Text"
-                               prefix:@"SFCompactText-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Roboto"
-                                 Name:@"Roboto"
+             [FontAsset assetFromName:@"Roboto"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"Roboto-Regular" size:17]
+                        introFontName:@"Roboto-Regular"
                              fontName:@"Roboto"
-                               prefix:@"Roboto-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Menlo"
-                                 Name:@"Menlo"
+             [FontAsset assetFromName:@"Menlo"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"Menlo-Regular" size:17]
+                        introFontName:@"Menlo-Regular"
                              fontName:@"Menlo"
-                               prefix:@"Menlo-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Helvetica Neue"
-                                 Name:@"Helvetica Neue"
+             [FontAsset assetFromName:@"Helvetica Neue"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"Helvetica Neue" size:17]
+                        introFontName:@"Helvetica Neue"
                              fontName:@"Helvetica Neue"
-                               prefix:@"HelveticaNeue-"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Times New Roman"
-                                 Name:@"Times New Roman"
+             [FontAsset assetFromName:@"Times New Roman"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
-                                 font:[UIFont fontWithName:@"Times New Roman" size:17]
+                        introFontName:@"Times New Roman"
                              fontName:@"Times New Roman"
-                               prefix:@"TimesNewRomanPS-"
-                                 type:TYPE_UNKNOW]
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ubuntu"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Ubuntu"
+                             fontName:@"Ubuntu"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ubuntu Condensed"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Ubuntu Condensed"
+                             fontName:@"Ubuntu Condensed"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ubuntu mono"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Ubuntu mono"
+                             fontName:@"Ubuntu mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Aclonica"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Aclonica"
+                             fontName:@"Aclonica"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arimo"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Arimo"
+                             fontName:@"Arimo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Calligraffitti"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Calligraffitti"
+                             fontName:@"Calligraffitti"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cherry Cream Soda"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Cherry Cream Soda"
+                             fontName:@"Cherry Cream Soda"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Chewy"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Chewy"
+                             fontName:@"Chewy"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Coming Soon"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Coming Soon"
+                             fontName:@"Coming Soon"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Schoolbell"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Schoolbell"
+                             fontName:@"Schoolbell"
+                                 type:TYPE_UNKNOW],
+             
              ];
 }
 
 + (NSArray *)chinsesFonts{
     return @[
-             [FontAsset assetFromAuth:@"PingFang SC"
-                                 Name:@"苹方 简体"
+             [FontAsset assetFromName:@"苹方 简体"
                                 intro:@"苹方字体"
-                                 font:[UIFont fontWithName:@"PingFang SC" size:17]
+                        introFontName:@"PingFang SC"
                              fontName:@"PingFang SC"
-                               prefix:@"PingFangSC"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromAuth:@"Heiti SC"
-                                 Name:@"黑体 简体"
+             [FontAsset assetFromName:@"黑体 简体"
                                 intro:@"黑体 简体"
-                                 font:[UIFont fontWithName:@"Heiti SC" size:17]
+                        introFontName:@"Heiti SC"
                              fontName:@"Heiti SC"
-                               prefix:@"Heiti SC"
                                  type:TYPE_UNKNOW],
              ];
 }

@@ -65,11 +65,20 @@
                             @"condensedblack"       : @95
                             };
     
-    NSNumber *position = [line objectForKey:[weight lowercaseString]];
-    if( position )
+    NSRange range = [weight rangeOfString:@"-"];
+    if( range.location == NSNotFound )
+        return 32;
+    else{
+        NSNumber *position = [line objectForKey:[[weight substringFromIndex:range.location + range.length] lowercaseString]];
+        
         return [position integerValue];
+    }
     
-    return 32;
+//    NSNumber *position = [line objectForKey:[weight lowercaseString]];
+//    if( position )
+//        return [position integerValue];
+//    
+//    return 32;
 }
 
 @end

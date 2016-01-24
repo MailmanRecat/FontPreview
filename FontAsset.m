@@ -10,22 +10,18 @@
 
 @implementation FontAsset
 
-+ (instancetype)assetFromAuth:(NSString *)auth
-                         Name:(NSString *)name
-                        intro:(NSString *)intro
-                         font:(UIFont *)font
-                     fontName:(NSString *)fontName prefix:(NSString *)prefix
++ (instancetype)assetFromName:(NSString *)name
+                        intro:(NSString *)intro introFontName:(NSString *)introFontName
+                     fontName:(NSString *)fontName
                          type:(NSString *)type{
     
     FontAsset *asset = [[FontAsset alloc] init];
     
-    asset.auth     = auth;
-    asset.name     = name;
-    asset.intro    = intro;
-    asset.font     = font;
-    asset.fontName = fontName;
-    asset.prefix   = prefix;
-    asset.type     = type;
+    asset.name          = name;
+    asset.intro         = intro;
+    asset.introFontName = introFontName;
+    asset.fontName      = fontName;
+    asset.type          = type;
     
     return asset;
 }

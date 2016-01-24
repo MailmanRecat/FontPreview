@@ -50,15 +50,11 @@
 - (void)setFontAsset:(FontAsset *)fontAsset{
     _fontAsset = fontAsset;
     
-    NSUInteger prefix = self.fontAsset.prefix.length;
-    
     self.fontWeight = [[UIFont fontNamesForFamilyName:fontAsset.fontName] sortedArrayUsingComparator:
                        ^(NSString *str1, NSString *str2){
-                           NSString *weight1  = str1.length > prefix ? [str1 substringFromIndex:prefix] : str1;
-                           NSString *weight2  = str2.length > prefix ? [str2 substringFromIndex:prefix] : str2;
                            
-                           NSUInteger number1 = [Craig positionOfFontWeight:weight1];
-                           NSUInteger number2 = [Craig positionOfFontWeight:weight2];
+                           NSUInteger number1 = [Craig positionOfFontWeight:str1];
+                           NSUInteger number2 = [Craig positionOfFontWeight:str2];
                            
                            if( number1 < number2 )
                                return (NSComparisonResult)NSOrderedAscending;

@@ -9,6 +9,8 @@
 #import "BlackboardViewController.h"
 #import "UIFont+MaterialDesignIcons.h"
 
+static NSString *const PREFER_BLACKBOARD_TYPE_KEY = @"PERFER_BLACKBOARD_TYPE_KEY";
+
 @interface BlackboardViewController ()
 
 @property( nonatomic, assign ) BOOL lock;
@@ -28,6 +30,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self blankboard];
+    [self changeBackgroundColor];
     
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideOrShowSetting)];
     swipe.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
@@ -42,23 +45,31 @@
     UIColor *bcolor, *tcolor;
     if( self.segmentedControl.selectedSegmentIndex == 0 ){
         
-        bcolor = [UIColor colorWithWhite:0 alpha:1];
-        tcolor = [UIColor whiteColor];
+        bcolor = [UIColor colorWithWhite:1 alpha:1];
+        tcolor = [UIColor blackColor];
+        
+        [self setBlackboardType:0];
         
     }else if( self.segmentedControl.selectedSegmentIndex == 1 ){
         
         bcolor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         tcolor = [UIColor whiteColor];
         
+        [self setBlackboardType:1];
+        
     }else if( self.segmentedControl.selectedSegmentIndex == 2 ){
         
         bcolor = [UIColor colorWithRed:0 green:122 / 255.0 blue:1 alpha:1];
         tcolor = [UIColor whiteColor];
         
+        [self setBlackboardType:2];
+        
     }else if( self.segmentedControl.selectedSegmentIndex == 3 ){
         
-        bcolor = [UIColor colorWithWhite:1 alpha:1];
-        tcolor = [UIColor blackColor];
+        bcolor = [UIColor colorWithWhite:0 alpha:1];
+        tcolor = [UIColor whiteColor];
+        
+        [self setBlackboardType:3];
         
     }
     
@@ -111,7 +122,6 @@
         board.font = [UIFont systemFontOfSize:64 weight:UIFontWeightUltraLight];
         board.translatesAutoresizingMaskIntoConstraints = NO;
         
-        board.textColor = [UIColor blackColor];
 //        board.text = @"Get your apps ready with the latest beta versions of the San Francisco fonts for iOS 9, OS X El Capitan, watchOS 2, and tvOS. To download, sign in with your Apple ID associated with your Apple Developer Program membership.";
         board.font = self.boardFont;
         board.text = self.boardString;
@@ -146,11 +156,11 @@
     });
     
     self.segmentedControl = ({
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ @"Black", @"Gray", @"Blue", @"White" ]];
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[ @"White", @"Gray", @"Blue", @"Black" ]];
         segmentedControl.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         segmentedControl.transform = CGAffineTransformMakeRotation(M_PI_2);
-        segmentedControl.selectedSegmentIndex = 3;
         segmentedControl.translatesAutoresizingMaskIntoConstraints = NO;
+        segmentedControl.selectedSegmentIndex = [self preferBlackboard];
         
         [segmentedControl addTarget:self action:@selector(changeBackgroundColor) forControlEvents:UIControlEventValueChanged];
         
@@ -187,6 +197,15 @@
     if( self.lock == NO ){
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+}
+
+- (void)setBlackboardType:(NSUInteger)type{
+    [[NSUserDefaults standardUserDefaults] setInteger:type forKey:PREFER_BLACKBOARD_TYPE_KEY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSUInteger)preferBlackboard{
+    return [[NSUserDefaults standardUserDefaults] integerForKey:PREFER_BLACKBOARD_TYPE_KEY];
 }
 
 - (BOOL)shouldAutorotate{
