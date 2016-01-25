@@ -185,7 +185,7 @@
     }else if( indexPath.section == 1 ){
         [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
     }else if( indexPath.section == 2 ){
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@""]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://mailman.sinaapp.com/fontPreviewFeedback.html"]];
     }
 }
 

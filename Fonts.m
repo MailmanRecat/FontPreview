@@ -76,7 +76,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"SF Compact Display"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"SF-Compact-Text"
+             [FontAsset assetFromName:@"San Francisco Compact Text"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"SF Compact Text"
                              fontName:@"SF Compact Text"
