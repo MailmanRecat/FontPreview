@@ -6,6 +6,7 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
 #import "LanguageViewController.h"
 #import "UIColor+Theme.h"
 #import "APPADUITableViewCell.h"
@@ -13,7 +14,7 @@
 #import "Fonts.h"
 #import "FontsManager.h"
 
-@interface LanguageViewController()<UITableViewDataSource, UITableViewDelegate>
+@interface LanguageViewController()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property( nonatomic, strong ) UITableView *bear;
 
@@ -145,6 +146,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TABLEVIEW_CELL_ID];
     }
     
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
     if( indexPath.section == 0 ){
         if( indexPath.row == self.currentIndexPath.row )
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -154,6 +157,9 @@
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
     }else if( indexPath.section == 2 ){
+        if( indexPath.row == 0 )
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         cell.textLabel.text = self.QArray[indexPath.row];
         cell.detailTextLabel.text = self.AArray[indexPath.row];
     }else if( indexPath.section == 3 ){
@@ -184,9 +190,19 @@
         self.currentIndexPath = indexPath;
     }else if( indexPath.section == 1 ){
         [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
-    }else if( indexPath.section == 2 ){
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://mailman.sinaapp.com/fontPreviewFeedback.html"]];
+    }else if( indexPath.section == 2 && indexPath.row == 0 ){
+        MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+        mailCompose.mailComposeDelegate = self;
+        [mailCompose setToRecipients:@[ @"mailmanrecat@gmail.com" ]];
+        [mailCompose setSubject:@"Feedback to fonts browse"];
+        [self presentViewController:mailCompose animated:YES completion:nil];
     }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error{
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)toAPPStore:(UISwitch *)sender{

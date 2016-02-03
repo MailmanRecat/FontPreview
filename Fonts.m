@@ -34,7 +34,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)Fonts{
     
 //    NSLog(@"%@", [UIFont familyNames]);
-//    NSString *target = @"yuanti";
+//    NSString *target = @"unifra";
 //    [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
 //        if( [[name lowercaseString] rangeOfString:target].location != NSNotFound ){
 //            NSLog(@"%@", name);
@@ -124,6 +124,12 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Times New Roman"
                                  type:TYPE_UNKNOW],
              
+             [FontAsset assetFromName:@"Georgia"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Georgia"
+                             fontName:@"Georgia"
+                                 type:TYPE_UNKNOW],
+             
              [FontAsset assetFromName:@"Ubuntu"
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Ubuntu"
@@ -140,6 +146,78 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Ubuntu mono"
                              fontName:@"Ubuntu mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Futura"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Futura"
+                             fontName:@"Futura"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Optima"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Optima"
+                             fontName:@"Optima"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Verdana"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Verdana"
+                             fontName:@"Verdana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Didot"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Didot"
+                             fontName:@"Didot"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Iowan Old Style"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Iowan Old Style"
+                             fontName:@"Iowan Old Style"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marker Felt"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Marker Felt"
+                             fontName:@"Marker Felt"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Gill Sans"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Gill Sans"
+                             fontName:@"Gill Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Avenir"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Avenir"
+                             fontName:@"Avenir"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Copperplate"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Copperplate"
+                             fontName:@"Copperplate"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"American TypeWriter"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"American TypeWriter"
+                             fontName:@"American TypeWriter"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arial"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Arial"
+                             fontName:@"Arial"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arial Hebrew"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"Arial Hebrew"
+                             fontName:@"Arial Hebrew"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aclonica"
@@ -182,6 +260,12 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                                 intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Schoolbell"
                              fontName:@"Schoolbell"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"UnifrakturMaguntia"
+                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
+                        introFontName:@"UnifrakturMaguntia"
+                             fontName:@"UnifrakturMaguntia"
                                  type:TYPE_UNKNOW],
              
              ];

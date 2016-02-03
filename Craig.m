@@ -6,6 +6,7 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
+#import "UIColor+Theme.h"
 #import "Craig.h"
 
 @implementation Craig
@@ -32,7 +33,8 @@
     
     if( title != nil ){
         UILabel *l = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, 256, 44)];
-        l.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
+        l.font = [UIFont systemFontOfSize:16.5 weight:UIFontWeightRegular];
+        l.textColor = [UIColor colorWithHex:CLThemeGray alpha:1];
         l.text = title;
         [content addSubview:l];
     }
