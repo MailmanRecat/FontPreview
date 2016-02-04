@@ -129,6 +129,83 @@
 		<string>TsukushiBMaruGothic.ttc</string>
 		<string>YuMincho.ttc</string>
         <string>UnifrakturMaguntia-Book.ttf</string>
+        
+        <string>Montserrat-Black.ttf</string>
+        <string>Montserrat-Bold.ttf</string>
+        <string>Montserrat-Light.ttf</string>
+        <string>Montserrat-Regular.ttf</string>
+        <string>Montserrat-Thin.ttf</string>
+        
+        <string>Lora-Bold.ttf</string>
+        <string>Lora-BoldItalic.ttf</string>
+        <string>Lora-Italic.ttf</string>
+        <string>Lora-Regular.ttf</string>
+        
+        <string>PT_Sans-Web-Bold.ttf</string>
+        <string>PT_Sans-Web-BoldItalic.ttf</string>
+        <string>PT_Sans-Web-Italic.ttf</string>
+        <string>PT_Sans-Web-Regular.ttf</string>
+        
+        <string>PT_Sans-Caption-Web-Bold.ttf</string>
+        <string>PT_Sans-Caption-Web-Regular.ttf</string>
+        
+        <string>PT_Sans-Narrow-Web-Bold.ttf</string>
+        <string>PT_Sans-Narrow-Web-Regular.ttf</string>
+        
+        <string>Lobster-Regular.ttf</string>
+        
+        <string>LobsterTwo-Bold.ttf</string>
+        <string>LobsterTwo-BoldItalic.ttf</string>
+        <string>LobsterTwo-Italic.ttf</string>
+        <string>LobsterTwo-Regular.ttf</string>
+        
+        <string>Muli-Italic.ttf</string>
+        <string>Muli-Light.ttf</string>
+        <string>Muli-LightItalic.ttf</string>
+        <string>Muli-Regular.ttf</string>
+        
+        <string>Orbitron-Black.ttf</string>
+        <string>Orbitron-Bold.ttf</string>
+        <string>Orbitron-Medium.ttf</string>
+        <string>Orbitron-Regular.ttf</string>
+        
+        <string>Exo-Black.ttf</string>
+        <string>Exo-BlackItalic.ttf</string>
+        <string>Exo-Bold.ttf</string>
+        <string>Exo-BoldItalic.ttf</string>
+        <string>Exo-ExtraBold.ttf</string>
+        <string>Exo-ExtraBoldItalic.ttf</string>
+        <string>Exo-ExtraLight.ttf</string>
+        <string>Exo-ExtraLightItalic.ttf</string>
+        <string>Exo-Italic.ttf</string>
+        <string>Exo-Light.ttf</string>
+        <string>Exo-LightItalic.ttf</string>
+        <string>Exo-Medium.ttf</string>
+        <string>Exo-MediumItalic.ttf</string>
+        <string>Exo-Regular.ttf</string>
+        <string>Exo-SemiBold.ttf</string>
+        <string>Exo-SemiBoldItalic.ttf</string>
+        <string>Exo-Thin.ttf</string>
+        <string>Exo-ThinItalic.ttf</string>
+        
+        <string>Exo2-Black.ttf</string>
+        <string>Exo2-BlackItalic.ttf</string>
+        <string>Exo2-Bold.ttf</string>
+        <string>Exo2-BoldItalic.ttf</string>
+        <string>Exo2-ExtraBold.ttf</string>
+        <string>Exo2-ExtraBoldItalic.ttf</string>
+        <string>Exo2-ExtraLight.ttf</string>
+        <string>Exo2-ExtraLightItalic.ttf</string>
+        <string>Exo2-Italic.ttf</string>
+        <string>Exo2-Light.ttf</string>
+        <string>Exo2-LightItalic.ttf</string>
+        <string>Exo2-Medium.ttf</string>
+        <string>Exo2-MediumItalic.ttf</string>
+        <string>Exo2-Regular.ttf</string>
+        <string>Exo2-SemiBold.ttf</string>
+        <string>Exo2-SemiBoldItalic.ttf</string>
+        <string>Exo2-Thin.ttf</string>
+        <string>Exo2-ThinItalic.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

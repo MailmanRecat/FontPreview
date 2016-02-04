@@ -13,6 +13,7 @@
 #import "PreviewController.h"
 #import "BlackboardViewController.h"
 #import "UITableViewFunctionalCell.h"
+#import "cachePreviewText.h"
 
 #import "UIColor+Theme.h"
 #import "Craig.h"
@@ -39,11 +40,22 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = self.fontAsset.name;
     self.weightIndexPath     = [NSIndexPath indexPathForRow:0 inSection:2];
-    self.textPreviewText     = self.fontAsset.intro;
     self.textPreviewFontsize = 24.0f;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks
                                                                                            target:self
                                                                                            action:@selector(blackboard)];
+    
+    if( [self.lang isEqualToString:@"ENGLISH"] ){
+        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_ENGLISH_CACHE];
+        
+    }else if( [self.lang isEqualToString:@"CHINSES"] ){
+        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_CHINESE_CACHE];
+        
+    }else if( [self.lang isEqualToString:@"JAPANESE"] ){
+        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_JAPANESE_CACHE];
+        
+    }
+    
     [self doBear];
 }
 
@@ -242,6 +254,8 @@
                                             [NSIndexPath indexPathForRow:0 inSection:0]
                                             ]
                          withRowAnimation:UITableViewRowAnimationNone];
+    }else{
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 

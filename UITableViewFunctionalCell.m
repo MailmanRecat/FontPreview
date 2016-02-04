@@ -45,6 +45,9 @@
         else if( [RString isEqualToString:REUSE_FUNCTIONAL_CELL_ID_SLIDER] )
             [self initSlider];
         
+        else if( [RString isEqualToString:REUSE_FUNCTIONAL_CELL_ID_TEXTFIELD] )
+            [self initTextField];
+        
     }
     return self;
 }
@@ -67,6 +70,22 @@
     });
 }
 
+- (void)initTextField{
+    self.textField = ({
+        UITextField *textField = [[UITextField alloc] init];
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        textField.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.contentView addSubview:textField];
+        [textField.leftAnchor constraintEqualToAnchor:self.contentView.leftAnchor constant:16].active = YES;
+        [textField.topAnchor constraintEqualToAnchor:self.contentView.topAnchor].active = YES;
+        [textField.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16].active = YES;
+        [textField.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor].active = YES;
+        
+        textField;
+    });
+}
+
+
 - (void)initPicker{
     self.picker = ({
         UIPickerView *p = [[UIPickerView alloc] init];
@@ -81,8 +100,6 @@
 }
 
 - (void)initButton{
-//    self.selectedBackgroundView = [Craig tableViewSelectedBackgroundEffectView:UIBlurEffectStyleDark];
-    self.textLabel.textAlignment = NSTextAlignmentCenter;
     self.textLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightRegular];
 }
 

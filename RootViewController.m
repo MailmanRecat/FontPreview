@@ -151,6 +151,7 @@
         [self.navigationController pushViewController:({
             PreviewController *previewController = [[PreviewController alloc] init];
             previewController.fontAsset          = [FontsManager shareManager].fonts[indexPath.row];
+            previewController.lang               = [FontsManager shareManager].lang;
             previewController;
         })
                                              animated:YES];

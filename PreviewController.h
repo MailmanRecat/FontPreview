@@ -13,5 +13,6 @@
 
 @property( nonatomic, strong ) FontAsset  *fontAsset;
 @property( nonatomic, assign ) NSUInteger  previewType;
+@property( nonatomic, strong ) NSString   *lang;
 
 @end

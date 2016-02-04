@@ -11,6 +11,7 @@
 #import "UIColor+Theme.h"
 #import "APPADUITableViewCell.h"
 #import "LicenseViewController.h"
+#import "previewTextViewController.h"
 #import "Fonts.h"
 #import "FontsManager.h"
 
@@ -92,7 +93,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -103,30 +104,33 @@
         return 1;
     
     if( section == 2 )
-        return self.AArray.count;
+        return 1;
     
     if( section == 3 )
+        return self.AArray.count;
+    
+    if( section == 4 )
         return self.ADArray.count;
 
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if( indexPath.section == 3 )
+    if( indexPath.section == 4 )
         return 60.0;
     
     return 44.0f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if( section == 3 )
+    if( section == 4 )
         return 44.0;
     
     return 0.0f;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    if( section == 3 ){
+    if( section == 4 ){
         UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"APP_AD"];
         if( footer == nil ){
             footer =  [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"APP_AD"];
@@ -154,15 +158,18 @@
         
         cell.textLabel.text = self.langs[indexPath.row];
     }else if( indexPath.section == 1 ){
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text = @"Preview text";
+    }else if( indexPath.section == 2 ){
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
-    }else if( indexPath.section == 2 ){
+    }else if( indexPath.section == 3 ){
         if( indexPath.row == 0 )
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         cell.textLabel.text = self.QArray[indexPath.row];
         cell.detailTextLabel.text = self.AArray[indexPath.row];
-    }else if( indexPath.section == 3 ){
+    }else if( indexPath.section == 4 ){
         APPADUITableViewCell *appad = [tableView dequeueReusableCellWithIdentifier:APP_AD_TABLEVIEW_CELL_IDENT];
         if( appad == nil ){
             appad =  [[APPADUITableViewCell alloc] initWithReuseString:APP_AD_TABLEVIEW_CELL_IDENT];
@@ -189,8 +196,10 @@
         
         self.currentIndexPath = indexPath;
     }else if( indexPath.section == 1 ){
+        [self.navigationController pushViewController:[previewTextViewController new] animated:YES];
+    }else if( indexPath.section == 2 ){
         [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
-    }else if( indexPath.section == 2 && indexPath.row == 0 ){
+    }else if( indexPath.section == 3 && indexPath.row == 0 ){
         MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
         mailCompose.mailComposeDelegate = self;
         [mailCompose setToRecipients:@[ @"mailmanrecat@gmail.com" ]];
