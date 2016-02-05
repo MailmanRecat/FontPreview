@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,23 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y4y-2s-glz">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="35Z-yB-ytJ"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="R1h-mf-4jl"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Y4y-2s-glz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ouc-54-bZQ"/>
+                            <constraint firstItem="Y4y-2s-glz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="ViT-qK-YHg"/>
+                            <constraint firstItem="Y4y-2s-glz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="wZ0-Ls-qWP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
