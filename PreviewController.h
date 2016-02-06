@@ -15,4 +15,6 @@
 @property( nonatomic, assign ) NSUInteger  previewType;
 @property( nonatomic, strong ) NSString   *lang;
 
+- (instancetype)initWithFontAsset:(FontAsset *)fontAsset lang:(NSString *)lang;
+
 @end

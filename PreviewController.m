@@ -10,29 +10,49 @@
 #define PREVIEW_FONTSIZE_MIN 12
 #define PREVIEW_FONTSIZE_MAX 72
 
+#import <CoreText/CoreText.h>
+
 #import "PreviewController.h"
 #import "BlackboardViewController.h"
 #import "UITableViewFunctionalCell.h"
-#import "cachePreviewText.h"
+#import "FTranslate.h"
 
 #import "UIColor+Theme.h"
 #import "Craig.h"
 
 @interface PreviewController()<UITableViewDataSource, UITableViewDelegate, UITextViewDelegate>
 
-@property( nonatomic, strong ) UITableView *bear;
-@property( nonatomic, strong ) NSIndexPath *weightIndexPath;
-@property( nonatomic, assign ) CGFloat      textPreviewFontsize;
-@property( nonatomic, strong ) NSString    *textPreviewText;
-@property( nonatomic, strong ) UIView      *textPreviewHeaderView;
-@property( nonatomic, strong ) UIView      *fontsizeHeaderView;
-@property( nonatomic, strong ) UIView      *fontweightHeaderView;
+@property( nonatomic, strong ) UITableView  *bear;
+@property( nonatomic, strong ) NSIndexPath  *weightIndexPath;
+@property( nonatomic, assign ) CGFloat       textPreviewFontsize;
+@property( nonatomic, strong ) NSString     *textPreviewText;
+@property( nonatomic, strong ) UIView       *textPreviewHeaderView;
+@property( nonatomic, strong ) UIView       *fontsizeHeaderView;
+@property( nonatomic, strong ) UIView       *fontweightHeaderView;
 
-@property( nonatomic, strong ) NSArray     *fontWeight;
+@property( nonatomic, strong ) NSArray      *fontWeight;
+
+@property( nonatomic, assign ) BOOL          syncFont;
+@property( nonatomic, assign ) BOOL          downloading;
+@property( nonatomic, assign ) BOOL          cancelDownload;
+
+@property( nonatomic, strong ) UIButton                *downloadButton;
+@property( nonatomic, strong ) UILabel                 *infoLabel;
+
+@property( nonatomic, strong ) NSDictionary *translate;
 
 @end
 
 @implementation PreviewController
+
+- (instancetype)initWithFontAsset:(FontAsset *)fontAsset lang:(NSString *)lang{
+    self = [super init];
+    if( self ){
+        self.fontAsset = fontAsset;
+        self.lang      = lang;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,24 +65,40 @@
                                                                                            target:self
                                                                                            action:@selector(blackboard)];
     
-    if( [self.lang isEqualToString:@"ENGLISH"] ){
-        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_ENGLISH_CACHE];
-        
-    }else if( [self.lang isEqualToString:@"CHINSES"] ){
-        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_CHINESE_CACHE];
-        
-    }else if( [self.lang isEqualToString:@"JAPANESE"] ){
-        self.textPreviewText = [cachePreviewText previewTextFromName:TEXT_PREVIEW_JAPANESE_CACHE];
-        
-    }
+    self.textPreviewText = [[FTranslate standarTranslate] stringFromString:FTPreviewText];
     
     [self doBear];
+    
+    if( self.syncFont ){
+        [self downloadInfoAndAction];
+        
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+        
+//        [self.navigationItem setHidesBackButton:YES animated:YES];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)setFontAsset:(FontAsset *)fontAsset{
     _fontAsset = fontAsset;
     
-    self.fontWeight = [[UIFont fontNamesForFamilyName:fontAsset.fontName] sortedArrayUsingComparator:
+    if( [self fontSupport] ){
+        [self sortFontWeight];
+    }else{
+        self.syncFont    = YES;
+    }
+}
+
+- (BOOL)fontSupport{
+    UIFont *aFont = [UIFont fontWithName:self.fontAsset.fontName size:12.0];
+    return aFont && ([aFont.fontName compare:self.fontAsset.fontName] == NSOrderedSame || [aFont.familyName compare:self.fontAsset.fontName] == NSOrderedSame);
+}
+
+- (void)sortFontWeight{
+    self.fontWeight = [[UIFont fontNamesForFamilyName:self.fontAsset.fontName] sortedArrayUsingComparator:
                        ^(NSString *str1, NSString *str2){
                            
                            NSUInteger number1 = [Craig positionOfFontWeight:str1];
@@ -78,17 +114,13 @@
                        }];
     
     if( self.fontWeight.count == 0 )
-        self.fontWeight = @[ fontAsset.fontName ];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-
+        self.fontWeight = @[ self.fontAsset.fontName ];
 }
 
 - (void)adjustTextSize:(UISlider *)slider{
     self.textPreviewFontsize = (NSUInteger)slider.value;
     
-    ((UILabel *)self.fontsizeHeaderView.subviews.firstObject).text = [NSString stringWithFormat:@"Fontsize: %ldpt", (NSUInteger)slider.value];
+    ((UILabel *)self.fontsizeHeaderView.subviews.firstObject).text = [NSString stringWithFormat:@"%@: %ldpt", [[FTranslate standarTranslate] stringFromString:FTFontSize], (NSUInteger)slider.value];
     
     [self.bear reloadRowsAtIndexPaths:@[
                                         [NSIndexPath indexPathForRow:0 inSection:0]
@@ -118,6 +150,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    if( self.syncFont )
+        return 0;
+    
     return 3;
 }
 
@@ -148,19 +183,20 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if( section == 1 ){
         if( self.fontsizeHeaderView == nil ){
-            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Fontsize: 24pt"];
+            NSString *t = [NSString stringWithFormat:@"%@: 24pt", [[FTranslate standarTranslate] stringFromString:FTFontSize]];
+            self.fontsizeHeaderView =  [Craig tableHeaderContentViewWithTitle:t];
         }
         
         return self.fontsizeHeaderView;
     }else if( section == 0 ){
         if( self.textPreviewHeaderView == nil ){
-            self.textPreviewHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Text preview"];
+            self.textPreviewHeaderView =  [Craig tableHeaderContentViewWithTitle:[[FTranslate standarTranslate] stringFromString:FTTextPreview]];
         }
         
         return self.textPreviewHeaderView;
     }else if( section == 2 ){
         if( self.fontweightHeaderView == nil ){
-            self.fontweightHeaderView =  [Craig tableHeaderContentViewWithTitle:@"Font weight"];
+            self.fontweightHeaderView =  [Craig tableHeaderContentViewWithTitle:[[FTranslate standarTranslate] stringFromString:FTFontWeight]];
         }
         
         return self.fontweightHeaderView;
@@ -267,49 +303,175 @@
     self.textPreviewText = textView.text;
 }
 
-- (void)displayOrText{
-    UIVisualEffectView *visual = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    visual.translatesAutoresizingMaskIntoConstraints = NO;
+- (void)downloadInfoAndAction{
+    UIButton *download = [[UIButton alloc] init];
+    [self.view addSubview:download];
+    [download setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [download.widthAnchor constraintEqualToAnchor:self.view.widthAnchor constant:-32].active = YES;
+    [download.heightAnchor constraintEqualToConstant:57].active = YES;
+    [download.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [download.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:22].active = YES;
     
-    [self.view addSubview:visual];
-    [visual.topAnchor constraintEqualToAnchor:self.view.topAnchor
-                                     constant:[UIApplication sharedApplication].statusBarFrame.size.height + 44].active = YES;
-    [visual.leftAnchor constraintEqualToAnchor:self.view.leftAnchor].active = YES;
-    [visual.rightAnchor constraintEqualToAnchor:self.view.rightAnchor].active = YES;
-    [visual.heightAnchor constraintEqualToConstant:44].active = YES;
+    [download.titleLabel setFont:[UIFont systemFontOfSize:27 weight:UIFontWeightRegular]];
+    [download setTitle:[[FTranslate standarTranslate] stringFromString:FTDownload] forState:UIControlStateNormal];
+    [download setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:1.0] forState:UIControlStateNormal];
+    [download setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:0.4] forState:UIControlStateDisabled];
+    [download setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:0.4] forState:UIControlStateHighlighted];
     
-    UIView *border = [[UIView alloc] init];
-    border.backgroundColor = [UIColor colorWithWhite:178 / 255.0 alpha:1];
-    border.translatesAutoresizingMaskIntoConstraints = NO;
+    UILabel *info = [[UILabel alloc] init];
+    info.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
+    info.textColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
+    info.textAlignment = NSTextAlignmentCenter;
     
-    [visual.contentView addSubview:border];
-    [border.heightAnchor constraintEqualToConstant:0.5].active = YES;
-    [border.leftAnchor constraintEqualToAnchor:visual.contentView.leftAnchor].active = YES;
-    [border.rightAnchor constraintEqualToAnchor:visual.contentView.rightAnchor].active = YES;
-    [border.bottomAnchor constraintEqualToAnchor:visual.contentView.bottomAnchor].active = YES;
+    [self.view addSubview:info];
+    [info setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [info.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+    [info.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:-22].active = YES;
+    [info.widthAnchor constraintEqualToAnchor:self.view.widthAnchor constant:-32].active = YES;
+    [info.heightAnchor constraintEqualToConstant:44].active = YES;
     
-    UISegmentedControl *segmented = [[UISegmentedControl alloc] initWithItems:@[ @"Text", @"Display" ]];
-    segmented.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
-    segmented.selectedSegmentIndex = 0;
-    segmented.translatesAutoresizingMaskIntoConstraints = NO;
+    [download addTarget:self action:@selector(startDownload) forControlEvents:UIControlEventTouchUpInside];
     
-    [visual.contentView addSubview:segmented];
-    [segmented.leftAnchor constraintEqualToAnchor:visual.contentView.leftAnchor constant:32].active = YES;
-    [segmented.rightAnchor constraintEqualToAnchor:visual.contentView.rightAnchor constant:-32].active = YES;
-    [segmented.centerXAnchor constraintEqualToAnchor:visual.contentView.centerXAnchor].active = YES;
-    [segmented.centerYAnchor constraintEqualToAnchor:visual.contentView.centerYAnchor].active = YES;
+    _downloadButton = download;
+    _infoLabel      = info;
 }
 
 - (void)blackboard{
-    [self presentViewController:({
-        BlackboardViewController *blackboard = [[BlackboardViewController alloc] init];
-        blackboard.boardString = self.textPreviewText;
-        blackboard.boardFont   = [UIFont fontWithName:(NSString *)self.fontWeight[self.weightIndexPath.row]
-                                                 size:self.textPreviewFontsize];
-        blackboard;
-    })
+    UIFont *font = [UIFont fontWithName:(NSString *)self.fontWeight[self.weightIndexPath.row]
+                                   size:self.textPreviewFontsize];
+    
+    [self presentViewController:[[BlackboardViewController alloc] initWithString:self.textPreviewText font:font]
                        animated:YES
                      completion:nil];
+}
+
+- (void)startDownload{
+    if( self.downloading ){
+        
+        self.cancelDownload = YES;
+    }else{
+        self.downloading = YES;
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        
+        [self.downloadButton setTitle:[[FTranslate standarTranslate] stringFromString:FTCancelDownload] forState:UIControlStateNormal];
+        [self.downloadButton setTitleColor:[UIColor colorWithRed:250 / 255.0 green:17 / 255.0 blue:79 / 255.0 alpha:1]
+                                  forState:UIControlStateNormal];
+        [self.downloadButton setTitleColor:[UIColor colorWithRed:250 / 255.0 green:17 / 255.0 blue:79 / 255.0 alpha:0.4]
+                                  forState:UIControlStateDisabled];
+        
+        [self asynchronouslySetFontName:self.fontAsset.fontName];
+    }
+}
+
+- (void)finishedDownload{
+    
+}
+
+- (void)canceledDownload{
+    [self.downloadButton setTitle:[[FTranslate standarTranslate] stringFromString:FTDownload] forState:UIControlStateNormal];
+    [self.downloadButton setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:1.0] forState:UIControlStateNormal];
+    [self.downloadButton setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:0.4] forState:UIControlStateDisabled];
+    [self.downloadButton setEnabled:YES];
+}
+
+- (void)asynchronouslySetFontName:(NSString *)fontName{
+    self.cancelDownload = NO;
+    
+    // Create a dictionary with the font's PostScript name.
+    NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:fontName, kCTFontNameAttribute, nil];
+    
+    // Create a new font descriptor reference from the attributes dictionary.
+    CTFontDescriptorRef desc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attrs);
+    
+    NSMutableArray *descs = [NSMutableArray arrayWithCapacity:0];
+    [descs addObject:(__bridge id)desc];
+    CFRelease(desc);
+    
+    __block BOOL errorDuringDownload = NO;
+    
+    // Start processing the font descriptor..
+    // This function returns immediately, but can potentially take long time to process.
+    // The progress is notified via the callback block of CTFontDescriptorProgressHandler type.
+    // See CTFontDescriptor.h for the list of progress states and keys for progressParameter dictionary.
+    CTFontDescriptorMatchFontDescriptorsWithProgressHandler( (__bridge CFArrayRef)descs, NULL,  ^(CTFontDescriptorMatchingState state, CFDictionaryRef progressParameter) {
+        
+        double progressValue = [[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
+        
+        if (state == kCTFontDescriptorMatchingDidBegin) {
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                NSLog(@"Begin Matching");
+            });
+        } else if (state == kCTFontDescriptorMatchingDidFinish) {
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                // Remove the activity indicator
+//                [_fActivityIndicatorView stopAnimating];
+//                _fActivityIndicatorView.hidden = YES;
+                
+                // Display the sample text for the newly downloaded font
+//                NSUInteger sampleIndex = [_fontNames indexOfObject:fontName];
+//                _fTextView.text = [_fontSamples objectAtIndex:sampleIndex];
+//                _fTextView.font = [UIFont fontWithName:fontName size:24.];
+                
+                // Log the font URL in the console
+                CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
+                CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
+                NSLog(@"%@", (__bridge NSString *)(fontURL));
+                CFRelease(fontURL);
+                CFRelease(fontRef);
+                
+                if (!errorDuringDownload) {
+                    NSLog(@"%@ downloaded", fontName);
+                    self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTFinishDownload];
+                    
+                    self.syncFont = NO;
+                    [self sortFontWeight];
+                    [self.bear reloadData];
+                }
+            });
+        } else if (state == kCTFontDescriptorMatchingWillBeginDownloading) {
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTStartDownload];
+            });
+        } else if (state == kCTFontDescriptorMatchingDidFinishDownloading) {
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                NSLog(@"Finish downloading");
+            });
+        } else if (state == kCTFontDescriptorMatchingDownloading) {
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                // Use the progress bar to indicate the progress of the downloading
+                NSLog(@"Downloading %.0f%% complete", progressValue);
+                self.infoLabel.text = [NSString stringWithFormat:@"%@ %.0f%%", [[FTranslate standarTranslate] stringFromString:FTStartDownload], progressValue];
+            });
+            
+            if( self.cancelDownload )
+                return NO;
+            
+        } else if (state == kCTFontDescriptorMatchingDidFailWithError) {
+            // An error has occurred.
+            // Get the error message
+            NSError *error = [(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingError];
+            if (error != nil) {
+//                _errorMessage = [error description];
+            } else {
+//                _errorMessage = @"ERROR MESSAGE IS NOT AVAILABLE!";
+            }
+            
+            errorDuringDownload = YES;
+            
+            dispatch_async( dispatch_get_main_queue(), ^ {
+                UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@""
+                                                                                    message:@""
+                                                                             preferredStyle:UIAlertControllerStyleAlert];
+                
+                NSLog(@"error");
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+            });
+        }
+        
+        return (bool)YES;
+    });
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -11,6 +11,7 @@
 #import "RootViewController.h"
 #import "PreviewController.h"
 #import "LanguageViewController.h"
+#import "FTranslate.h"
 
 @interface RootViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -25,6 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self setTitle:[[FTranslate standarTranslate] stringFromString:FTTitleLang]];
     [self UI];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -34,16 +36,8 @@
 }
 
 - (void)langChanged{
-    if( [[FontsManager shareManager].lang isEqualToString:@"ENGLISH"] ){
-        self.navigationItem.leftBarButtonItem.title = @"English";
-        self.title = @"Fonts";
-    }else if( [[FontsManager shareManager].lang isEqualToString:@"CHINSES"] ){
-        self.navigationItem.leftBarButtonItem.title = @"中文";
-        self.title = @"字体";
-    }else if( [[FontsManager shareManager].lang isEqualToString:@"JAPANESE"] ){
-        self.navigationItem.leftBarButtonItem.title = @"日本語";
-        self.title = @"フォント";
-    }
+    self.navigationItem.leftBarButtonItem.title = [[FTranslate standarTranslate] stringFromString:FTItemLang];
+    self.title = [[FTranslate standarTranslate] stringFromString:FTTitleLang];
     
     [self.bear reloadData];
 }
@@ -53,7 +47,7 @@
     
     [self.navigationController.navigationBar setTintColor:[UIColor colorWithWhite:51 / 255.0 alpha:1]];
     
-    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:@"English"
+    self.navigationItem.leftBarButtonItem  = [[UIBarButtonItem alloc] initWithTitle:[[FTranslate standarTranslate] stringFromString:FTItemLang]
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(languageType)];
@@ -74,7 +68,6 @@
         UITableView *bear = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         bear.translatesAutoresizingMaskIntoConstraints = NO;
         bear.showsHorizontalScrollIndicator = NO;
-        bear.showsVerticalScrollIndicator = NO;
         bear.allowsMultipleSelectionDuringEditing = NO;
 //        bear.tableHeaderView = self.searchController.searchBar;
         bear.delegate = self;
@@ -112,13 +105,7 @@
         header.textLabel.textAlignment = NSTextAlignmentCenter;
     }
     
-    if( [[FontsManager shareManager].lang isEqualToString:@"ENGLISH"] ){
-        header.textLabel.text = [NSString stringWithFormat:@"%ld fonts", [tableView numberOfRowsInSection:0]];
-    }else if( [[FontsManager shareManager].lang isEqualToString:@"CHINSES"] ){
-        header.textLabel.text = [NSString stringWithFormat:@"%ld 种字体", [tableView numberOfRowsInSection:0]];
-    }else if( [[FontsManager shareManager].lang isEqualToString:@"JAPANESE"] ){
-        header.textLabel.text = [NSString stringWithFormat:@"%ld フォント", [tableView numberOfRowsInSection:0]];
-    }
+    header.textLabel.text = [NSString stringWithFormat:@"%ld %@", [tableView numberOfRowsInSection:0], [[FTranslate standarTranslate] stringFromString:FTLangsType]];
     
     return header;
 }
@@ -148,13 +135,11 @@
     self.indexPath = indexPath;
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.navigationController pushViewController:({
-            PreviewController *previewController = [[PreviewController alloc] init];
-            previewController.fontAsset          = [FontsManager shareManager].fonts[indexPath.row];
-            previewController.lang               = [FontsManager shareManager].lang;
-            previewController;
-        })
+        
+        [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:[FontsManager shareManager].fonts[indexPath.row]
+                                                                                              lang:[FontsManager shareManager].lang]
                                              animated:YES];
+        
     });
 }
 

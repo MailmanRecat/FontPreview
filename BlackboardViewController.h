@@ -13,4 +13,6 @@
 @property( nonatomic, strong ) NSString *boardString;
 @property( nonatomic, strong ) UIFont   *boardFont;
 
+- (instancetype)initWithString:(NSString *)string font:(UIFont *)font;
+
 @end

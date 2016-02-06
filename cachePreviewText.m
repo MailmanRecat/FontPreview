@@ -31,11 +31,20 @@
 }
 
 + (void)letPreviewText:(NSString *)text withName:(NSString *)name{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:FTextPreviewDidChangeNotification
+                                                        object:nil
+                                                      userInfo:nil];
+    
     [[NSUserDefaults standardUserDefaults] setObject:text forKey:name];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (void)resetDefault{
+    [[NSNotificationCenter defaultCenter] postNotificationName:FTextPreviewDidChangeNotification
+                                                        object:nil
+                                                      userInfo:nil];
+    
     [[NSUserDefaults standardUserDefaults] setObject:[self defaultShorcutFromName:TEXT_PREVIEW_ENGLISH_CACHE]
                                               forKey:TEXT_PREVIEW_ENGLISH_CACHE];
     [[NSUserDefaults standardUserDefaults] setObject:[self defaultShorcutFromName:TEXT_PREVIEW_CHINESE_CACHE]

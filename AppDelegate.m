@@ -22,7 +22,6 @@
         UIWindow *window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         window.rootViewController = [[UINavigationController alloc] initWithRootViewController:({
             RootViewController *root = [[RootViewController alloc] init];
-            root.title = @"Fonts";
             root;
         })];
         window;

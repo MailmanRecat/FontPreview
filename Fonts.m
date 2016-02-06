@@ -9,7 +9,6 @@
 #import "Fonts.h"
 #import "FontAsset.h"
 
-static NSString *const THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG = @"the quick brown fox jumps over the lazy dog";
 static NSString *const TYPE_UNKNOW = @"Unknow";
 
 static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
@@ -34,13 +33,14 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)Fonts{
     
 //    NSLog(@"%@", [UIFont familyNames]);
-    NSString *target = @"anton";
+    NSString *target = @"bao";
     [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
         if( [[name lowercaseString] rangeOfString:target].location != NSNotFound ){
             NSLog(@"%@", name);
+            NSLog(@"%@", [UIFont fontNamesForFamilyName:name]);
         }
     }];
-//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Elsie"]);
+//    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Kohinoor Bangla"]);
     
     NSString *l = [Fonts lang];
     
@@ -59,603 +59,1128 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)englishFonts{
     return @[
              [FontAsset assetFromName:@"San Francisco Display"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"SFUIDisplay-Regular"
                              fontName:@"SF UI Display"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"San Francisco Text"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"SFUIDisplay-Regular"
                              fontName:@"SF UI Text"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"San Francisco Compact Display"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"SFCompactDisplay-Medium"
                              fontName:@"SF Compact Display"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"San Francisco Compact Text"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"SF Compact Text"
                              fontName:@"SF Compact Text"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Roboto"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Roboto-Regular"
                              fontName:@"Roboto"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Roboto Slab"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"RobotoSlab-Regular"
                              fontName:@"Roboto Slab"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Roboto Mono"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"RobotoMono-Regular"
                              fontName:@"Roboto Mono"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Roboto Condensed"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"RobotoCondensed-Regular"
                              fontName:@"Roboto Condensed"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Menlo"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Menlo-Regular"
                              fontName:@"Menlo"
                                  type:TYPE_UNKNOW],
              
+             [FontAsset assetFromName:@"Helvetica"
+                        introFontName:@"Helvetica"
+                             fontName:@"Helvetica"
+                                 type:TYPE_UNKNOW],
+             
              [FontAsset assetFromName:@"Helvetica Neue"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Helvetica Neue"
                              fontName:@"Helvetica Neue"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Times New Roman"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Times New Roman"
                              fontName:@"Times New Roman"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Georgia"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Georgia"
                              fontName:@"Georgia"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Ubuntu"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Ubuntu"
                              fontName:@"Ubuntu"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Ubuntu Condensed"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Ubuntu Condensed"
                              fontName:@"Ubuntu Condensed"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Ubuntu mono"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Ubuntu mono"
                              fontName:@"Ubuntu mono"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Futura"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Futura"
                              fontName:@"Futura"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Optima"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Optima"
                              fontName:@"Optima"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Verdana"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Verdana"
                              fontName:@"Verdana"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Didot"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Didot"
                              fontName:@"Didot"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Iowan Old Style"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Iowan Old Style"
                              fontName:@"Iowan Old Style"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Marker Felt"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Marker Felt"
                              fontName:@"Marker Felt"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Gill Sans"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Gill Sans"
                              fontName:@"Gill Sans"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Avenir"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Avenir"
                              fontName:@"Avenir"
                                  type:TYPE_UNKNOW],
              
+             [FontAsset assetFromName:@"Avenir Next Condensed"
+                        introFontName:@"Avenir Next Condensed"
+                             fontName:@"Avenir Next Condensed"
+                                 type:TYPE_UNKNOW],
+             
              [FontAsset assetFromName:@"Copperplate"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Copperplate"
                              fontName:@"Copperplate"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"American TypeWriter"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"American TypeWriter"
                              fontName:@"American TypeWriter"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arial"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arial"
                              fontName:@"Arial"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arial Hebrew"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arial Hebrew"
                              fontName:@"Arial Hebrew"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aclonica"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Aclonica"
                              fontName:@"Aclonica"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arimo"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arimo"
                              fontName:@"Arimo"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Calligraffitti"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Calligraffitti"
                              fontName:@"Calligraffitti"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Cherry Cream Soda"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Cherry Cream Soda"
                              fontName:@"Cherry Cream Soda"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Chewy"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Chewy"
                              fontName:@"Chewy"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Coming Soon"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Coming Soon"
                              fontName:@"Coming Soon"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Schoolbell"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Schoolbell"
                              fontName:@"Schoolbell"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"UnifrakturMaguntia"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"UnifrakturMaguntia"
                              fontName:@"UnifrakturMaguntia"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Montserrat"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Montserrat"
                              fontName:@"Montserrat"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Lora"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Lora"
                              fontName:@"Lora"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"PT Sans"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"PT Sans"
                              fontName:@"PT Sans"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"PT Sans Caption"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"PT Sans Caption"
                              fontName:@"PT Sans Caption"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"PT Sans Narrow"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"PT Sans Narrow"
                              fontName:@"PT Sans Narrow"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Lobster"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Lobster"
                              fontName:@"Lobster"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Lobster Two"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Lobster Two"
                              fontName:@"Lobster Two"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Muli"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Muli"
                              fontName:@"Muli"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Orbitron"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Orbitron"
                              fontName:@"Orbitron"
                                  type:TYPE_UNKNOW],
              
+             [FontAsset assetFromName:@"Academy Engraved LET"
+                        introFontName:@"Academy Engraved LET"
+                             fontName:@"Academy Engraved LET"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Hoefler Text"
+                        introFontName:@"Hoefler Text"
+                             fontName:@"Hoefler Text"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Kohinoor Telugu"
+                        introFontName:@"Kohinoor Telugu"
+                             fontName:@"Kohinoor Telugu"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Kohinoor Bangla"
+                        introFontName:@"KohinoorBangla-Regular"
+                             fontName:@"Kohinoor Bangla"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Kohinoor Devanagari"
+                        introFontName:@"KohinoorDevanagari-Regular"
+                             fontName:@"Kohinoor Devanagari"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Thonburi"
+                        introFontName:@"Thonburi"
+                             fontName:@"Thonburi"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cochin"
+                        introFontName:@"Cochin"
+                             fontName:@"Cochin"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Courier"
+                        introFontName:@"Courier"
+                             fontName:@"Courier"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Courier New"
+                        introFontName:@"Courier New"
+                             fontName:@"Courier New"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Apple SD Gothic Neo"
+                        introFontName:@"Apple SD Gothic Neo"
+                             fontName:@"Apple SD Gothic Neo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tamil Sangam MN"
+                        introFontName:@"Tamil Sangam MN"
+                             fontName:@"Tamil Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Gurmukhi MN"
+                        introFontName:@"Gurmukhi MN"
+                             fontName:@"Gurmukhi MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Kailasa"
+                        introFontName:@"Kailasa"
+                             fontName:@"Kailasa"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Damascus"
+                        introFontName:@"Damascus"
+                             fontName:@"Damascus"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Noteworthy"
+                        introFontName:@"Noteworthy"
+                             fontName:@"Noteworthy"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Geeza Pro"
+                        introFontName:@"Geeza Pro"
+                             fontName:@"Geeza Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mishafi"
+                        introFontName:@"Mishafi"
+                             fontName:@"Mishafi"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Farah"
+                        introFontName:@"Farah"
+                             fontName:@"Farah"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Palatino"
+                        introFontName:@"Palatino"
+                             fontName:@"Palatino"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Al Nile"
+                        introFontName:@"Al Nile"
+                             fontName:@"Al Nile"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bradley Hand"
+                        introFontName:@"Bradley Hand"
+                             fontName:@"Bradley Hand"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Trebuchet MS"
+                        introFontName:@"Trebuchet MS"
+                             fontName:@"Trebuchet MS"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Hiragino Sans"
+                        introFontName:@"Hiragino Sans"
+                             fontName:@"Hiragino Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Hiragino Mincho ProN"
+                        introFontName:@"Hiragino Mincho ProN"
+                             fontName:@"Hiragino Mincho ProN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Devanagari Sangam MN"
+                        introFontName:@"Devanagari Sangam MN"
+                             fontName:@"Devanagari Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oriya Sangam MN"
+                        introFontName:@"OriyaSangamMN-Bold"
+                             fontName:@"Oriya Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Zapf Dingbats"
+                        introFontName:@"Zapf Dingbats"
+                             fontName:@"Zapf Dingbats"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bodoni 72"
+                        introFontName:@"Bodoni 72"
+                             fontName:@"Bodoni 72"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bodoni 72 Smallcaps"
+                        introFontName:@"Bodoni 72 Smallcaps"
+                             fontName:@"Bodoni 72 Smallcaps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bodoni 72 Oldstyle"
+                        introFontName:@"Bodoni 72 Oldstyle"
+                             fontName:@"Bodoni 72 Oldstyle"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baskerville"
+                        introFontName:@"Baskerville"
+                             fontName:@"Baskerville"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Khmer Sangam MN"
+                        introFontName:@"Khmer Sangam MN"
+                             fontName:@"Khmer Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Symbol"
+                        introFontName:@"Symbol"
+                             fontName:@"Symbol"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Papyrus"
+                        introFontName:@"Papyrus"
+                             fontName:@"Papyrus"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Euphemia UCAS"
+                        introFontName:@"Euphemia UCAS"
+                             fontName:@"Euphemia UCAS"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Telugu Sangam MN"
+                        introFontName:@"Telugu Sangam MN"
+                             fontName:@"Telugu Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bangla Sangam MN"
+                        introFontName:@"Bangla Sangam MN"
+                             fontName:@"Bangla Sangam MN"
+                                 type:TYPE_UNKNOW],
+             
              [FontAsset assetFromName:@"Exo"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Exo-Regular"
                              fontName:@"Exo"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Exo 2"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Exo 2-Regular"
                              fontName:@"Exo 2"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"ABeeZee"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"ABeeZee"
                              fontName:@"ABeeZee"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Abel"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Abel"
                              fontName:@"Abel"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Abhaya Libre"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Abhaya Libre"
                              fontName:@"Abhaya Libre"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"JejuGothic"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"JejuGothic"
                              fontName:@"JejuGothic"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Elsie"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Elsie"
                              fontName:@"Elsie"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Podkova"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Podkova"
                              fontName:@"Podkova"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Abril Fatface"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Abril Fatface"
                              fontName:@"Abril Fatface"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Abyssinica SIL"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Abyssinica SIL"
                              fontName:@"Abyssinica SIL"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Acme"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Acme"
                              fontName:@"Acme"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Actor"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Actor"
                              fontName:@"Actor"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Advent Pro"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Advent Pro-Regular"
                              fontName:@"Advent Pro"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aguafina Script"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Aguafina Script"
                              fontName:@"Aguafina Script"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Adamina"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Adamina"
                              fontName:@"Adamina"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Akronim"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Akronim"
                              fontName:@"Akronim"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aksara Bali Galang"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Aksara Bali Galang"
                              fontName:@"Aksara Bali Galang"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aladin"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Aladin"
                              fontName:@"Aladin"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Aldrich"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Aldrich"
                              fontName:@"Aldrich"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alef"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alef"
                              fontName:@"Alef"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alegreya"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alegreya"
                              fontName:@"Alegreya"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alegreya SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alegreya SC"
                              fontName:@"Alegreya SC"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alegreya Sans SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alegreya Sans SC-Regular"
                              fontName:@"Alegreya Sans SC"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alex Brush"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alex Brush"
                              fontName:@"Alex Brush"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alfa Slab One"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alfa Slab One"
                              fontName:@"Alfa Slab One"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alice"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alice"
                              fontName:@"Alice"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alike"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alike"
                              fontName:@"Alike"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Alike Angular"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Alike Angular"
                              fontName:@"Alike Angular"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Allan"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Allan"
                              fontName:@"Allan"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Allerta"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Allerta"
                              fontName:@"Allerta"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Allerta Stencil"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Allerta Stencil"
                              fontName:@"Allerta Stencil"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Allura"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Allura"
                              fontName:@"Allura"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Almendra"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Almendra"
                              fontName:@"Almendra"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Almendra SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Almendra SC"
                              fontName:@"Almendra SC"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Almendra Display"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Almendra Display"
                              fontName:@"Almendra Display"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amatic SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amatic SC"
                              fontName:@"Amatic SC"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amaranth"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amaranth"
                              fontName:@"Amaranth"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amarante"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amarante"
                              fontName:@"Amarante"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amethysta"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amethysta"
                              fontName:@"Amethysta"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Angkor"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Angkor"
                              fontName:@"Angkor"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Andika"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Andika"
                              fontName:@"Andika"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Andada"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Andada"
                              fontName:@"Andada"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Andada SC"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Andada SC"
                              fontName:@"Andada SC"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Anaheim"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Anaheim"
                              fontName:@"Anaheim"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amita"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amita"
                              fontName:@"Amita"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Amiri"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Amiri"
                              fontName:@"Amiri"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arbutus"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arbutus"
                              fontName:@"Arbutus"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arbutus Slab"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arbutus Slab"
                              fontName:@"Arbutus Slab"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Arapey"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Arapey"
                              fontName:@"Arapey"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Anton"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Anton"
                              fontName:@"Anton"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Antonio"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Antonio-Regular"
                              fontName:@"Antonio"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Antic"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Antic"
                              fontName:@"Antic"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Antic Slab"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Antic Slab"
                              fontName:@"Antic Slab"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Antic Didone"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Antic Didone"
                              fontName:@"Antic Didone"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Anonymous Pro"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Anonymous Pro"
                              fontName:@"Anonymous Pro"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Annie Use Your Telescope"
-                                intro:THE_QUICK_BROWN_FOX_JUMPS_OVER_THE_LAZY_DOG
                         introFontName:@"Annie Use Your Telescope"
                              fontName:@"Annie Use Your Telescope"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Archivo Narrow"
+                        introFontName:@"Archivo Narrow"
+                             fontName:@"Archivo Narrow"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Archivo Black"
+                        introFontName:@"Archivo Black"
+                             fontName:@"Archivo Black"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Architects Daughter"
+                        introFontName:@"Architects Daughter"
+                             fontName:@"Architects Daughter"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Artifika"
+                        introFontName:@"Artifika"
+                             fontName:@"Artifika"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Armata"
+                        introFontName:@"Armata"
+                             fontName:@"Armata"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arizonia"
+                        introFontName:@"Arizonia"
+                             fontName:@"Arizonia"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Asset"
+                        introFontName:@"Asset"
+                             fontName:@"Asset"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Asar"
+                        introFontName:@"Asar"
+                             fontName:@"Asar"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Asap"
+                        introFontName:@"Asap"
+                             fontName:@"Asap"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arya"
+                        introFontName:@"Arya"
+                             fontName:@"Arya"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Arvo"
+                        introFontName:@"Arvo"
+                             fontName:@"Arvo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Aubrey"
+                        introFontName:@"Aubrey"
+                             fontName:@"Aubrey"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Atomic Age"
+                        introFontName:@"Atomic Age"
+                             fontName:@"Atomic Age"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Asul"
+                        introFontName:@"Asul"
+                             fontName:@"Asul"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Astloch"
+                        introFontName:@"Astloch-Bold"
+                             fontName:@"Astloch"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Average"
+                        introFontName:@"Average"
+                             fontName:@"Average"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Average Sans"
+                        introFontName:@"Average Sans"
+                             fontName:@"Average Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Autour One"
+                        introFontName:@"Autour One"
+                             fontName:@"Autour One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Audiowide"
+                        introFontName:@"Audiowide"
+                             fontName:@"Audiowide"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Averia Libre"
+                        introFontName:@"Averia Libre"
+                             fontName:@"Averia Libre"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Averia Serif Libre"
+                        introFontName:@"Averia Serif Libre"
+                             fontName:@"Averia Serif Libre"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Averia Sans Libre"
+                        introFontName:@"Averia Sans Libre"
+                             fontName:@"Averia Sans Libre"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Averia Gruesa Libre"
+                        introFontName:@"Averia Gruesa Libre"
+                             fontName:@"Averia Gruesa Libre"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo"
+                        introFontName:@"Baloo"
+                             fontName:@"Baloo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Bhai"
+                        introFontName:@"Baloo Bhai"
+                             fontName:@"Baloo Bhai"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Chettan"
+                        introFontName:@"Baloo Chettan"
+                             fontName:@"Baloo Chettan"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Da"
+                        introFontName:@"Baloo Da"
+                             fontName:@"Baloo Da"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Bhaina"
+                        introFontName:@"Baloo Bhaina"
+                             fontName:@"Baloo Bhaina"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Tamma"
+                        introFontName:@"Baloo Tamma"
+                             fontName:@"Baloo Tamma"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Tammudu"
+                        introFontName:@"Baloo Tammudu"
+                             fontName:@"Baloo Tammudu"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Thambi"
+                        introFontName:@"Baloo Thambi"
+                             fontName:@"Baloo Thambi"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baloo Paaji"
+                        introFontName:@"Baloo Paaji"
+                             fontName:@"Baloo Paaji"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Basic"
+                        introFontName:@"Basic"
+                             fontName:@"Basic"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bangers"
+                        introFontName:@"Bangers"
+                             fontName:@"Bangers"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Balthazar"
+                        introFontName:@"Balthazar"
+                             fontName:@"Balthazar"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bayon"
+                        introFontName:@"Bayon"
+                             fontName:@"Bayon"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Baumans"
+                        introFontName:@"Baumans"
+                             fontName:@"Baumans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bentham"
+                        introFontName:@"Bentham"
+                             fontName:@"Bentham"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Battambang"
+                        introFontName:@"Battambang"
+                             fontName:@"Battambang"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"BenchNine"
+                        introFontName:@"BenchNine-Regular"
+                             fontName:@"BenchNine"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Belleza"
+                        introFontName:@"Belleza"
+                             fontName:@"Belleza"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Belgrano"
+                        introFontName:@"Belgrano"
+                             fontName:@"Belgrano"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Berkshire Swash"
+                        introFontName:@"Berkshire Swash"
+                             fontName:@"Berkshire Swash"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bevan"
+                        introFontName:@"Bevan"
+                             fontName:@"Bevan"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bhavuka"
+                        introFontName:@"Bhavuka"
+                             fontName:@"Bhavuka"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bilbo"
+                        introFontName:@"Bilbo"
+                             fontName:@"Bilbo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bigshot One"
+                        introFontName:@"Bigshot One"
+                             fontName:@"Bigshot One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bigelow Rules"
+                        introFontName:@"Bigelow Rules"
+                             fontName:@"Bigelow Rules"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Black Ops One"
+                        introFontName:@"Black Ops One"
+                             fontName:@"Black Ops One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bitter"
+                        introFontName:@"Bitter"
+                             fontName:@"Bitter"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Biryani"
+                        introFontName:@"Biryani"
+                             fontName:@"Biryani"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bilbo Swash Caps"
+                        introFontName:@"Bilbo Swash Caps"
+                             fontName:@"Bilbo Swash Caps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bokor"
+                        introFontName:@"Bokor"
+                             fontName:@"Bokor"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bonbon"
+                        introFontName:@"Bonbon"
+                             fontName:@"Bonbon"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Boogaloo"
+                        introFontName:@"Boogaloo"
+                             fontName:@"Boogaloo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bowlby One"
+                        introFontName:@"Bowlby One"
+                             fontName:@"Bowlby One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bowlby One SC"
+                        introFontName:@"Bowlby One SC"
+                             fontName:@"Bowlby One SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Brawler"
+                        introFontName:@"Brawler"
+                             fontName:@"Brawler"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bree Serif"
+                        introFontName:@"Bree Serif"
+                             fontName:@"Bree Serif"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bruno Ace"
+                        introFontName:@"Bruno Ace"
+                             fontName:@"Bruno Ace"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bruno Ace SC"
+                        introFontName:@"Bruno Ace SC"
+                             fontName:@"Bruno Ace SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bubblegum Sans"
+                        introFontName:@"Bubblegum Sans"
+                             fontName:@"Bubblegum Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Bubbler One"
+                        introFontName:@"Bubbler One"
+                             fontName:@"Bubbler One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Buda"
+                        introFontName:@"Buda"
+                             fontName:@"Buda"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Buenard"
+                        introFontName:@"Buenard"
+                             fontName:@"Buenard"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Butcherman"
+                        introFontName:@"Butcherman"
+                             fontName:@"Butcherman"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cabin"
+                        introFontName:@"Cabin"
+                             fontName:@"Cabin"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cabin Condensed"
+                        introFontName:@"Cabin Condensed"
+                             fontName:@"Cabin Condensed"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cabin Sketch"
+                        introFontName:@"Cabin Sketch"
+                             fontName:@"Cabin Sketch"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Caesar Dressing"
+                        introFontName:@"Caesar Dressing"
+                             fontName:@"Caesar Dressing"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cagliostro"
+                        introFontName:@"Cagliostro"
+                             fontName:@"Cagliostro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cambay"
+                        introFontName:@"Cambay"
+                             fontName:@"Cambay"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cambo"
+                        introFontName:@"Cambo"
+                             fontName:@"Cambo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Candal"
+                        introFontName:@"Candal"
+                             fontName:@"Candal"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cantarell"
+                        introFontName:@"Cantarell"
+                             fontName:@"Cantarell"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cantata One"
+                        introFontName:@"Cantata One"
+                             fontName:@"Cantata One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"CantoraOne"
+                        introFontName:@"CantoraOne"
+                             fontName:@"CantoraOne"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Capriola"
+                        introFontName:@"Capriola"
+                             fontName:@"Capriola"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Cardo"
+                        introFontName:@"Cardo"
+                             fontName:@"Cardo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Carme"
+                        introFontName:@"Carme"
+                             fontName:@"Carme"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Carrois Gothic"
+                        introFontName:@"Carrois Gothic"
+                             fontName:@"Carrois Gothic"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Carter One"
+                        introFontName:@"Carter One"
+                             fontName:@"Carter One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Catamaran"
+                        introFontName:@"Catamaran-Regular"
+                             fontName:@"Catamaran"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Caudex"
+                        introFontName:@"Caudex"
+                             fontName:@"Caudex"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Caveat"
+                        introFontName:@"Caveat-Bold"
+                             fontName:@"Caveat"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Caveat Brush"
+                        introFontName:@"Caveat Brush"
+                             fontName:@"Caveat Brush"
                                  type:TYPE_UNKNOW],
              
              ];
@@ -664,34 +1189,14 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)chinsesFonts{
     return @[
              [FontAsset assetFromName:@"苹方 简体"
-                                intro:@"苹方字体"
                         introFontName:@"PingFang SC"
                              fontName:@"PingFang SC"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"黑体 简体"
-                                intro:@"黑体 简体"
-                        introFontName:@"Heiti SC"
-                             fontName:@"Heiti SC"
+             [FontAsset assetFromName:@"报隶"
+                        introFontName:@"Baoli SC"
+                             fontName:@"Baoli SC"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"圆体 简体"
-                                intro:@"圆体 简体"
-                        introFontName:@"STYuanti-SC-Regular"
-                             fontName:@"Yuanti SC"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"宋体"
-                                intro:@"宋体"
-                        introFontName:@"SimSun"
-                             fontName:@"SimSun"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"新宋体"
-                                intro:@"新宋体"
-                        introFontName:@"NSimSun"
-                             fontName:@"NSimSun"
-                                 type:TYPE_UNKNOW]
              
              ];
 }
@@ -699,25 +1204,21 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
 + (NSArray *)japansesFonts{
     return @[
              [FontAsset assetFromName:@"Klee"
-                                intro:@"フォント"
                         introFontName:@"Klee"
                              fontName:@"Klee"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"YuMincho +36p Kana"
-                                intro:@"フォント"
                         introFontName:@"YuMincho +36p Kana"
                              fontName:@"YuMincho +36p Kana"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Tsukushi A Round Gothic"
-                                intro:@"フォント"
                         introFontName:@"Tsukushi A Round Gothic"
                              fontName:@"Tsukushi A Round Gothic"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Tsukushi B Round Gothic"
-                                intro:@"フォント"
                         introFontName:@"Tsukushi B Round Gothic"
                              fontName:@"Tsukushi B Round Gothic"
                                  type:TYPE_UNKNOW]

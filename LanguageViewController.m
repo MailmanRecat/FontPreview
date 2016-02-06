@@ -36,13 +36,15 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.QArray  = @[ @"Feedback", @"Version", @"Author" ];
-    self.AArray  = @[ @"", @"9.0", @"mailman" ];
-    self.ADArray = @[ @"richundo", @"note idea" ];
-    self.AIArray = @[ @"icon120.png", @"noteicon120.png" ];
+    self.QArray  = @[ @"Feedback", @"Rate this app", @"Version", @"Author" ];
+    self.AArray  = @[ @"mailmanrecat@gmail.com", @"", @"9.0", @"mailman" ];
+    self.ADArray = @[ @"todo list", @"note pad", @"class schedule", @"html man" ];
+    self.AIArray = @[ @"icon120.png", @"noteicon120.png", @"classscheduleicon75x75.png", @"webicon75x75.png" ];
     self.ALArray = @[
-                     @"https://appsto.re/cn/-Iuaab.i",
-                     @"https://appsto.re/cn/X6A4_.i"
+                     @"https://itunes.apple.com/cn/app/richundo/id1073825982?l=en&mt=8",
+                     @"https://itunes.apple.com/cn/app/note-idea/id1071754929?l=en&mt=8",
+                     @"https://itunes.apple.com/cn/app/class-schedule-ke-cheng-biao/id1068774302?l=en&mt=8",
+                     @"https://itunes.apple.com/cn/app/html-man/id1016315441?l=en&mt=8"
                      ];
     
     self.title = @"Languages";
@@ -124,7 +126,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if( section == 4 )
-        return 44.0;
+        return 40.0;
     
     return 0.0f;
 }
@@ -134,8 +136,9 @@
         UITableViewHeaderFooterView *footer = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"APP_AD"];
         if( footer == nil ){
             footer =  [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"APP_AD"];
-            footer.textLabel.text = @"app you may interesting";
         }
+        
+        footer.textLabel.text = @"app you may interesting";
         
         return footer;
     }
@@ -164,7 +167,7 @@
         cell.accessoryType  = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = @"License";
     }else if( indexPath.section == 3 ){
-        if( indexPath.row == 0 )
+        if( indexPath.row == 0 || indexPath.row == 1 )
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         cell.textLabel.text = self.QArray[indexPath.row];
@@ -197,14 +200,20 @@
         self.currentIndexPath = indexPath;
     }else if( indexPath.section == 1 ){
         [self.navigationController pushViewController:[previewTextViewController new] animated:YES];
+        
     }else if( indexPath.section == 2 ){
         [self.navigationController pushViewController:[LicenseViewController new] animated:YES];
-    }else if( indexPath.section == 3 && indexPath.row == 0 ){
-        MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
-        mailCompose.mailComposeDelegate = self;
-        [mailCompose setToRecipients:@[ @"mailmanrecat@gmail.com" ]];
-        [mailCompose setSubject:@"Feedback to fonts browse"];
-        [self presentViewController:mailCompose animated:YES completion:nil];
+        
+    }else if( indexPath.section == 3 ){
+        if( indexPath.row == 0 ){
+            MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+            mailCompose.mailComposeDelegate = self;
+            [mailCompose setToRecipients:@[ @"mailmanrecat@gmail.com" ]];
+            [mailCompose setSubject:@"Feedback to fonts browse"];
+            [self presentViewController:mailCompose animated:YES completion:nil];
+        }else if( indexPath.row == 1 ){
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://itunes.apple.com/cn/app/fonts-browse/id1077997970?l=en&mt=8"]];
+        }
     }
 }
 

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 static NSString *const LANG_ENGLISH  = @"ENGLISH";
-static NSString *const LANG_CHINESE  = @"CHINSES";
+static NSString *const LANG_CHINESE  = @"CHINESE";
 static NSString *const LANG_JAPANESE = @"JAPANESE";
 
 @interface Fonts : NSObject

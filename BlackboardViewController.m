@@ -24,10 +24,18 @@ static NSString *const PREFER_BLACKBOARD_TYPE_KEY = @"PERFER_BLACKBOARD_TYPE_KEY
 
 @implementation BlackboardViewController
 
+- (instancetype)initWithString:(NSString *)string font:(UIFont *)font{
+    self = [super init];
+    if( self ){
+        self.boardString = string;
+        self.boardFont   = font;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     
     [self blankboard];
     [self changeBackgroundColor];

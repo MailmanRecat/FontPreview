@@ -11,14 +11,13 @@
 @implementation FontAsset
 
 + (instancetype)assetFromName:(NSString *)name
-                        intro:(NSString *)intro introFontName:(NSString *)introFontName
+                introFontName:(NSString *)introFontName
                      fontName:(NSString *)fontName
                          type:(NSString *)type{
     
     FontAsset *asset = [[FontAsset alloc] init];
     
     asset.name          = name;
-    asset.intro         = intro;
     asset.introFontName = introFontName;
     asset.fontName      = fontName;
     asset.type          = type;

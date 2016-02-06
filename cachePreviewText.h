@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *const FTextPreviewDidChangeNotification;
+
 static NSString *const TEXT_PREVIEW_ENGLISH_CACHE  = @"TEXT_PREVIEW_ENGLISH_CACHE";
 static NSString *const TEXT_PREVIEW_CHINESE_CACHE  = @"TEXT_PREVIEW_CHINESE_CACHE";
 static NSString *const TEXT_PREVIEW_JAPANESE_CACHE = @"TEXT_PREVIEW_JAPANESE_CACHE";

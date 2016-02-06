@@ -11,13 +11,12 @@
 @interface FontAsset : NSObject
 
 @property( nonatomic, strong ) NSString *name;
-@property( nonatomic, strong ) NSString *intro;
 @property( nonatomic, strong ) NSString *introFontName;
 @property( nonatomic, strong ) NSString *fontName;
 @property( nonatomic, strong ) NSString *type;
 
 + (instancetype)assetFromName:(NSString *)name
-                        intro:(NSString *)intro introFontName:(NSString *)introFontName
+                introFontName:(NSString *)introFontName
                      fontName:(NSString *)fontName
                          type:(NSString *)type;
 
