@@ -513,8 +513,6 @@
         <string>Caveat-Regular.ttf</string>
         
         <string>CaveatBrush-Regular.ttf</string>
-        
-        <string>Baoli.ttc</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

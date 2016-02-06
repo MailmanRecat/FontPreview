@@ -6,9 +6,9 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-#import "cachePreviewText.h"
+#import "FCachePreviewText.h"
 
-@implementation cachePreviewText
+@implementation FCachePreviewText
 
 + (NSMutableArray *)allPreviewTexts{
     return [[NSMutableArray alloc] initWithArray:@[

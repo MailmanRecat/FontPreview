@@ -7,7 +7,7 @@
 //
 
 #import "FTranslate.h"
-#import "cachePreviewText.h"
+#import "FCachePreviewText.h"
 
 @interface FTranslate()
 
@@ -51,7 +51,7 @@
                                    FTTitleLang: @"Fonts",
                                    FTItemLang: @"English",
                                    FTLangsType: @"fonts",
-                                   FTPreviewText: [cachePreviewText previewTextFromName:TEXT_PREVIEW_ENGLISH_CACHE],
+                                   FTPreviewText: [FCachePreviewText previewTextFromName:TEXT_PREVIEW_ENGLISH_CACHE],
                                    FTTextPreview: @"Text preview",
                                    FTFontSize: @"Fontsize",
                                    FTFontWeight: @"Font weight",
@@ -65,7 +65,7 @@
                                    FTTitleLang: @"字体",
                                    FTItemLang: @"中文",
                                    FTLangsType: @"种字体",
-                                   FTPreviewText: [cachePreviewText previewTextFromName:TEXT_PREVIEW_CHINESE_CACHE],
+                                   FTPreviewText: [FCachePreviewText previewTextFromName:TEXT_PREVIEW_CHINESE_CACHE],
                                    FTTextPreview: @"预览",
                                    FTFontSize: @"字体大小",
                                    FTFontWeight: @"字体重量",
@@ -79,7 +79,7 @@
                                    FTTitleLang: @"フォント",
                                    FTItemLang: @"日本語",
                                    FTLangsType: @"フォント",
-                                   FTPreviewText: [cachePreviewText previewTextFromName:TEXT_PREVIEW_JAPANESE_CACHE],
+                                   FTPreviewText: [FCachePreviewText previewTextFromName:TEXT_PREVIEW_JAPANESE_CACHE],
                                    FTTextPreview: @"プレビュー",
                                    FTFontSize: @"フォントサイズ",
                                    FTFontWeight: @"フォントの重さ",

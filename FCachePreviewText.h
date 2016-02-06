@@ -14,7 +14,7 @@ static NSString *const TEXT_PREVIEW_ENGLISH_CACHE  = @"TEXT_PREVIEW_ENGLISH_CACH
 static NSString *const TEXT_PREVIEW_CHINESE_CACHE  = @"TEXT_PREVIEW_CHINESE_CACHE";
 static NSString *const TEXT_PREVIEW_JAPANESE_CACHE = @"TEXT_PREVIEW_JAPANESE_CACHE";
 
-@interface cachePreviewText : NSObject
+@interface FCachePreviewText : NSObject
 
 + (NSMutableArray *)allPreviewTexts;
 + (NSString *)previewTextFromName:(NSString *)name;

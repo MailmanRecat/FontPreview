@@ -39,6 +39,8 @@
 @property( nonatomic, strong ) UIButton                *downloadButton;
 @property( nonatomic, strong ) UILabel                 *infoLabel;
 
+@property( nonatomic, strong ) UIActivityIndicatorView *activityIndicatorView;
+
 @property( nonatomic, strong ) NSDictionary *translate;
 
 @end
@@ -74,7 +76,7 @@
         
         self.navigationItem.rightBarButtonItem.enabled = NO;
         
-//        [self.navigationItem setHidesBackButton:YES animated:YES];
+        [self.activityIndicatorView startAnimating];
     }
 }
 
@@ -89,6 +91,14 @@
         [self sortFontWeight];
     }else{
         self.syncFont    = YES;
+        
+        self.activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        self.activityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
+        self.activityIndicatorView.hidesWhenStopped = YES;
+        
+        [self.view addSubview:self.activityIndicatorView];
+        [self.activityIndicatorView.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
+        [self.activityIndicatorView.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor].active = YES;
     }
 }
 
@@ -307,12 +317,17 @@
     UIButton *download = [[UIButton alloc] init];
     [self.view addSubview:download];
     [download setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [download.widthAnchor constraintEqualToAnchor:self.view.widthAnchor constant:-32].active = YES;
-    [download.heightAnchor constraintEqualToConstant:57].active = YES;
+    [download.widthAnchor constraintEqualToAnchor:self.view.widthAnchor multiplier:0.618].active = YES;
+    [download.heightAnchor constraintEqualToConstant:36].active = YES;
     [download.centerXAnchor constraintEqualToAnchor:self.view.centerXAnchor].active = YES;
-    [download.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:22].active = YES;
+    [download.centerYAnchor constraintEqualToAnchor:self.view.centerYAnchor constant:36].active = YES;
     
-    [download.titleLabel setFont:[UIFont systemFontOfSize:27 weight:UIFontWeightRegular]];
+    download.layer.borderColor = [UIColor colorWithWhite:51 / 255.0 alpha:1].CGColor;
+    download.layer.borderWidth = 1.0f;
+    download.layer.cornerRadius = 4.0f;
+    download.titleLabel.adjustsFontSizeToFitWidth = YES;
+    download.titleLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightRegular];
+    
     [download setTitle:[[FTranslate standarTranslate] stringFromString:FTDownload] forState:UIControlStateNormal];
     [download setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:1.0] forState:UIControlStateNormal];
     [download setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:0.4] forState:UIControlStateDisabled];
@@ -403,15 +418,6 @@
             });
         } else if (state == kCTFontDescriptorMatchingDidFinish) {
             dispatch_async( dispatch_get_main_queue(), ^ {
-                // Remove the activity indicator
-//                [_fActivityIndicatorView stopAnimating];
-//                _fActivityIndicatorView.hidden = YES;
-                
-                // Display the sample text for the newly downloaded font
-//                NSUInteger sampleIndex = [_fontNames indexOfObject:fontName];
-//                _fTextView.text = [_fontSamples objectAtIndex:sampleIndex];
-//                _fTextView.font = [UIFont fontWithName:fontName size:24.];
-                
                 // Log the font URL in the console
                 CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
                 CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);

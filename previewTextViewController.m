@@ -8,7 +8,7 @@
 
 #import "previewTextViewController.h"
 #import "UITableViewFunctionalCell.h"
-#import "cachePreviewText.h"
+#import "FCachePreviewText.h"
 
 @interface previewTextViewController()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
@@ -26,16 +26,16 @@
     [super viewDidLoad];
     
     self.title = @"Preview text";
-    self.previewTexts = [cachePreviewText allPreviewTexts];
+    self.previewTexts = [FCachePreviewText allPreviewTexts];
     
     [self UI];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     if( self.shouldUpdate ){
-        [cachePreviewText letPreviewText:self.functioncells[0].textField.text withName:TEXT_PREVIEW_ENGLISH_CACHE];
-        [cachePreviewText letPreviewText:self.functioncells[1].textField.text withName:TEXT_PREVIEW_CHINESE_CACHE];
-        [cachePreviewText letPreviewText:self.functioncells[2].textField.text withName:TEXT_PREVIEW_JAPANESE_CACHE];
+        [FCachePreviewText letPreviewText:self.functioncells[0].textField.text withName:TEXT_PREVIEW_ENGLISH_CACHE];
+        [FCachePreviewText letPreviewText:self.functioncells[1].textField.text withName:TEXT_PREVIEW_CHINESE_CACHE];
+        [FCachePreviewText letPreviewText:self.functioncells[2].textField.text withName:TEXT_PREVIEW_JAPANESE_CACHE];
     }
 }
 
@@ -109,8 +109,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if( indexPath.row == 3 ){
-        [cachePreviewText resetDefault];
-        self.previewTexts = [cachePreviewText allPreviewTexts];
+        [FCachePreviewText resetDefault];
+        self.previewTexts = [FCachePreviewText allPreviewTexts];
         [self.bear reloadData];
     }
 }
