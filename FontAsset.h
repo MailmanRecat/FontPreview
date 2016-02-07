@@ -14,10 +14,17 @@
 @property( nonatomic, strong ) NSString *introFontName;
 @property( nonatomic, strong ) NSString *fontName;
 @property( nonatomic, strong ) NSString *type;
+@property( nonatomic, strong ) NSString *PostScriptName;
 
 + (instancetype)assetFromName:(NSString *)name
                 introFontName:(NSString *)introFontName
                      fontName:(NSString *)fontName
+                         type:(NSString *)type;
+
++ (instancetype)assetFromName:(NSString *)name
+                introFontName:(NSString *)introFontName
+                     fontName:(NSString *)fontName
+               postScriptName:(NSString *)scriptName
                          type:(NSString *)type;
 
 @end

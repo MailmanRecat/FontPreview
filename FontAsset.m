@@ -18,9 +18,23 @@
     FontAsset *asset = [[FontAsset alloc] init];
     
     asset.name          = name;
-    asset.introFontName = introFontName;
-    asset.fontName      = fontName;
+    asset.introFontName = introFontName ? : name;
+    asset.fontName      = fontName ? : name;
     asset.type          = type;
+    
+    return asset;
+}
+
++ (instancetype)assetFromName:(NSString *)name
+                introFontName:(NSString *)introFontName
+                     fontName:(NSString *)fontName
+               postScriptName:(NSString *)scriptName
+                         type:(NSString *)type{
+    FontAsset *asset = [FontAsset assetFromName:name
+                                  introFontName:introFontName
+                                       fontName:fontName
+                                           type:type];
+    asset.PostScriptName = scriptName;
     
     return asset;
 }

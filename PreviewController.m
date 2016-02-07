@@ -87,6 +87,14 @@
 - (void)setFontAsset:(FontAsset *)fontAsset{
     _fontAsset = fontAsset;
     
+    [self sortFontWeight];
+    
+    int debug = 1;
+    
+    if( debug != 0 ){
+        return;
+    }
+    
     if( [self fontSupport] ){
         [self sortFontWeight];
     }else{
@@ -261,6 +269,7 @@
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_ID];
         if( cell == nil ){
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
+            cell.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         }
         
         if( indexPath.row == self.weightIndexPath.row && indexPath.section == self.weightIndexPath.section )
@@ -428,6 +437,8 @@
                 if (!errorDuringDownload) {
                     NSLog(@"%@ downloaded", fontName);
                     self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTFinishDownload];
+                    
+                    NSLog(@"MatchingFinished %d", [self fontSupport]);
                     
                     self.syncFont = NO;
                     [self sortFontWeight];

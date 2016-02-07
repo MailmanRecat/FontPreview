@@ -36,8 +36,8 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.QArray  = @[ @"Feedback", @"Rate this app", @"Version", @"Author" ];
-    self.AArray  = @[ @"mailmanrecat@gmail.com", @"", @"9.0", @"mailman" ];
+    self.QArray  = @[ @"Feedback", @"Rate this app", @"Author", @"Version" ];
+    self.AArray  = @[ @"mailmanrecat@gmail.com", @"", @"mailman", @"9.0" ];
     self.ADArray = @[ @"todo list", @"note pad", @"class schedule", @"html man" ];
     self.AIArray = @[ @"icon120.png", @"noteicon120.png", @"classscheduleicon75x75.png", @"webicon75x75.png" ];
     self.ALArray = @[
@@ -151,6 +151,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:TABLEVIEW_CELL_ID];
     if( cell == nil ){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:TABLEVIEW_CELL_ID];
+        cell.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
     }
     
     cell.accessoryType = UITableViewCellAccessoryNone;
