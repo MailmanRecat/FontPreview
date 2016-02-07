@@ -1444,9 +1444,7 @@
         <string>Miniver-Regular.ttf</string>
         
         <string>MissFajardose-Regular.ttf</string>
-        
-        <string>MrsSaintDelafield-Regular.ttf</string>
-        
+
         <string>Modak-Regular.ttf</string>
         
         <string>ModernAntiqua-Regular.ttf</string>
@@ -1477,16 +1475,10 @@
         <string>Moulpali.ttf</string>
         
         <string>MouseMemoirs-Regular.ttf</string>
-        
-        <string>MrBedfort-Regular.ttf</string>
-        
-        <string>MrBedfort-Regular.ttf</string>
-        
+
         <string>MrDafoe-Regular.ttf</string>
         
         <string>MrDeHaviland-Regular.ttf</string>
-        
-        <string>MrsSaintDelafield-Regular.ttf</string>
         
         <string>MrsSheppards-Regular.ttf</string>
         
@@ -1494,6 +1486,804 @@
         <string>MyanmarSansPro-Regular.ttf</string>
         
         <string>MysteryQuest-Regular.ttf</string>
+        
+        <string>NATS-Regular.ttf</string>
+        
+        <string>Neucha.ttf</string>
+        
+        <string>Neuton-Bold.ttf</string>
+        <string>Neuton-ExtraBold.ttf</string>
+        <string>Neuton-ExtraLight.ttf</string>
+        <string>Neuton-Italic.ttf</string>
+        <string>Neuton-Light.ttf</string>
+        <string>Neuton-Regular.ttf</string>
+        
+        <string>NewRocker-Regular.ttf</string>
+        
+        <string>NewsCycle-Bold.ttf</string>
+        <string>NewsCycle-Regular.ttf</string>
+        
+        <string>Niconne-Regular.ttf</string>
+        
+        <string>NixieOne-Regular.ttf</string>
+        
+        <string>Nobile-Bold.ttf</string>
+        <string>Nobile-BoldItalic.ttf</string>
+        <string>Nobile-Italic.ttf</string>
+        <string>Nobile-Medium.ttf</string>
+        <string>Nobile-MediumItalic.ttf</string>
+        <string>Nobile-Regular.ttf</string>
+        
+        <string>Norican-Regular.ttf</string>
+        
+        <string>Nosifer-Regular.ttf</string>
+        
+        <string>NosiferCaps-Regular.ttf</string>
+        
+        <string>NothingYouCouldDo.ttf</string>
+        
+        <string>NoticiaText-Bold.ttf</string>
+        <string>NoticiaText-BoldItalic.ttf</string>
+        <string>NoticiaText-Italic.ttf</string>
+        <string>NoticiaText-Regular.ttf</string>
+        
+        <string>NotoSans-Bold.ttf</string>
+        <string>NotoSans-BoldItalic.ttf</string>
+        <string>NotoSans-Italic.ttf</string>
+        <string>NotoSans-Regular.ttf</string>
+        
+        <string>NotoSerif-Bold.ttf</string>
+        <string>NotoSerif-BoldItalic.ttf</string>
+        <string>NotoSerif-Italic.ttf</string>
+        <string>NotoSerif-Regular.ttf</string>
+        
+        <string>NovaCut.ttf</string>
+        
+        <string>NovaFlat.ttf</string>
+        
+        <string>NovaMono.ttf</string>
+        
+        <string>NovaOval.ttf</string>
+        
+        <string>NovaRound.ttf</string>
+        
+        <string>NovaScript.ttf</string>
+        
+        <string>NovaSlim.ttf</string>
+        
+        <string>NovaSquare.ttf</string>
+        
+        <string>NTR-Regular.ttf</string>
+        
+        <string>Numans-Regular.ttf</string>
+        
+        <string>Nunito-Bold.ttf</string>
+        <string>Nunito-Light.ttf</string>
+        <string>Nunito-Regular.ttf</string>
+        
+        <string>OdorMeanChey.ttf</string>
+        
+        <string>Offside-Regular.ttf</string>
+        
+        <string>OFLGoudyStMTT-Italic.ttf</string>
+        <string>OFLGoudyStMTT.ttf</string>
+        
+        <string>Oldenburg-Regular.ttf</string>
+        
+        <string>OldStandard-Bold.ttf</string>
+        <string>OldStandard-Italic.ttf</string>
+        <string>OldStandard-Regular.ttf</string>
+        
+        <string>OleoScript-Bold.ttf</string>
+        <string>OleoScript-Regular.ttf</string>
+        
+        <string>OleoScriptSwashCaps-Bold.ttf</string>
+        <string>OleoScriptSwashCaps-Regular.ttf</string>
+        
+        <string>Oranienbaum-Regular.ttf</string>
+        
+        <string>Oregano-Italic.ttf</string>
+        <string>Oregano-Regular.ttf</string>
+        
+        <string>Orienta-Regular.ttf</string>
+        
+        <string>OriginalSurfer-Regular.ttf</string>
+        
+        <string>Oswald-Bold.ttf</string>
+        <string>Oswald-Light.ttf</string>
+        <string>Oswald-Regular.ttf</string>
+        
+        <string>Overlock-Black.ttf</string>
+        <string>Overlock-BlackItalic.ttf</string>
+        <string>Overlock-Bold.ttf</string>
+        <string>Overlock-BoldItalic.ttf</string>
+        <string>Overlock-Italic.ttf</string>
+        <string>Overlock-Regular.ttf</string>
+        
+        <string>OverlockSC-Regular.ttf</string>
+        
+        <string>OvertheRainbow.ttf</string>
+        
+        <string>Ovo-Regular.ttf</string>
+        
+        <string>Oxygen-Bold.ttf</string>
+        <string>Oxygen-Light.ttf</string>
+        <string>Oxygen-Regular.ttf</string>
+        
+        <string>OxygenMono-Regular.ttf</string>
+        
+        <string>Pacifico.ttf</string>
+        
+        
+        <string>Padauk-Bold.ttf</string>
+        <string>Padauk-Regular.ttf</string>
+        
+        <string>Palanquin-Bold.ttf</string>
+        <string>Palanquin-ExtraLight.ttf</string>
+        <string>Palanquin-Light.ttf</string>
+        <string>Palanquin-Medium.ttf</string>
+        <string>Palanquin-Regular.ttf</string>
+        <string>Palanquin-SemiBold.ttf</string>
+        <string>Palanquin-Thin.ttf</string>
+        
+        <string>PalanquinDark-Bold.ttf</string>
+        <string>PalanquinDark-Medium.ttf</string>
+        <string>PalanquinDark-Regular.ttf</string>
+        <string>PalanquinDark-SemiBold.ttf</string>
+        
+        <string>Paprika-Regular.ttf</string>
+        
+        <string>Parisienne-Regular.ttf</string>
+        
+        <string>PasseroOne-Regular.ttf</string>
+        
+        <string>PassionOne-Black.ttf</string>
+        <string>PassionOne-Bold.ttf</string>
+        <string>PassionOne-Regular.ttf</string>
+        
+        <string>PathwayGothicOne-Regular.ttf</string>
+        
+        <string>PatrickHand-Regular.ttf</string>
+        
+        <string>PatrickHandSC-Regular.ttf</string>
+        
+        <string>PatuaOne-Regular.ttf</string>
+        
+        <string>PaytoneOne.ttf</string>
+        
+        <string>Pecita.ttf</string>
+        
+        <string>Peddana-Regular.ttf</string>
+        
+        <string>Peralta-Regular.ttf</string>
+        
+        <string>PetitFormalScript-Regular.ttf</string>
+        
+        <string>Petrona-Regular.ttf</string>
+        
+        
+        
+        <string>Phetsarath-Bold.ttf</string>
+        
+        <string>Phetsarath-Regular.ttf</string>
+        
+        <string>Philosopher-Bold.ttf</string>
+        <string>Philosopher-BoldItalic.ttf</string>
+        <string>Philosopher-Italic.ttf</string>
+        <string>Philosopher-Regular.ttf</string>
+        
+        <string>Piedra-Regular.ttf</string>
+        
+        <string>PinyonScript-Regular.ttf</string>
+        
+        <string>PirataOne-Regular.ttf</string>
+        
+        <string>Plaster-Regular.ttf</string>
+        
+        <string>Play-Bold.ttf</string>
+        <string>Play-Regular.ttf</string>
+        
+        <string>Playball-Regular.ttf</string>
+        
+        <string>PlayfairDisplay-Black.ttf</string>
+        <string>PlayfairDisplay-BlackItalic.ttf</string>
+        <string>PlayfairDisplay-Bold.ttf</string>
+        <string>PlayfairDisplay-BoldItalic.ttf</string>
+        <string>PlayfairDisplay-Italic.ttf</string>
+        <string>PlayfairDisplay-Regular.ttf</string>
+        
+        <string>PlayfairDisplaySC-Black.ttf</string>
+        <string>PlayfairDisplaySC-BlackItalic.ttf</string>
+        <string>PlayfairDisplaySC-Bold.ttf</string>
+        <string>PlayfairDisplaySC-BoldItalic.ttf</string>
+        <string>PlayfairDisplaySC-Italic.ttf</string>
+        <string>PlayfairDisplaySC-Regular.ttf</string>
+        
+        <string>PoetsenOne-Regular.ttf</string>
+        
+        <string>PoiretOne-Regular.ttf</string>
+        
+        <string>PollerOne.ttf</string>
+        
+        <string>Poly-Italic.ttf</string>
+        <string>Poly-Regular.ttf</string>
+        
+        <string>Ponnala-Regular.ttf</string>
+        
+        <string>PontanoSans-Regular.ttf</string>
+        
+        <string>Poppins-Bold.ttf</string>
+        <string>Poppins-Light.ttf</string>
+        <string>Poppins-Medium.ttf</string>
+        <string>Poppins-Regular.ttf</string>
+        <string>Poppins-SemiBold.ttf</string>
+        
+        <string>PorterSansBlock-Regular.ttf</string>
+        
+        <string>PortLligatSans-Regular.ttf</string>
+        
+        <string>PortLligatSlab-Regular.ttf</string>
+        
+        <string>PragatiNarrow-Bold.ttf</string>
+        <string>PragatiNarrow-Regular.ttf</string>
+        
+        <string>Prata-Regular.ttf</string>
+        
+        <string>Preahvihear.ttf</string>
+        
+        <string>PressStart2P-Regular.ttf</string>
+        
+        <string>PrincessSofia-Regular.ttf</string>
+        
+        <string>Prociono-Regular.ttf</string>
+        
+        <string>ProstoOne-Regular.ttf</string>
+        
+        <string>PTM55FT.ttf</string>
+        
+        <string>PT_Serif-Web-Bold.ttf</string>
+        <string>PT_Serif-Web-BoldItalic.ttf</string>
+        <string>PT_Serif-Web-Italic.ttf</string>
+        <string>PT_Serif-Web-Regular.ttf</string>
+        
+        <string>PT_Serif-Caption-Web-Italic.ttf</string>
+        <string>PT_Serif-Caption-Web-Regular.ttf</string>
+        
+        <string>Puritan-Bold.ttf</string>
+        <string>Puritan-BoldItalic.ttf</string>
+        <string>Puritan-Italic.ttf</string>
+        <string>Puritan-Regular.ttf</string>
+        
+        <string>PurplePurse-Regular.ttf</string>
+        <string>Quando-Regular.ttf</string>
+        
+        <string>Quantico-Bold.ttf</string>
+        <string>Quantico-BoldItalic.ttf</string>
+        <string>Quantico-Italic.ttf</string>
+        <string>Quantico-Regular.ttf</string>
+        
+        <string>Quattrocento-Bold.ttf</string>
+        <string>Quattrocento-Regular.ttf</string>
+        
+        <string>QuattrocentoSans-Bold.ttf</string>
+        <string>QuattrocentoSans-BoldItalic.ttf</string>
+        <string>QuattrocentoSans-Italic.ttf</string>
+        <string>QuattrocentoSans-Regular.ttf</string>
+        
+        <string>Questrial-Regular.ttf</string>
+        
+        <string>Quicksand-Bold.ttf</string>
+        <string>Quicksand-BoldItalic.ttf</string>
+        <string>Quicksand-Italic.ttf</string>
+        <string>Quicksand-Light.ttf</string>
+        <string>Quicksand-LightItalic.ttf</string>
+        <string>Quicksand-Regular.ttf</string>
+        
+        <string>Quintessential-Regular.ttf</string>
+        
+        <string>Qwigley-Regular.ttf</string>
+        
+        <string>RacingSansOne-Regular.ttf</string>
+        
+        <string>Radley-Italic.ttf</string>
+        <string>Radley-Regular.ttf</string>
+        
+        <string>Rajdhani-Bold.ttf</string>
+        <string>Rajdhani-Light.ttf</string>
+        <string>Rajdhani-Medium.ttf</string>
+        <string>Rajdhani-Regular.ttf</string>
+        <string>Rajdhani-SemiBold.ttf</string>
+        
+        <string>Raleway-Black.ttf</string>
+        <string>Raleway-BlackItalic.ttf</string>
+        <string>Raleway-Bold.ttf</string>
+        <string>Raleway-BoldItalic.ttf</string>
+        <string>Raleway-ExtraBold.ttf</string>
+        <string>Raleway-ExtraBoldItalic.ttf</string>
+        <string>Raleway-ExtraLight.ttf</string>
+        <string>Raleway-ExtraLightItalic.ttf</string>
+        <string>Raleway-Italic.ttf</string>
+        <string>Raleway-Light.ttf</string>
+        <string>Raleway-LightItalic.ttf</string>
+        <string>Raleway-Medium.ttf</string>
+        <string>Raleway-MediumItalic.ttf</string>
+        <string>Raleway-Regular.ttf</string>
+        <string>Raleway-SemiBold.ttf</string>
+        <string>Raleway-SemiBoldItalic.ttf</string>
+        <string>Raleway-Thin.ttf</string>
+        <string>Raleway-ThinItalic.ttf</string>
+        
+        <string>Ramabhadra-Regular.ttf</string>
+        
+        <string>Ramaraja-Regular.ttf</string>
+        
+        <string>Rambla-Bold.ttf</string>
+        <string>Rambla-BoldItalic.ttf</string>
+        <string>Rambla-Italic.ttf</string>
+        <string>Rambla-Regular.ttf</string>
+        
+        <string>RammettoOne-Regular.ttf</string>
+        
+        <string>Ranchers-Regular.ttf</string>
+        
+        <string>Ranga-Bold.ttf</string>
+        <string>Ranga-Regular.ttf</string>
+        
+        <string>Rationale-Regular.ttf</string>
+        
+        <string>RaviPrakash-Regular.ttf</string>
+        
+        <string>Redacted-Regular.ttf</string>
+        
+        <string>RedactedScript-Bold.ttf</string>
+        <string>RedactedScript-Regular.ttf</string>
+        
+        <string>ReenieBeanie.ttf</string>
+        
+        <string>Revalia-Regular.ttf</string>
+        
+        
+        <string>RhodiumLibre-Regular.ttf</string>
+        
+        <string>Ribeye-Regular.ttf</string>
+        
+        <string>RibeyeMarrow-Regular.ttf</string>
+        
+        <string>Righteous-Regular.ttf</string>
+        
+        <string>Risque-Regular.ttf</string>
+        
+        <string>Rokkitt-Bold.ttf</string>
+        <string>Rokkitt-Regular.ttf</string>
+        
+        <string>Romanesco-Regular.ttf</string>
+        
+        <string>RopaSans-Italic.ttf</string>
+        <string>RopaSans-Regular.ttf</string>
+        
+        <string>Rosario-Bold.ttf</string>
+        <string>Rosario-BoldItalic.ttf</string>
+        <string>Rosario-Italic.ttf</string>
+        <string>Rosario-Regular.ttf</string>
+        
+        <string>Rosarivo-Italic.ttf</string>
+        <string>Rosarivo-Regular.ttf</string>
+        
+        <string>RougeScript-Regular.ttf</string>
+        
+        <string>RozhaOne-Regular.ttf</string>
+        
+        <string>Rubik-Black.ttf</string>
+        <string>Rubik-BlackItalic.ttf</string>
+        <string>Rubik-Bold.ttf</string>
+        <string>Rubik-BoldItalic.ttf</string>
+        <string>Rubik-Italic.ttf</string>
+        <string>Rubik-Light.ttf</string>
+        <string>Rubik-LightItalic.ttf</string>
+        <string>Rubik-Medium.ttf</string>
+        <string>Rubik-MediumItalic.ttf</string>
+        <string>Rubik-Regular.ttf</string>
+        
+        <string>RubikMonoOne-Regular.ttf</string>
+        
+        <string>RubikOne-Regular.ttf</string>
+        
+        <string>Ruda-Black.ttf</string>
+        <string>Ruda-Bold.ttf</string>
+        <string>Ruda-Regular.ttf</string>
+        
+        <string>Rufina-Bold.ttf</string>
+        <string>Rufina-Regular.ttf</string>
+        
+        <string>RugeBoogie-Regular.ttf</string>
+        
+        <string>Ruluko-Regular.ttf</string>
+        
+        <string>RumRaisin-Regular.ttf</string>
+        
+        <string>RuslanDisplay.ttf</string>
+        
+        <string>RussoOne-Regular.ttf</string>
+        
+        <string>Ruthie-Regular.ttf</string>
+        
+        <string>Rye-Regular.ttf</string>
+        
+        <string>Sacramento-Regular.ttf</string>
+        
+        <string>Sahitya-Bold.ttf</string>
+        <string>Sahitya-Regular.ttf</string>
+        
+        <string>Sail-Regular.ttf</string>
+        
+        <string>Salsa-Regular.ttf</string>
+        
+        <string>Sanchez-Italic.ttf</string>
+        <string>Sanchez-Regular.ttf</string>
+        
+        <string>Sancreek-Regular.ttf</string>
+        
+        <string>Sansation-Bold.ttf</string>
+        <string>Sansation-BoldItalic.ttf</string>
+        <string>Sansation-Italic.ttf</string>
+        <string>Sansation-Light.ttf</string>
+        <string>Sansation-LightItalic.ttf</string>
+        <string>Sansation-Regular.ttf</string>
+        
+        <string>SansitaOne.ttf</string>
+        
+        
+        <string>Sarabun-Bold.ttf</string>
+        
+        <string>Sarabun-BoldItalic.ttf</string>
+        
+        <string>Sarabun-Italic.ttf</string>
+        
+        <string>Sarabun-Regular.ttf</string>
+        
+        <string>Sarala-Bold.ttf</string>
+        <string>Sarala-Regular.ttf</string>
+        
+        <string>Sarina-Regular.ttf</string>
+        
+        <string>Sarpanch-Black.ttf</string>
+        <string>Sarpanch-Bold.ttf</string>
+        <string>Sarpanch-ExtraBold.ttf</string>
+        <string>Sarpanch-Medium.ttf</string>
+        <string>Sarpanch-Regular.ttf</string>
+        <string>Sarpanch-SemiBold.ttf</string>
+        
+        <string>Scada-Bold.ttf</string>
+        <string>Scada-BoldItalic.ttf</string>
+        <string>Scada-Italic.ttf</string>
+        <string>Scada-Regular.ttf</string>
+        
+        <string>Scheherazade-Bold.ttf</string>
+        <string>Scheherazade-Regular.ttf</string>
+        
+        <string>SeaweedScript-Regular.ttf</string>
+        
+        <string>Sedan-Italic.ttf</string>
+        <string>Sedan-Regular.ttf</string>
+        
+        <string>SedanSC-Regular.ttf</string>
+        
+        <string>Sevillana-Regular.ttf</string>
+        
+        <string>SeymourOne-Regular.ttf</string>
+        
+        <string>ShadowsIntoLight.ttf</string>
+        
+        <string>ShadowsIntoLightTwo-Regular.ttf</string>
+        
+        <string>Shanti-Regular.ttf</string>
+        
+        <string>Share-Bold.ttf</string>
+        <string>Share-BoldItalic.ttf</string>
+        <string>Share-Italic.ttf</string>
+        <string>Share-Regular.ttf</string>
+        
+        <string>ShareTech-Regular.ttf</string>
+        
+        <string>ShareTechMono-Regular.ttf</string>
+        
+        <string>Shojumaru-Regular.ttf</string>
+        
+        <string>ShortStack-Regular.ttf</string>
+        
+        <string>Siemreap.ttf</string>
+        
+        <string>SigmarOne.ttf</string>
+        
+        <string>Signika-Bold.ttf</string>
+        <string>Signika-Light.ttf</string>
+        <string>Signika-Regular.ttf</string>
+        <string>Signika-Semibold.ttf</string>
+        
+        <string>SignikaNegative-Bold.ttf</string>
+        <string>SignikaNegative-Light.ttf</string>
+        <string>SignikaNegative-Regular.ttf</string>
+        <string>SignikaNegative-Semibold.ttf</string>
+        
+        <string>Simonetta-Black.ttf</string>
+        <string>Simonetta-BlackItalic.ttf</string>
+        <string>Simonetta-Italic.ttf</string>
+        <string>Simonetta-Regular.ttf</string>
+        
+        <string>Sintony-Bold.ttf</string>
+        <string>Sintony-Regular.ttf</string>
+        
+        <string>SirinStencil-Regular.ttf</string>
+        
+        <string>Sitara-Bold.ttf</string>
+        <string>Sitara-BoldItalic.ttf</string>
+        <string>Sitara-Italic.ttf</string>
+        <string>Sitara-Regular.ttf</string>
+        
+        <string>SixCaps.ttf</string>
+        
+        <string>Skranji-Bold.ttf</string>
+        <string>Skranji-Regular.ttf</string>
+        
+        <string>Slabo13px-Regular.ttf</string>
+        
+        <string>Slabo27px-Regular.ttf</string>
+        
+        <string>Smythe-Regular.ttf</string>
+        
+        <string>Sniglet-ExtraBold.ttf</string>
+        <string>Sniglet-Regular.ttf</string>
+        
+        <string>Snippet.ttf</string>
+        
+        <string>SnowburstOne-Regular.ttf</string>
+        
+        <string>SofadiOne-Regular.ttf</string>
+        
+        <string>Sofia-Regular.ttf</string>
+        
+        <string>SonsieOne-Regular.ttf</string>
+        
+        <string>SortsMillGoudy-Italic.ttf</string>
+        <string>SortsMillGoudy-Regular.ttf</string>
+        
+        <string>SourceCodePro-Black.ttf</string>
+        <string>SourceCodePro-Bold.ttf</string>
+        <string>SourceCodePro-ExtraLight.ttf</string>
+        <string>SourceCodePro-Light.ttf</string>
+        <string>SourceCodePro-Medium.ttf</string>
+        <string>SourceCodePro-Regular.ttf</string>
+        <string>SourceCodePro-Semibold.ttf</string>
+        
+        
+        <string>SourceSansPro-Black.ttf</string>
+        <string>SourceSansPro-BlackItalic.ttf</string>
+        <string>SourceSansPro-Bold.ttf</string>
+        <string>SourceSansPro-BoldItalic.ttf</string>
+        <string>SourceSansPro-ExtraLight.ttf</string>
+        <string>SourceSansPro-ExtraLightItalic.ttf</string>
+        <string>SourceSansPro-Italic.ttf</string>
+        <string>SourceSansPro-Light.ttf</string>
+        <string>SourceSansPro-LightItalic.ttf</string>
+        <string>SourceSansPro-Regular.ttf</string>
+        <string>SourceSansPro-Semibold.ttf</string>
+        <string>SourceSansPro-SemiboldItalic.ttf</string>
+        
+        
+        <string>SourceSerifPro-Bold.ttf</string>
+        <string>SourceSerifPro-Regular.ttf</string>
+        <string>SourceSerifPro-Semibold.ttf</string>
+        
+        <string>SpicyRice-Regular.ttf</string>
+        
+        <string>Spinnaker-Regular.ttf</string>
+        
+        <string>Spirax-Regular.ttf</string>
+        
+        <string>SquadaOne-Regular.ttf</string>
+        
+        <string>SreeKrushnadevaraya-Regular.ttf</string>
+        
+        <string>Sriracha-Regular.ttf</string>
+        
+        <string>Stalemate-Regular.ttf</string>
+        
+        <string>StalinistOne-Regular.ttf</string>
+        
+        <string>StalinOne-Regular.ttf</string>
+        
+        <string>StardosStencil-Bold.ttf</string>
+        <string>StardosStencil-Regular.ttf</string>
+        
+        <string>StintUltraCondensed-Regular.ttf</string>
+        
+        <string>StintUltraExpanded-Regular.ttf</string>
+        
+        <string>Stoke-Light.ttf</string>
+        <string>Stoke-Regular.ttf</string>
+        
+        <string>Strait-Regular.ttf</string>
+        
+        <string>Strong-Regular.ttf</string>
+        
+        <string>Sumana-Bold.ttf</string>
+        <string>Sumana-Regular.ttf</string>
+        
+        <string>SupermercadoOne-Regular.ttf</string>
+        
+        <string>Sura-Bold.ttf</string>
+        <string>Sura-Regular.ttf</string>
+        
+        <string>Suranna-Regular.ttf</string>
+        
+        <string>Suravaram-Regular.ttf</string>
+        
+        <string>SwankyandMooMoo.ttf</string>
+        <string>Tangerine_Bold.ttf</string>
+        <string>Tangerine_Regular.ttf</string>
+        
+        <string>Taprom.ttf</string>
+        
+        <string>Tauri-Regular.ttf</string>
+        
+        <string>Teko-Bold.ttf</string>
+        <string>Teko-Light.ttf</string>
+        <string>Teko-Medium.ttf</string>
+        <string>Teko-Regular.ttf</string>
+        <string>Teko-SemiBold.ttf</string>
+        
+        <string>Telex-Regular.ttf</string>
+        
+        <string>TenaliRamakrishna-Regular.ttf</string>
+        
+        <string>TenorSans-Regular.ttf</string>
+        
+        <string>TextMeOne-Regular.ttf</string>
+        
+        
+        <string>Thabit-Bold.ttf</string>
+        <string>Thabit-BoldOblique.ttf</string>
+        <string>Thabit-Oblique.ttf</string>
+        <string>Thabit.ttf</string>
+        
+        
+        <string>Tharlon-Regular.ttf</string>
+        
+        <string>TheGirlNextDoor.ttf</string>
+        
+        <string>Tienne-Bold.ttf</string>
+        <string>Tienne-Heavy.ttf</string>
+        <string>Tienne-Regular.ttf</string>
+        
+        <string>Tillana-Bold.ttf</string>
+        <string>Tillana-ExtraBold.ttf</string>
+        <string>Tillana-Medium.ttf</string>
+        <string>Tillana-Regular.ttf</string>
+        <string>Tillana-SemiBold.ttf</string>
+        
+        <string>Timmana-Regular.ttf</string>
+        
+        <string>TitanOne-Regular.ttf</string>
+        
+        <string>TitilliumWeb-Black.ttf</string>
+        <string>TitilliumWeb-Bold.ttf</string>
+        <string>TitilliumWeb-BoldItalic.ttf</string>
+        <string>TitilliumWeb-ExtraLight.ttf</string>
+        <string>TitilliumWeb-ExtraLightItalic.ttf</string>
+        <string>TitilliumWeb-Italic.ttf</string>
+        <string>TitilliumWeb-Light.ttf</string>
+        <string>TitilliumWeb-LightItalic.ttf</string>
+        <string>TitilliumWeb-Regular.ttf</string>
+        <string>TitilliumWeb-SemiBold.ttf</string>
+        <string>TitilliumWeb-SemiBoldItalic.ttf</string>
+        
+        <string>TradeWinds-Regular.ttf</string>
+        
+        <string>Trocchi-Regular.ttf</string>
+        
+        <string>Trochut-Bold.ttf</string>
+        <string>Trochut-Italic.ttf</string>
+        <string>Trochut-Regular.ttf</string>
+        
+        <string>Trykker-Regular.ttf</string>
+        
+        <string>Tuffy-Bold.ttf</string>
+        <string>Tuffy-BoldItalic.ttf</string>
+        <string>Tuffy-Italic.ttf</string>
+        <string>Tuffy-Regular.ttf</string>
+        
+        <string>TulpenOne-Regular.ttf</string>
+        
+        <string>UncialAntiqua-Regular.ttf</string>
+        
+        <string>Underdog-Regular.ttf</string>
+        
+        <string>UnicaOne-Regular.ttf</string>
+        
+        <string>Unlock-Regular.ttf</string>
+        
+        <string>Unna-Regular.ttf</string>
+        
+        <string>VampiroOne-Regular.ttf</string>
+        
+        <string>Varela-Regular.ttf</string>
+        
+        <string>VarelaRound-Regular.ttf</string>
+        
+        <string>Varta-Bold.ttf</string>
+        <string>Varta-Light.ttf</string>
+        <string>Varta-Regular.ttf</string>
+        <string>Varta-SemiBold.ttf</string>
+        
+        <string>VastShadow-Regular.ttf</string>
+        
+        <string>VesperLibre-Bold.ttf</string>
+        <string>VesperLibre-Heavy.ttf</string>
+        <string>VesperLibre-Medium.ttf</string>
+        <string>VesperLibre-Regular.ttf</string>
+        
+        <string>Vibur-Regular.ttf</string>
+        
+        <string>Vidaloka-Regular.ttf</string>
+        
+        <string>Viga-Regular.ttf</string>
+        
+        <string>Voces-Regular.ttf</string>
+        
+        <string>Volkhov-Bold.ttf</string>
+        <string>Volkhov-BoldItalic.ttf</string>
+        <string>Volkhov-Italic.ttf</string>
+        <string>Volkhov-Regular.ttf</string>
+        
+        <string>Vollkorn-Bold.ttf</string>
+        <string>Vollkorn-BoldItalic.ttf</string>
+        <string>Vollkorn-Italic.ttf</string>
+        <string>Vollkorn-Regular.ttf</string>
+        
+        <string>Voltaire-Regular.ttf</string>
+        
+        <string>VT323-Regular.ttf</string>
+        
+        <string>WaitingfortheSunrise.ttf</string>
+        
+        <string>Wallpoet-Regular.ttf</string>
+        
+        <string>Warnes-Regular.ttf</string>
+        
+        <string>Wellfleet-Regular.ttf</string>
+        
+        <string>WendyOne-Regular.ttf</string>
+        
+        <string>WireOne.ttf</string>
+        
+        <string>WorkSans-Black.ttf</string>
+        <string>WorkSans-Bold.ttf</string>
+        <string>WorkSans-ExtraBold.ttf</string>
+        <string>WorkSans-ExtraLight.ttf</string>
+        <string>WorkSans-Light.ttf</string>
+        <string>WorkSans-Medium.ttf</string>
+        <string>WorkSans-Regular.ttf</string>
+        <string>WorkSans-SemiBold.ttf</string>
+        <string>WorkSans-Thin.ttf</string>
+        
+        <string>YanoneKaffeesatz-Bold.ttf</string>
+        <string>YanoneKaffeesatz-ExtraLight.ttf</string>
+        <string>YanoneKaffeesatz-Light.ttf</string>
+        <string>YanoneKaffeesatz-Regular.ttf</string>
+        
+        <string>Yantramanav-Black.ttf</string>
+        <string>Yantramanav-Bold.ttf</string>
+        <string>Yantramanav-Light.ttf</string>
+        <string>Yantramanav-Medium.ttf</string>
+        <string>Yantramanav-Regular.ttf</string>
+        <string>Yantramanav-Thin.ttf</string>
+        
+        <string>YesevaOne-Regular.ttf</string>
+        
+        <string>Yesteryear-Regular.ttf</string>
+        
+        <string>Zeyada.ttf</string>
+
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

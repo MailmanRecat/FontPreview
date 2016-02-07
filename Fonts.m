@@ -34,13 +34,13 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
     
 //    NSLog(@"%@", [UIFont familyNames]);
     
-    NSString *target = @"lateef";
-    [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
-        if( [[name lowercaseString] rangeOfString:target].location != NSNotFound ){
-            NSLog(@"%@", name);
-            NSLog(@"%@", [UIFont fontNamesForFamilyName:name]);
-        }
-    }];
+//    NSString *target = @"ter";
+//    [[UIFont familyNames] enumerateObjectsUsingBlock:^(NSString *name, NSUInteger index, BOOL *sS){
+//        if( [[name lowercaseString] rangeOfString:target].location != NSNotFound ){
+//            NSLog(@"%@", name);
+//            NSLog(@"%@", [UIFont fontNamesForFamilyName:name]);
+//        }
+//    }];
     
 //    NSLog(@"%@", [UIFont fontNamesForFamilyName:@"Kohinoor Bangla"]);
     
@@ -2758,11 +2758,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Mouse Memoirs"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Mr Bedfort"
-                        introFontName:@"Mr Bedfort"
-                             fontName:@"Mr Bedfort"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Mr Dafoe"
                         introFontName:@"Mr Dafoe"
                              fontName:@"Mr Dafoe"
@@ -2778,11 +2773,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Mrs Sheppards"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Mrs Saint Delafield"
-                        introFontName:@"Mrs Saint Delafield"
-                             fontName:@"Mrs Saint Delafield"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Myanmar Sans Pro"
                         introFontName:@"Myanmar Sans Pro"
                              fontName:@"Myanmar Sans Pro"
@@ -2791,6 +2781,1311 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Mystery Quest"
                         introFontName:@"Mystery Quest"
                              fontName:@"Mystery Quest"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"NATS"
+                        introFontName:@"NATS"
+                             fontName:@"NATS"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Neucha"
+                        introFontName:@"Neucha"
+                             fontName:@"Neucha"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Neuton"
+                        introFontName:@"Neuton"
+                             fontName:@"Neuton"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"New Rocker"
+                        introFontName:@"New Rocker"
+                             fontName:@"New Rocker"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"News Cycle"
+                        introFontName:@"News Cycle"
+                             fontName:@"News Cycle"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Niconne"
+                        introFontName:@"Niconne"
+                             fontName:@"Niconne"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nixie One"
+                        introFontName:@"Nixie One"
+                             fontName:@"Nixie One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nobile"
+                        introFontName:@"Nobile"
+                             fontName:@"Nobile"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Norican"
+                        introFontName:@"Norican"
+                             fontName:@"Norican"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nosifer"
+                        introFontName:@"Nosifer"
+                             fontName:@"Nosifer"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nosifer Caps"
+                        introFontName:@"Nosifer Caps"
+                             fontName:@"Nosifer Caps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nothing You Could Do"
+                        introFontName:@"Nothing You Could Do"
+                             fontName:@"Nothing You Could Do"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Noticia Text"
+                        introFontName:@"Noticia Text"
+                             fontName:@"Noticia Text"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Noto Sans"
+                        introFontName:@"Noto Sans"
+                             fontName:@"Noto Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Noto Serif"
+                        introFontName:@"Noto Serif"
+                             fontName:@"Noto Serif"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Cut"
+                        introFontName:@"Nova Cut"
+                             fontName:@"Nova Cut"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Flat"
+                        introFontName:@"Nova Flat"
+                             fontName:@"Nova Flat"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"NovaMono"
+                        introFontName:@"NovaMono"
+                             fontName:@"NovaMono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Oval"
+                        introFontName:@"Nova Oval"
+                             fontName:@"Nova Oval"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Round"
+                        introFontName:@"Nova Round"
+                             fontName:@"Nova Round"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Script"
+                        introFontName:@"Nova Script"
+                             fontName:@"Nova Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Slim"
+                        introFontName:@"Nova Slim"
+                             fontName:@"Nova Slim"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nova Square"
+                        introFontName:@"Nova Square"
+                             fontName:@"Nova Square"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"NTR"
+                        introFontName:@"NTR"
+                             fontName:@"NTR"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Numans"
+                        introFontName:@"Numans"
+                             fontName:@"Numans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Nunito"
+                        introFontName:@"Nunito"
+                             fontName:@"Nunito"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"OdorMeanChey"
+                        introFontName:@"OdorMeanChey"
+                             fontName:@"OdorMeanChey"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Offside"
+                        introFontName:@"Offside"
+                             fontName:@"Offside"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"OFL Sorts Mill Goudy TT"
+                        introFontName:@"OFL Sorts Mill Goudy TT"
+                             fontName:@"OFL Sorts Mill Goudy TT"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oldenburg"
+                        introFontName:@"Oldenburg"
+                             fontName:@"Oldenburg"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Old Standard TT"
+                        introFontName:@"Old Standard TT"
+                             fontName:@"Old Standard TT"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oleo Script"
+                        introFontName:@"Oleo Script"
+                             fontName:@"Oleo Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oleo Script Swash Caps"
+                        introFontName:@"Oleo Script Swash Caps"
+                             fontName:@"Oleo Script Swash Caps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oranienbaum"
+                        introFontName:@"Oranienbaum"
+                             fontName:@"Oranienbaum"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oregano"
+                        introFontName:@"Oregano"
+                             fontName:@"Oregano"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Orienta"
+                        introFontName:@"Orienta"
+                             fontName:@"Orienta"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Original Surfer"
+                        introFontName:@"Original Surfer"
+                             fontName:@"Original Surfer"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oswald"
+                        introFontName:@"Oswald"
+                             fontName:@"Oswald"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Overlock"
+                        introFontName:@"Overlock"
+                             fontName:@"Overlock"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Overlock SC"
+                        introFontName:@"Overlock SC"
+                             fontName:@"Overlock SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Over the Rainbow"
+                        introFontName:@"Over the Rainbow"
+                             fontName:@"Over the Rainbow"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ovo"
+                        introFontName:@"Ovo"
+                             fontName:@"Ovo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oxygen"
+                        introFontName:@"Oxygen"
+                             fontName:@"Oxygen"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Oxygen Mono"
+                        introFontName:@"Oxygen Mono"
+                             fontName:@"Oxygen Mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pacifico"
+                        introFontName:@"Pacifico"
+                             fontName:@"Pacifico"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Padauk"
+                        introFontName:@"Padauk"
+                             fontName:@"Padauk"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Palanquin"
+                        introFontName:@"Palanquin"
+                             fontName:@"Palanquin"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Palanquin Dark"
+                        introFontName:@"Palanquin Dark"
+                             fontName:@"Palanquin Dark"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Paprika"
+                        introFontName:@"Paprika"
+                             fontName:@"Paprika"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Parisienne"
+                        introFontName:@"Parisienne"
+                             fontName:@"Parisienne"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Passero One"
+                        introFontName:@"Passero One"
+                             fontName:@"Passero One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pathway Gothic One"
+                        introFontName:@"Pathway Gothic One"
+                             fontName:@"Pathway Gothic One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Patrick Hand"
+                        introFontName:@"Patrick Hand"
+                             fontName:@"Patrick Hand"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Patrick Hand SC"
+                        introFontName:@"Patrick Hand SC"
+                             fontName:@"Patrick Hand SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Patua One"
+                        introFontName:@"Patua One"
+                             fontName:@"Patua One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Paytone One"
+                        introFontName:@"Paytone One"
+                             fontName:@"Paytone One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pecita"
+                        introFontName:@"Pecita"
+                             fontName:@"Pecita"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Peddana"
+                        introFontName:@"Peddana"
+                             fontName:@"Peddana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Peralta"
+                        introFontName:@"Peralta"
+                             fontName:@"Peralta"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Petit Formal Script"
+                        introFontName:@"Petit Formal Script"
+                             fontName:@"Petit Formal Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Petrona"
+                        introFontName:@"Petrona"
+                             fontName:@"Petrona"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Phetsarath"
+                        introFontName:@"Phetsarath"
+                             fontName:@"Phetsarath"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Philosopher"
+                        introFontName:@"Philosopher"
+                             fontName:@"Philosopher"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Piedra"
+                        introFontName:@"Piedra"
+                             fontName:@"Piedra"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pinyon Script"
+                        introFontName:@"Pinyon Script"
+                             fontName:@"Pinyon Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pirata One"
+                        introFontName:@"Pirata One"
+                             fontName:@"Pirata One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Plaster"
+                        introFontName:@"Plaster"
+                             fontName:@"Plaster"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Play"
+                        introFontName:@"Play"
+                             fontName:@"Play"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Playball"
+                        introFontName:@"Playball"
+                             fontName:@"Playball"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Playfair Display"
+                        introFontName:@"Playfair Display"
+                             fontName:@"Playfair Display"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Playfair Display SC"
+                        introFontName:@"Playfair Display SC"
+                             fontName:@"Playfair Display SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"PoetsenOne"
+                        introFontName:@"PoetsenOne"
+                             fontName:@"PoetsenOne"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Poiret One"
+                        introFontName:@"Poiret One"
+                             fontName:@"Poiret One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Poller One"
+                        introFontName:@"Poller One"
+                             fontName:@"Poller One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Poly"
+                        introFontName:@"Poly"
+                             fontName:@"Poly"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ponnala"
+                        introFontName:@"Ponnala"
+                             fontName:@"Ponnala"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pontano Sans"
+                        introFontName:@"Pontano Sans"
+                             fontName:@"Pontano Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Poppins"
+                        introFontName:@"Poppins"
+                             fontName:@"Poppins"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Porter Sans Block"
+                        introFontName:@"Porter Sans Block"
+                             fontName:@"Porter Sans Block"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Port Lligat Sans"
+                        introFontName:@"Port Lligat Sans"
+                             fontName:@"Port Lligat Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Port Lligat Slab"
+                        introFontName:@"Port Lligat Slab"
+                             fontName:@"Port Lligat Slab"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Pragati Narrow"
+                        introFontName:@"Pragati Narrow"
+                             fontName:@"Pragati Narrow"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Prata"
+                        introFontName:@"Prata"
+                             fontName:@"Prata"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Preahvihear"
+                        introFontName:@"Preahvihear"
+                             fontName:@"Preahvihear"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Press Start 2P"
+                        introFontName:@"Press Start 2P"
+                             fontName:@"Press Start 2P"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Princess Sofia"
+                        introFontName:@"Princess Sofia"
+                             fontName:@"Princess Sofia"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Prociono"
+                        introFontName:@"Prociono"
+                             fontName:@"Prociono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Prosto One"
+                        introFontName:@"Prosto One"
+                             fontName:@"Prosto One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"PT Serif"
+                        introFontName:@"PT Serif"
+                             fontName:@"PT Serif"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"PT Serif Caption"
+                        introFontName:@"PT Serif Caption"
+                             fontName:@"PT Serif Caption"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"PT Mono"
+                        introFontName:@"PT Mono"
+                             fontName:@"PT Mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quando"
+                        introFontName:@"Quando"
+                             fontName:@"Quando"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quantico"
+                        introFontName:@"Quantico"
+                             fontName:@"Quantico"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quattrocento"
+                        introFontName:@"Quattrocento"
+                             fontName:@"Quattrocento"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quattrocento Sans"
+                        introFontName:@"Quattrocento Sans"
+                             fontName:@"Quattrocento Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Questrial"
+                        introFontName:@"Questrial"
+                             fontName:@"Questrial"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quicksand"
+                        introFontName:@"Quicksand"
+                             fontName:@"Quicksand"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Quintessential"
+                        introFontName:@"Quintessential"
+                             fontName:@"Quintessential"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Qwigley"
+                        introFontName:@"Qwigley"
+                             fontName:@"Qwigley"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Racing Sans One"
+                        introFontName:@"Racing Sans One"
+                             fontName:@"Racing Sans One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Radley"
+                        introFontName:@"Radley"
+                             fontName:@"Radley"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rajdhani"
+                        introFontName:@"Rajdhani"
+                             fontName:@"Rajdhani"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Raleway"
+                        introFontName:@"Raleway"
+                             fontName:@"Raleway"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ramabhadra"
+                        introFontName:@"Ramabhadra"
+                             fontName:@"Ramabhadra"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ramaraja"
+                        introFontName:@"Ramaraja"
+                             fontName:@"Ramaraja"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rambla"
+                        introFontName:@"Rambla"
+                             fontName:@"Rambla"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rammetto One"
+                        introFontName:@"Rammetto One"
+                             fontName:@"Rammetto One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ranchers"
+                        introFontName:@"Ranchers"
+                             fontName:@"Ranchers"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ranga"
+                        introFontName:@"Ranga"
+                             fontName:@"Ranga"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rationale"
+                        introFontName:@"Rationale"
+                             fontName:@"Rationale"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ravi Prakash"
+                        introFontName:@"Ravi Prakash"
+                             fontName:@"Ravi Prakash"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Redacted"
+                        introFontName:@"Redacted"
+                             fontName:@"Redacted"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Redacted Script"
+                        introFontName:@"Redacted Script"
+                             fontName:@"Redacted Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Reenie Beanie"
+                        introFontName:@"Reenie Beanie"
+                             fontName:@"Reenie Beanie"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Revalia"
+                        introFontName:@"Revalia"
+                             fontName:@"Revalia"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rhodium Libre"
+                        introFontName:@"Rhodium Libre"
+                             fontName:@"Rhodium Libre"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ribeye"
+                        introFontName:@"Ribeye"
+                             fontName:@"Ribeye"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ribeye Marrow"
+                        introFontName:@"Ribeye Marrow"
+                             fontName:@"Ribeye Marrow"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Righteous"
+                        introFontName:@"Righteous"
+                             fontName:@"Righteous"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Risque"
+                        introFontName:@"Risque"
+                             fontName:@"Risque"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rokkitt"
+                        introFontName:@"Rokkitt"
+                             fontName:@"Rokkitt"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Romanesco"
+                        introFontName:@"Romanesco"
+                             fontName:@"Romanesco"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ropa Sans"
+                        introFontName:@"Ropa Sans"
+                             fontName:@"Ropa Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rosario"
+                        introFontName:@"Rosario"
+                             fontName:@"Rosario"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rosarivo"
+                        introFontName:@"Rosarivo"
+                             fontName:@"Rosarivo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rouge Script"
+                        introFontName:@"Rouge Script"
+                             fontName:@"Rouge Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rozha One"
+                        introFontName:@"Rozha One"
+                             fontName:@"Rozha One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rubik"
+                        introFontName:@"Rubik"
+                             fontName:@"Rubik"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rubik Mono One"
+                        introFontName:@"Rubik Mono One"
+                             fontName:@"Rubik Mono One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rubik One"
+                        introFontName:@"Rubik One"
+                             fontName:@"Rubik One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ruda"
+                        introFontName:@"Ruda"
+                             fontName:@"Ruda"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rufina"
+                        introFontName:@"Rufina"
+                             fontName:@"Rufina"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ruge Boogie"
+                        introFontName:@"Ruge Boogie"
+                             fontName:@"Ruge Boogie"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ruluko"
+                        introFontName:@"Ruluko"
+                             fontName:@"Ruluko"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rum Raisin"
+                        introFontName:@"Rum Raisin"
+                             fontName:@"Rum Raisin"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ruslan Display"
+                        introFontName:@"Ruslan Display"
+                             fontName:@"Ruslan Display"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Russo One"
+                        introFontName:@"Russo One"
+                             fontName:@"Russo One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Ruthie"
+                        introFontName:@"Ruthie"
+                             fontName:@"Ruthie"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Rye"
+                        introFontName:@"Rye"
+                             fontName:@"Rye"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sacramento"
+                        introFontName:@"Sacramento"
+                             fontName:@"Sacramento"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sahitya"
+                        introFontName:@"Sahitya"
+                             fontName:@"Sahitya"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sail"
+                        introFontName:@"Sail"
+                             fontName:@"Sail"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Salsa"
+                        introFontName:@"Salsa"
+                             fontName:@"Salsa"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sanchez"
+                        introFontName:@"Sanchez"
+                             fontName:@"Sanchez"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sancreek"
+                        introFontName:@"Sancreek"
+                             fontName:@"Sancreek"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sansation"
+                        introFontName:@"Sansation"
+                             fontName:@"Sansation"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sansita One"
+                        introFontName:@"Sansita One"
+                             fontName:@"Sansita One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sarabun"
+                        introFontName:@"Sarabun"
+                             fontName:@"Sarabun"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sarala"
+                        introFontName:@"Sarala"
+                             fontName:@"Sarala"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sarina"
+                        introFontName:@"Sarina"
+                             fontName:@"Sarina"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sarpanch"
+                        introFontName:@"Sarpanch"
+                             fontName:@"Sarpanch"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Scada"
+                        introFontName:@"Scada"
+                             fontName:@"Scada"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Scheherazade"
+                        introFontName:@"Scheherazade"
+                             fontName:@"Scheherazade"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Seaweed Script"
+                        introFontName:@"Seaweed Script"
+                             fontName:@"Seaweed Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sedan"
+                        introFontName:@"Sedan"
+                             fontName:@"Sedan"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sedan SC"
+                        introFontName:@"Sedan SC"
+                             fontName:@"Sedan SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sevillana"
+                        introFontName:@"Sevillana"
+                             fontName:@"Sevillana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Seymour One"
+                        introFontName:@"Seymour One"
+                             fontName:@"Seymour One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Shadows Into Light"
+                        introFontName:@"Shadows Into Light"
+                             fontName:@"Shadows Into Light"
+                                 type:TYPE_UNKNOW],
+
+             [FontAsset assetFromName:@"Shadows Into Light Two"
+                        introFontName:@"Shadows Into Light Two"
+                             fontName:@"Shadows Into Light Two"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Shanti"
+                        introFontName:@"Shanti"
+                             fontName:@"Shanti"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Share"
+                        introFontName:@"Share"
+                             fontName:@"Share"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Share Tech"
+                        introFontName:@"Share Tech"
+                             fontName:@"Share Tech"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Share Tech Mono"
+                        introFontName:@"Share Tech Mono"
+                             fontName:@"Share Tech Mono"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Shojumaru"
+                        introFontName:@"Shojumaru"
+                             fontName:@"Shojumaru"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Short Stack"
+                        introFontName:@"Short Stack"
+                             fontName:@"Short Stack"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Siemreap"
+                        introFontName:@"Siemreap"
+                             fontName:@"Siemreap"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sigmar One"
+                        introFontName:@"Sigmar One"
+                             fontName:@"Sigmar One"
+                                 type:TYPE_UNKNOW],
+
+             [FontAsset assetFromName:@"Signika"
+                        introFontName:@"Signika"
+                             fontName:@"Signika"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Signika Negative"
+                        introFontName:@"Signika Negative"
+                             fontName:@"Signika Negative"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Simonetta"
+                        introFontName:@"Simonetta"
+                             fontName:@"Simonetta"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sintony"
+                        introFontName:@"Sintony"
+                             fontName:@"Sintony"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"SirinStencil"
+                        introFontName:@"SirinStencil"
+                             fontName:@"SirinStencil"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sitara"
+                        introFontName:@"Sitara"
+                             fontName:@"Sitara"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Six Caps"
+                        introFontName:@"Six Caps"
+                             fontName:@"Six Caps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Skranji"
+                        introFontName:@"Skranji"
+                             fontName:@"Skranji"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Slabo 13px"
+                        introFontName:@"Slabo 13px"
+                             fontName:@"Slabo 13px"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Slabo 27px"
+                        introFontName:@"Slabo 27px"
+                             fontName:@"Slabo 27px"
+                                 type:TYPE_UNKNOW],
+
+             [FontAsset assetFromName:@"Smythe"
+                        introFontName:@"Smythe"
+                             fontName:@"Smythe"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sniglet"
+                        introFontName:@"Sniglet"
+                             fontName:@"Sniglet"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Snippet"
+                        introFontName:@"Snippet"
+                             fontName:@"Snippet"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Snowburst One"
+                        introFontName:@"Snowburst One"
+                             fontName:@"Snowburst One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sofadi One"
+                        introFontName:@"Sofadi One"
+                             fontName:@"Sofadi One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sofia"
+                        introFontName:@"Sofia"
+                             fontName:@"Sofia"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sonsie One"
+                        introFontName:@"Sonsie One"
+                             fontName:@"Sonsie One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sorts Mill Goudy"
+                        introFontName:@"Sorts Mill Goudy"
+                             fontName:@"Sorts Mill Goudy"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Source Code Pro"
+                        introFontName:@"Source Code Pro"
+                             fontName:@"Source Code Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Source Sans Pro"
+                        introFontName:@"Source Sans Pro"
+                             fontName:@"Source Sans Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Source Serif Pro"
+                        introFontName:@"Source Serif Pro"
+                             fontName:@"Source Serif Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Spicy Rice"
+                        introFontName:@"Spicy Rice"
+                             fontName:@"Spicy Rice"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Spinnaker"
+                        introFontName:@"Spinnaker"
+                             fontName:@"Spinnaker"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Spirax"
+                        introFontName:@"Spirax"
+                             fontName:@"Spirax"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Squada One"
+                        introFontName:@"Squada One"
+                             fontName:@"Squada One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sree Krushnadevaraya"
+                        introFontName:@"Sree Krushnadevaraya"
+                             fontName:@"Sree Krushnadevaraya"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sriracha"
+                        introFontName:@"Sriracha"
+                             fontName:@"Sriracha"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stalemate"
+                        introFontName:@"Stalemate"
+                             fontName:@"Stalemate"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stalinist One"
+                        introFontName:@"Stalinist One"
+                             fontName:@"Stalinist One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stalin One"
+                        introFontName:@"Stalin One"
+                             fontName:@"Stalin One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stardos Stencil"
+                        introFontName:@"Stardos Stencil"
+                             fontName:@"Stardos Stencil"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stint Ultra Condensed"
+                        introFontName:@"Stint Ultra Condensed"
+                             fontName:@"Stint Ultra Condensed"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stint Ultra Expanded"
+                        introFontName:@"Stint Ultra Expanded"
+                             fontName:@"Stint Ultra Expanded"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Stoke"
+                        introFontName:@"Stoke"
+                             fontName:@"Stoke"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Strait"
+                        introFontName:@"Strait"
+                             fontName:@"Strait"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Strong"
+                        introFontName:@"Strong"
+                             fontName:@"Strong"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sue Ellen Francisco"
+                        introFontName:@"Sue Ellen Francisco"
+                             fontName:@"Sue Ellen Francisco"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sumana"
+                        introFontName:@"Sumana"
+                             fontName:@"Sumana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Supermercado"
+                        introFontName:@"Supermercado"
+                             fontName:@"Supermercado"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Sura"
+                        introFontName:@"Sura"
+                             fontName:@"Sura"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Suranna"
+                        introFontName:@"Suranna"
+                             fontName:@"Suranna"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Suravaram"
+                        introFontName:@"Suravaram"
+                             fontName:@"Suravaram"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Swanky and Moo Moo"
+                        introFontName:@"Swanky and Moo Moo"
+                             fontName:@"Swanky and Moo Moo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tangerine"
+                        introFontName:@"Tangerine"
+                             fontName:@"Tangerine"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Taprom"
+                        introFontName:@"Taprom"
+                             fontName:@"Taprom"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tauri"
+                        introFontName:@"Tauri"
+                             fontName:@"Tauri"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Teko"
+                        introFontName:@"Teko"
+                             fontName:@"Teko"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Telex"
+                        introFontName:@"Telex"
+                             fontName:@"Telex"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tenali Ramakrishna"
+                        introFontName:@"Tenali Ramakrishna"
+                             fontName:@"Tenali Ramakrishna"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tenor Sans"
+                        introFontName:@"Tenor Sans"
+                             fontName:@"Tenor Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Text Me One"
+                        introFontName:@"Text Me One"
+                             fontName:@"Text Me One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Thabit"
+                        introFontName:@"Thabit"
+                             fontName:@"Thabit"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tharlon"
+                        introFontName:@"Tharlon"
+                             fontName:@"Tharlon"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"The Girl Next Door"
+                        introFontName:@"The Girl Next Door"
+                             fontName:@"The Girl Next Door"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tienne"
+                        introFontName:@"Tienne"
+                             fontName:@"Tienne"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tillana"
+                        introFontName:@"Tillana"
+                             fontName:@"Tillana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Timmana"
+                        introFontName:@"Timmana"
+                             fontName:@"Timmana"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Titan One"
+                        introFontName:@"Titan One"
+                             fontName:@"Titan One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Titillium Web"
+                        introFontName:@"Titillium Web"
+                             fontName:@"Titillium Web"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Trade Winds"
+                        introFontName:@"Trade Winds"
+                             fontName:@"Trade Winds"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Trocchi"
+                        introFontName:@"Trocchi"
+                             fontName:@"Trocchi"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Trochut"
+                        introFontName:@"Trochut"
+                             fontName:@"Trochut"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Trykker"
+                        introFontName:@"Trykker"
+                             fontName:@"Trykker"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tuffy"
+                        introFontName:@"Tuffy"
+                             fontName:@"Tuffy"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Tulpen One"
+                        introFontName:@"Tulpen One"
+                             fontName:@"Tulpen One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Uncial Antiqua"
+                        introFontName:@"Uncial Antiqua"
+                             fontName:@"Uncial Antiqua"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Underdog"
+                        introFontName:@"Underdog"
+                             fontName:@"Underdog"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Unica One"
+                        introFontName:@"Unica One"
+                             fontName:@"Unica One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Unlock"
+                        introFontName:@"Unlock"
+                             fontName:@"Unlock"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Unna"
+                        introFontName:@"Unna"
+                             fontName:@"Unna"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Vampiro One"
+                        introFontName:@"Vampiro One"
+                             fontName:@"Vampiro One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Varela"
+                        introFontName:@"Varela"
+                             fontName:@"Varela"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Varela Round"
+                        introFontName:@"Varela Round"
+                             fontName:@"Varela Round"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Varta"
+                        introFontName:@"Varta"
+                             fontName:@"Varta"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Vibur"
+                        introFontName:@"Vibur"
+                             fontName:@"Vibur"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Viga"
+                        introFontName:@"Viga"
+                             fontName:@"Viga"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Voces"
+                        introFontName:@"Voces"
+                             fontName:@"Voces"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Volkhov"
+                        introFontName:@"Volkhov"
+                             fontName:@"Volkhov"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Vollkorn"
+                        introFontName:@"Vollkorn"
+                             fontName:@"Vollkorn"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Voltaire"
+                        introFontName:@"Voltaire"
+                             fontName:@"Voltaire"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"VT323"
+                        introFontName:@"VT323"
+                             fontName:@"VT323"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Waiting for the Sunrise"
+                        introFontName:@"Waiting for the Sunrise"
+                             fontName:@"Waiting for the Sunrise"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Wallpoet"
+                        introFontName:@"Wallpoet"
+                             fontName:@"Wallpoet"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Warnes"
+                        introFontName:@"Warnes"
+                             fontName:@"Warnes"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Wellfleet"
+                        introFontName:@"Wellfleet"
+                             fontName:@"Wellfleet"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Wendy One"
+                        introFontName:@"Wendy One"
+                             fontName:@"Wendy One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Wire One"
+                        introFontName:@"Wire One"
+                             fontName:@"Wire One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Work Sans"
+                        introFontName:@"Work Sans"
+                             fontName:@"Work Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Yanone Kaffeesatz"
+                        introFontName:@"Yanone Kaffeesatz"
+                             fontName:@"Yanone Kaffeesatz"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Yantramanav"
+                        introFontName:@"Yantramanav"
+                             fontName:@"Yantramanav"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Yeseva One"
+                        introFontName:@"Yeseva One"
+                             fontName:@"Yeseva One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Yesteryear"
+                        introFontName:@"Yesteryear"
+                             fontName:@"Yesteryear"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Zeyada"
+                        introFontName:@"Zeyada"
+                             fontName:@"Zeyada"
                                  type:TYPE_UNKNOW],
              
              ];
