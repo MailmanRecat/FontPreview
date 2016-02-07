@@ -1327,7 +1327,173 @@
         <string>Lusitana-Regular.ttf</string>
         
         <string>Lustria-Regular.ttf</string>
-
+        
+        <string>Macondo-Regular.ttf</string>
+        
+        <string>MacondoSwashCaps-Regular.ttf</string>
+        
+        <string>Magra-Bold.ttf</string>
+        <string>Magra-Regular.ttf</string>
+        
+        <string>Mako-Regular.ttf</string>
+        
+        <string>Mallanna-Regular.ttf</string>
+        
+        <string>Mandali-Regular.ttf</string>
+        
+        <string>Marcellus-Regular.ttf</string>
+        
+        <string>MarcellusSC-Regular.ttf</string>
+        
+        <string>MarckScript-Regular.ttf</string>
+        
+        <string>Margarine-Regular.ttf</string>
+        
+        <string>MarkoOne-Regular.ttf</string>
+        
+        <string>Marmelad-Regular.ttf</string>
+        
+        <string>Martel-Bold.ttf</string>
+        <string>Martel-DemiBold.ttf</string>
+        <string>Martel-ExtraBold.ttf</string>
+        <string>Martel-Heavy.ttf</string>
+        <string>Martel-Light.ttf</string>
+        <string>Martel-Regular.ttf</string>
+        <string>Martel-UltraLight.ttf</string>
+        
+        <string>MartelSans-Black.ttf</string>
+        <string>MartelSans-Bold.ttf</string>
+        <string>MartelSans-ExtraBold.ttf</string>
+        <string>MartelSans-ExtraLight.ttf</string>
+        <string>MartelSans-Light.ttf</string>
+        <string>MartelSans-Regular.ttf</string>
+        <string>MartelSans-SemiBold.ttf</string>
+        
+        <string>Marvel-Bold.ttf</string>
+        <string>Marvel-BoldItalic.ttf</string>
+        <string>Marvel-Italic.ttf</string>
+        <string>Marvel-Regular.ttf</string>
+        
+        <string>Mate-Italic.ttf</string>
+        <string>Mate-Regular.ttf</string>
+        
+        <string>MateSC-Regular.ttf</string>
+        
+        <string>MavenPro-Black.ttf</string>
+        <string>MavenPro-Bold.ttf</string>
+        <string>MavenPro-Medium.ttf</string>
+        <string>MavenPro-Regular.ttf</string>
+        
+        <string>McLaren-Regular.ttf</string>
+        
+        <string>Meddon.ttf</string>
+        
+        <string>MedievalSharp.ttf</string>
+        
+        <string>MedulaOne-Regular.ttf</string>
+        
+        <string>Megrim.ttf</string>
+        
+        <string>MeieScript-Regular.ttf</string>
+        
+        <string>MergeOne-Regular.ttf</string>
+        
+        <string>Merienda-Bold.ttf</string>
+        <string>Merienda-Regular.ttf</string>
+        
+        <string>MeriendaOne-Regular.ttf</string>
+        
+        <string>Merriweather-Black.ttf</string>
+        <string>Merriweather-BlackItalic.ttf</string>
+        <string>Merriweather-Bold.ttf</string>
+        <string>Merriweather-BoldItalic.ttf</string>
+        <string>Merriweather-Italic.ttf</string>
+        <string>Merriweather-Light.ttf</string>
+        <string>Merriweather-LightItalic.ttf</string>
+        <string>Merriweather-Regular.ttf</string>
+        
+        <string>MerriweatherSans-Bold.ttf</string>
+        <string>MerriweatherSans-BoldItalic.ttf</string>
+        <string>MerriweatherSans-ExtraBold.ttf</string>
+        <string>MerriweatherSans-ExtraBoldItalic.ttf</string>
+        <string>MerriweatherSans-Italic.ttf</string>
+        <string>MerriweatherSans-Light.ttf</string>
+        <string>MerriweatherSans-LightItalic.ttf</string>
+        <string>MerriweatherSans-Regular.ttf</string>
+        
+        <string>MervaleScript-Regular.ttf</string>
+        
+        <string>Metal.ttf</string>
+        
+        <string>MetalMania-Regular.ttf</string>
+        
+        <string>Metamorphous-Regular.ttf</string>
+        
+        <string>Metrophobic.ttf</string>
+        
+        <string>Miama-Regular.ttf</string>
+        
+        <string>Michroma.ttf</string>
+        
+        <string>Milonga-Regular.ttf</string>
+        
+        <string>Miltonian-Regular.ttf</string>
+        
+        <string>MiltonianTattoo-Regular.ttf</string>
+        
+        <string>Miniver-Regular.ttf</string>
+        
+        <string>MissFajardose-Regular.ttf</string>
+        
+        <string>MrsSaintDelafield-Regular.ttf</string>
+        
+        <string>Modak-Regular.ttf</string>
+        
+        <string>ModernAntiqua-Regular.ttf</string>
+        
+        <string>Molengo-Regular.ttf</string>
+        
+        <string>Molle-Regular.ttf</string>
+        
+        <string>Monda-Bold.ttf</string>
+        <string>Monda-Regular.ttf</string>
+        
+        <string>Monofett.ttf</string>
+        
+        <string>Monoton-Regular.ttf</string>
+        
+        <string>MonsieurLaDoulaise-Regular.ttf</string>
+        
+        <string>Montaga-Regular.ttf</string>
+        
+        <string>MontserratAlternates-Bold.ttf</string>
+        <string>MontserratAlternates-Regular.ttf</string>
+        
+        <string>MontserratSubrayada-Bold.ttf</string>
+        <string>MontserratSubrayada-Regular.ttf</string>
+        
+        <string>Moul.ttf</string>
+        
+        <string>Moulpali.ttf</string>
+        
+        <string>MouseMemoirs-Regular.ttf</string>
+        
+        <string>MrBedfort-Regular.ttf</string>
+        
+        <string>MrBedfort-Regular.ttf</string>
+        
+        <string>MrDafoe-Regular.ttf</string>
+        
+        <string>MrDeHaviland-Regular.ttf</string>
+        
+        <string>MrsSaintDelafield-Regular.ttf</string>
+        
+        <string>MrsSheppards-Regular.ttf</string>
+        
+        
+        <string>MyanmarSansPro-Regular.ttf</string>
+        
+        <string>MysteryQuest-Regular.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -54,6 +54,9 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
     
     if( [l isEqualToString:LANG_JAPANESE] )
         return [Fonts japansesFonts];
+    
+//    NSArray *test = [Fonts englishFonts];
+//    [test writeToFile:@"/Users/caine/downloads/fontarr.txt" atomically:YES];
 
     return [Fonts englishFonts];
 }
@@ -2475,9 +2478,319 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Lusitana"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Lustria"
-                        introFontName:@"Lustria"
-                             fontName:@"Lustria"
+             [FontAsset assetFromName:@"Macondo"
+                        introFontName:@"Macondo"
+                             fontName:@"Macondo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Macondo Swash Caps"
+                        introFontName:@"Macondo Swash Caps"
+                             fontName:@"Macondo Swash Caps"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Magra"
+                        introFontName:@"Magra"
+                             fontName:@"Magra"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mako"
+                        introFontName:@"Mako"
+                             fontName:@"Mako"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mallanna"
+                        introFontName:@"Mallanna"
+                             fontName:@"Mallanna"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mandali"
+                        introFontName:@"Mandali"
+                             fontName:@"Mandali"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marcellus"
+                        introFontName:@"Marcellus"
+                             fontName:@"Marcellus"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marcellus SC"
+                        introFontName:@"Marcellus SC"
+                             fontName:@"Marcellus SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marck Script"
+                        introFontName:@"Marck Script"
+                             fontName:@"Marck Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Margarine"
+                        introFontName:@"Margarine"
+                             fontName:@"Margarine"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marko One"
+                        introFontName:@"Marko One"
+                             fontName:@"Marko One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marmelad"
+                        introFontName:@"Marmelad"
+                             fontName:@"Marmelad"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Martel"
+                        introFontName:@"Martel"
+                             fontName:@"Martel"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Martel Sans"
+                        introFontName:@"MartelSans-Regular"
+                             fontName:@"Martel Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Marvel"
+                        introFontName:@"Marvel-Bold"
+                             fontName:@"Marvel"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mate"
+                        introFontName:@"Mate"
+                             fontName:@"Mate"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mate SC"
+                        introFontName:@"Mate SC"
+                             fontName:@"Mate SC"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Maven Pro"
+                        introFontName:@"Maven Pro"
+                             fontName:@"Maven Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"McLaren"
+                        introFontName:@"McLaren"
+                             fontName:@"McLaren"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Meddon"
+                        introFontName:@"Meddon"
+                             fontName:@"Meddon"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"MedievalSharp"
+                        introFontName:@"MedievalSharp"
+                             fontName:@"MedievalSharp"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Medula One"
+                        introFontName:@"Medula One"
+                             fontName:@"Medula One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Megrim"
+                        introFontName:@"Megrim"
+                             fontName:@"Megrim"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Meie Script"
+                        introFontName:@"Meie Script"
+                             fontName:@"Meie Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Merge One"
+                        introFontName:@"Merge One"
+                             fontName:@"Merge One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Merienda"
+                        introFontName:@"Merienda"
+                             fontName:@"Merienda"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Merienda One"
+                        introFontName:@"Merienda One"
+                             fontName:@"Merienda One"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Merriweather"
+                        introFontName:@"Merriweather"
+                             fontName:@"Merriweather"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Merriweather Sans"
+                        introFontName:@"Merriweather Sans"
+                             fontName:@"Merriweather Sans"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mervale Script"
+                        introFontName:@"Mervale Script"
+                             fontName:@"Mervale Script"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Metal"
+                        introFontName:@"Metal"
+                             fontName:@"Metal"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Metal Mania"
+                        introFontName:@"Metal Mania"
+                             fontName:@"Metal Mania"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Metamorphous"
+                        introFontName:@"Metamorphous"
+                             fontName:@"Metamorphous"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Metrophobic"
+                        introFontName:@"Metrophobic"
+                             fontName:@"Metrophobic"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Miama"
+                        introFontName:@"Miama"
+                             fontName:@"Miama"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Michroma"
+                        introFontName:@"Michroma"
+                             fontName:@"Michroma"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Milonga"
+                        introFontName:@"Milonga"
+                             fontName:@"Milonga"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Miltonian"
+                        introFontName:@"Miltonian"
+                             fontName:@"Miltonian"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Miltonian Tattoo"
+                        introFontName:@"Miltonian Tattoo"
+                             fontName:@"Miltonian Tattoo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Miniver"
+                        introFontName:@"Miniver"
+                             fontName:@"Miniver"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Miss Fajardose"
+                        introFontName:@"Miss Fajardose"
+                             fontName:@"Miss Fajardose"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mrs Saint Delafield"
+                        introFontName:@"Mrs Saint Delafield"
+                             fontName:@"Mrs Saint Delafield"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Modak"
+                        introFontName:@"Modak"
+                             fontName:@"Modak"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Modern Antiqua"
+                        introFontName:@"Modern Antiqua"
+                             fontName:@"Modern Antiqua"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Molengo"
+                        introFontName:@"Molengo"
+                             fontName:@"Molengo"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Molle"
+                        introFontName:@"Molle"
+                             fontName:@"Molle"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Monda"
+                        introFontName:@"Monda"
+                             fontName:@"Monda"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Monofett"
+                        introFontName:@"Monofett"
+                             fontName:@"Monofett"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Monoton"
+                        introFontName:@"Monoton"
+                             fontName:@"Monoton"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Monsieur La Doulaise"
+                        introFontName:@"Monsieur La Doulaise"
+                             fontName:@"Monsieur La Doulaise"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Montaga"
+                        introFontName:@"Montaga"
+                             fontName:@"Montaga"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Montserrat Alternates"
+                        introFontName:@"Montserrat Alternates"
+                             fontName:@"Montserrat Alternates"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Montserrat Subrayada"
+                        introFontName:@"Montserrat Subrayada"
+                             fontName:@"Montserrat Subrayada"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Moul"
+                        introFontName:@"Moul"
+                             fontName:@"Moul"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Moulpali"
+                        introFontName:@"Moulpali"
+                             fontName:@"Moulpali"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mouse Memoirs"
+                        introFontName:@"Mouse Memoirs"
+                             fontName:@"Mouse Memoirs"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mr Bedfort"
+                        introFontName:@"Mr Bedfort"
+                             fontName:@"Mr Bedfort"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mr Dafoe"
+                        introFontName:@"Mr Dafoe"
+                             fontName:@"Mr Dafoe"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mr De Haviland"
+                        introFontName:@"Mr De Haviland"
+                             fontName:@"Mr De Haviland"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mrs Sheppards"
+                        introFontName:@"Mrs Sheppards"
+                             fontName:@"Mrs Sheppards"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mrs Saint Delafield"
+                        introFontName:@"Mrs Saint Delafield"
+                             fontName:@"Mrs Saint Delafield"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Myanmar Sans Pro"
+                        introFontName:@"Myanmar Sans Pro"
+                             fontName:@"Myanmar Sans Pro"
+                                 type:TYPE_UNKNOW],
+             
+             [FontAsset assetFromName:@"Mystery Quest"
+                        introFontName:@"Mystery Quest"
+                             fontName:@"Mystery Quest"
                                  type:TYPE_UNKNOW],
              
              ];
