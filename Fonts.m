@@ -11,7 +11,7 @@
 
 static NSString *const TYPE_UNKNOW = @"Unknow";
 
-static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
+static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY_NEW";
 
 @implementation Fonts
 
@@ -54,9 +54,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
     
     if( [l isEqualToString:LANG_JAPANESE] )
         return [Fonts japansesFonts];
-    
-//    NSArray *test = [Fonts englishFonts];
-//    [test writeToFile:@"/Users/caine/downloads/fontarr.txt" atomically:YES];
 
     return [Fonts englishFonts];
 }
@@ -558,11 +555,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Akronim"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Aksara Bali Galang"
-                        introFontName:@"Aksara Bali Galang"
-                             fontName:@"Aksara Bali Galang"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Aladin"
                         introFontName:@"Aladin"
                              fontName:@"Aladin"
@@ -893,11 +885,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Balthazar"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Bayon"
-                        introFontName:@"Bayon"
-                             fontName:@"Bayon"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Baumans"
                         introFontName:@"Baumans"
                              fontName:@"Baumans"
@@ -906,11 +893,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Bentham"
                         introFontName:@"Bentham"
                              fontName:@"Bentham"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Battambang"
-                        introFontName:@"Battambang"
-                             fontName:@"Battambang"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"BenchNine"
@@ -976,11 +958,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Bilbo Swash Caps"
                         introFontName:@"Bilbo Swash Caps"
                              fontName:@"Bilbo Swash Caps"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Bokor"
-                        introFontName:@"Bokor"
-                             fontName:@"Bokor"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Bonbon"
@@ -1183,11 +1160,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Chelsea Market"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Chenla"
-                        introFontName:@"Chenla"
-                             fontName:@"Chenla"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Cherry Swash"
                         introFontName:@"Cherry Swash"
                              fontName:@"Cherry Swash"
@@ -1261,11 +1233,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Condiment"
                         introFontName:@"Condiment"
                              fontName:@"Condiment"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Content"
-                        introFontName:@"Content"
-                             fontName:@"Content"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Contrail One"
@@ -1351,11 +1318,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Dancing Script"
                         introFontName:@"Dancing Script"
                              fontName:@"Dancing Script"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Dangrek"
-                        introFontName:@"Dangrek"
-                             fontName:@"Dangrek"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Dawning of a New Day"
@@ -1618,11 +1580,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Faster One"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Fasthand"
-                        introFontName:@"Fasthand"
-                             fontName:@"Fasthand"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Fauna One"
                         introFontName:@"Fauna One"
                              fontName:@"Fauna One"
@@ -1711,11 +1668,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Fredoka One"
                         introFontName:@"Fredoka One"
                              fontName:@"Fredoka One"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Freehand"
-                        introFontName:@"Freehand"
-                             fontName:@"Freehand"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Fresca"
@@ -1921,11 +1873,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Khmer Sangam MN"
                         introFontName:@"Khmer Sangam MN"
                              fontName:@"Khmer Sangam MN"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Hanuman"
-                        introFontName:@"Hanuman"
-                             fontName:@"Hanuman"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Happy Monkey"
@@ -2228,16 +2175,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Karla"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Karla Tamil Inclined"
-                        introFontName:@"Karla Tamil Inclined"
-                             fontName:@"Karla Tamil Inclined"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Karla Tamil Upright"
-                        introFontName:@"Karla Tamil Upright"
-                             fontName:@"Karla Tamil Upright"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Karma"
                         introFontName:@"Karma-Regular"
                              fontName:@"Karma"
@@ -2251,11 +2188,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Kavoon"
                         introFontName:@"Kavoon"
                              fontName:@"Kavoon"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Kdam Thmor"
-                        introFontName:@"Kdam Thmor"
-                             fontName:@"Kdam Thmor"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Keania One"
@@ -2278,11 +2210,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Khand"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Khmer"
-                        introFontName:@"Khmer"
-                             fontName:@"Khmer"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Khula"
                         introFontName:@"Khula-Regular"
                              fontName:@"Khula"
@@ -2296,11 +2223,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Knewave"
                         introFontName:@"Knewave"
                              fontName:@"Knewave"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Koulen"
-                        introFontName:@"Koulen"
-                             fontName:@"Koulen"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Kotta One"
@@ -2421,21 +2343,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Linden Hill"
                         introFontName:@"Linden Hill"
                              fontName:@"Linden Hill"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Lohit Bengali"
-                        introFontName:@"Lohit Bengali"
-                             fontName:@"Lohit Bengali"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Lohit Devanagari"
-                        introFontName:@"Lohit Devanagari"
-                             fontName:@"Lohit Devanagari"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Lohit Tamil"
-                        introFontName:@"Lohit Tamil"
-                             fontName:@"Lohit Tamil"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Londrina Outline"
@@ -2628,11 +2535,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Mervale Script"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Metal"
-                        introFontName:@"Metal"
-                             fontName:@"Metal"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Metal Mania"
                         introFontName:@"Metal Mania"
                              fontName:@"Metal Mania"
@@ -2681,11 +2583,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Miss Fajardose"
                         introFontName:@"Miss Fajardose"
                              fontName:@"Miss Fajardose"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Mrs Saint Delafield"
-                        introFontName:@"Mrs Saint Delafield"
-                             fontName:@"Mrs Saint Delafield"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Modak"
@@ -2742,17 +2639,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Montserrat Subrayada"
                              fontName:@"Montserrat Subrayada"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Moul"
-                        introFontName:@"Moul"
-                             fontName:@"Moul"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Moulpali"
-                        introFontName:@"Moulpali"
-                             fontName:@"Moulpali"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Mouse Memoirs"
                         introFontName:@"Mouse Memoirs"
                              fontName:@"Mouse Memoirs"
@@ -2772,12 +2659,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Mrs Sheppards"
                              fontName:@"Mrs Sheppards"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Myanmar Sans Pro"
-                        introFontName:@"Myanmar Sans Pro"
-                             fontName:@"Myanmar Sans Pro"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Mystery Quest"
                         introFontName:@"Mystery Quest"
                              fontName:@"Mystery Quest"
@@ -3087,12 +2969,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Petrona"
                              fontName:@"Petrona"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Phetsarath"
-                        introFontName:@"Phetsarath"
-                             fontName:@"Phetsarath"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Philosopher"
                         introFontName:@"Philosopher"
                              fontName:@"Philosopher"
@@ -3157,12 +3034,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Poly"
                              fontName:@"Poly"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Ponnala"
-                        introFontName:@"Ponnala"
-                             fontName:@"Ponnala"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Pontano Sans"
                         introFontName:@"Pontano Sans"
                              fontName:@"Pontano Sans"
@@ -3197,12 +3069,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Prata"
                              fontName:@"Prata"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Preahvihear"
-                        introFontName:@"Preahvihear"
-                             fontName:@"Preahvihear"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Press Start 2P"
                         introFontName:@"Press Start 2P"
                              fontName:@"Press Start 2P"
@@ -3337,12 +3204,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Ravi Prakash"
                              fontName:@"Ravi Prakash"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Redacted"
-                        introFontName:@"Redacted"
-                             fontName:@"Redacted"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Redacted Script"
                         introFontName:@"Redacted Script"
                              fontName:@"Redacted Script"
@@ -3612,12 +3474,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Short Stack"
                              fontName:@"Short Stack"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Siemreap"
-                        introFontName:@"Siemreap"
-                             fontName:@"Siemreap"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"Sigmar One"
                         introFontName:@"Sigmar One"
                              fontName:@"Sigmar One"
@@ -3803,11 +3660,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                              fontName:@"Strong"
                                  type:TYPE_UNKNOW],
              
-             [FontAsset assetFromName:@"Sue Ellen Francisco"
-                        introFontName:@"Sue Ellen Francisco"
-                             fontName:@"Sue Ellen Francisco"
-                                 type:TYPE_UNKNOW],
-             
              [FontAsset assetFromName:@"Sumana"
                         introFontName:@"Sumana"
                              fontName:@"Sumana"
@@ -3841,11 +3693,6 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
              [FontAsset assetFromName:@"Tangerine"
                         introFontName:@"Tangerine"
                              fontName:@"Tangerine"
-                                 type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Taprom"
-                        introFontName:@"Taprom"
-                             fontName:@"Taprom"
                                  type:TYPE_UNKNOW],
              
              [FontAsset assetFromName:@"Tauri"
@@ -3882,12 +3729,7 @@ static NSString *const CURRENT_LANG_KEY = @"CURRENT_LANG_KEY";
                         introFontName:@"Thabit"
                              fontName:@"Thabit"
                                  type:TYPE_UNKNOW],
-             
-             [FontAsset assetFromName:@"Tharlon"
-                        introFontName:@"Tharlon"
-                             fontName:@"Tharlon"
-                                 type:TYPE_UNKNOW],
-             
+
              [FontAsset assetFromName:@"The Girl Next Door"
                         introFontName:@"The Girl Next Door"
                              fontName:@"The Girl Next Door"

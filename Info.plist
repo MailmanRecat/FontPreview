@@ -220,7 +220,6 @@
 		<string>AdventPro-Regular.ttf</string>
 		<string>AdventPro-SemiBold.ttf</string>
 		<string>AdventPro-Thin.ttf</string>
-		<string>AksaraBaliGalang-Regular.ttf</string>
 		<string>Aladin-Regular.ttf</string>
 		<string>Aldrich-Regular.ttf</string>
 		<string>Alef-Bold.ttf</string>
@@ -365,10 +364,7 @@
 		<string>Basic-Regular.ttf</string>
 		<string>Bangers.ttf</string>
 		<string>Balthazar-Regular.ttf</string>
-		<string>Bayon.ttf</string>
 		<string>Baumans-Regular.ttf</string>
-		<string>Battambang-Regular.ttf</string>
-		<string>Battambang-Bold.ttf</string>
 		<string>Bentham-Regular.ttf</string>
 		<string>BenchNine-Regular.ttf</string>
 		<string>BenchNine-Light.ttf</string>
@@ -403,8 +399,6 @@
         <string>Bitter-Regular.ttf</string>
         
         <string>BlackOpsOne-Regular.ttf</string>
-        
-        <string>Bokor.ttf</string>
         
         <string>Bonbon-Regular.ttf</string>
         
@@ -524,8 +518,6 @@
         
         <string>ChelseaMarket-Regular.ttf</string>
         
-        <string>Chenla.ttf</string>
-        
         <string>CherrySwash-Bold.ttf</string>
         <string>CherrySwash-Regular.ttf</string>
         
@@ -567,9 +559,6 @@
         <string>ConcertOne-Regular.ttf</string>
         
         <string>Condiment-Regular.ttf</string>
-        
-        <string>Content-Bold.ttf</string>
-        <string>Content-Regular.ttf</string>
         
         <string>ContrailOne-Regular.ttf</string>
         
@@ -616,8 +605,6 @@
         
         <string>DancingScript-Bold.ttf</string>
         <string>DancingScript-Regular.ttf</string>
-        
-        <string>Dangrek.ttf</string>
         
         <string>DawningofaNewDay.ttf</string>
         
@@ -799,8 +786,6 @@
         
         <string>FasterOne-Regular.ttf</string>
         
-        <string>Fasthand-Regular.ttf</string>
-        
         <string>FaunaOne-Regular.ttf</string>
         
         <string>Federant-Regular.ttf</string>
@@ -847,8 +832,6 @@
         <string>FrederickatheGreat-Regular.ttf</string>
         
         <string>FredokaOne-Regular.ttf</string>
-        
-        <string>Freehand.ttf</string>
         
         <string>Fresca-Regular.ttf</string>
         
@@ -949,10 +932,6 @@
         <string>Handlee-Regular.ttf</string>
         
         <string>BM-HANNA.ttf</string>
-        
-        
-        <string>Hanuman-Bold.ttf</string>
-        <string>Hanuman-Regular.ttf</string>
         
         <string>HappyMonkey-Regular.ttf</string>
         
@@ -1176,14 +1155,6 @@
         <string>Karla-Italic.ttf</string>
         <string>Karla-Regular.ttf</string>
         
-        
-        <string>KarlaTamilInclined-Bold.ttf</string>
-        <string>KarlaTamilInclined-Regular.ttf</string>
-        
-        
-        <string>KarlaTamilUpright-Bold.ttf</string>
-        <string>KarlaTamilUpright-Regular.ttf</string>
-        
         <string>Karma-Bold.ttf</string>
         <string>Karma-Light.ttf</string>
         <string>Karma-Medium.ttf</string>
@@ -1193,8 +1164,6 @@
         <string>KaushanScript-Regular.ttf</string>
         
         <string>Kavoon-Regular.ttf</string>
-        
-        <string>KdamThmor-Regular.ttf</string>
         
         <string>KeaniaOne-Regular.ttf</string>
         
@@ -1212,8 +1181,6 @@
         <string>Khand-SemiBold.ttf</string>
         <string>Khand-SemiLight.ttf</string>
         
-        <string>Khmer.ttf</string>
-        
         <string>Khula-Bold.ttf</string>
         <string>Khula-ExtraBold.ttf</string>
         <string>Khula-Light.ttf</string>
@@ -1225,8 +1192,6 @@
         <string>Knewave-Regular.ttf</string>
         
         <string>KottaOne-Regular.ttf</string>
-        
-        <string>Koulen.ttf</string>
         
         <string>Kreon-Bold.ttf</string>
         <string>Kreon-Light.ttf</string>
@@ -1297,17 +1262,6 @@
         
         <string>LindenHill-Italic.ttf</string>
         <string>LindenHill-Regular.ttf</string>
-        
-        
-        
-        <string>Lohit-Bengali.ttf</string>
-        
-        
-        <string>Lohit-Devanagari.ttf</string>
-        
-        
-        
-        <string>Lohit-Tamil.ttf</string>
         
         <string>LondrinaOutline-Regular.ttf</string>
         
@@ -1423,8 +1377,6 @@
         
         <string>MervaleScript-Regular.ttf</string>
         
-        <string>Metal.ttf</string>
-        
         <string>MetalMania-Regular.ttf</string>
         
         <string>Metamorphous-Regular.ttf</string>
@@ -1470,10 +1422,6 @@
         <string>MontserratSubrayada-Bold.ttf</string>
         <string>MontserratSubrayada-Regular.ttf</string>
         
-        <string>Moul.ttf</string>
-        
-        <string>Moulpali.ttf</string>
-        
         <string>MouseMemoirs-Regular.ttf</string>
 
         <string>MrDafoe-Regular.ttf</string>
@@ -1482,8 +1430,6 @@
         
         <string>MrsSheppards-Regular.ttf</string>
         
-        
-        <string>MyanmarSansPro-Regular.ttf</string>
         
         <string>MysteryQuest-Regular.ttf</string>
         
@@ -1661,12 +1607,6 @@
         
         <string>Petrona-Regular.ttf</string>
         
-        
-        
-        <string>Phetsarath-Bold.ttf</string>
-        
-        <string>Phetsarath-Regular.ttf</string>
-        
         <string>Philosopher-Bold.ttf</string>
         <string>Philosopher-BoldItalic.ttf</string>
         <string>Philosopher-Italic.ttf</string>
@@ -1708,8 +1648,6 @@
         <string>Poly-Italic.ttf</string>
         <string>Poly-Regular.ttf</string>
         
-        <string>Ponnala-Regular.ttf</string>
-        
         <string>PontanoSans-Regular.ttf</string>
         
         <string>Poppins-Bold.ttf</string>
@@ -1728,8 +1666,6 @@
         <string>PragatiNarrow-Regular.ttf</string>
         
         <string>Prata-Regular.ttf</string>
-        
-        <string>Preahvihear.ttf</string>
         
         <string>PressStart2P-Regular.ttf</string>
         
@@ -1832,8 +1768,6 @@
         <string>Rationale-Regular.ttf</string>
         
         <string>RaviPrakash-Regular.ttf</string>
-        
-        <string>Redacted-Regular.ttf</string>
         
         <string>RedactedScript-Bold.ttf</string>
         <string>RedactedScript-Regular.ttf</string>
@@ -1991,8 +1925,6 @@
         
         <string>ShortStack-Regular.ttf</string>
         
-        <string>Siemreap.ttf</string>
-        
         <string>SigmarOne.ttf</string>
         
         <string>Signika-Bold.ttf</string>
@@ -2122,8 +2054,6 @@
         <string>Tangerine_Bold.ttf</string>
         <string>Tangerine_Regular.ttf</string>
         
-        <string>Taprom.ttf</string>
-        
         <string>Tauri-Regular.ttf</string>
         
         <string>Teko-Bold.ttf</string>
@@ -2145,9 +2075,6 @@
         <string>Thabit-BoldOblique.ttf</string>
         <string>Thabit-Oblique.ttf</string>
         <string>Thabit.ttf</string>
-        
-        
-        <string>Tharlon-Regular.ttf</string>
         
         <string>TheGirlNextDoor.ttf</string>
         

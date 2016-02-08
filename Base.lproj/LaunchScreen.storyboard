@@ -27,16 +27,11 @@
                                     <navigationItem id="R1h-mf-4jl"/>
                                 </items>
                             </navigationBar>
-                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-og-y6h">
-                                <rect key="frame" x="290" y="88" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Y4y-2s-glz" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ouc-54-bZQ"/>
                             <constraint firstItem="Y4y-2s-glz" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="ViT-qK-YHg"/>
-                            <constraint firstItem="bgu-og-y6h" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bai-Ug-JHu"/>
-                            <constraint firstItem="bgu-og-y6h" firstAttribute="bottom" secondItem="Y4y-2s-glz" secondAttribute="bottom" constant="44" id="oeF-1a-Hck"/>
                             <constraint firstItem="Y4y-2s-glz" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="wZ0-Ls-qWP"/>
                         </constraints>
                     </view>
