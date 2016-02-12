@@ -7,7 +7,7 @@
 //
 
 #define numberOfEN 774
-#define numberOfCH 1
+#define numberOfCH 8
 #define numberOfJA 4
 
 #import "CFAsset.h"
@@ -96,31 +96,23 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
 
 - (NSArray *)searchFonts:(NSString *)key{
     NSMutableArray *result = [[NSMutableArray alloc] init];
+    NSUInteger      edge;
     
     if( [[FontsManager shareManager].lang isEqualToString:LANG_ENGLISH] ){
-        for( int i = 0; i < numberOfEN; i++ ){
-            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
-            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
-                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
-            }
-        }
+        edge = numberOfEN;
         
     }else if( [[FontsManager shareManager].lang isEqualToString:LANG_CHINESE] ){
-        for( int i = 0; i < numberOfCH; i++ ){
-            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
-            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
-                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
-            }
-        }
+        edge = numberOfCH;
         
     }else if( [[FontsManager shareManager].lang isEqualToString:LANG_JAPANESE] ){
-        for( int i = 0; i < numberOfJA; i++ ){
-            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
-            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
-                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
-            }
+        edge = numberOfJA;
+    }
+    
+    for( int i = 0; i < edge; i++ ){
+        NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
+        if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
+            [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
         }
-        
     }
     
     return (NSArray *)result;
@@ -128,6 +120,13 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
 
 - (void)initFontsCH{
     _fonts_CH[0] = CFAssetMake("苹方简体", "PingFang SC", "PingFang SC", 0, nil);
+    _fonts_CH[1] = CFAssetMake("报隶", "Baoli SC", "Baoli SC", 0, "STBaoli-SC-Regular");
+    _fonts_CH[2] = CFAssetMake("GB18030 Bitmap", "GB18030 Bitmap", "GB18030 Bitmap", 0, "GB18030Bitmap");
+    _fonts_CH[3] = CFAssetMake("隶变", "Libian SC", "Libian SC", 0, "STLibian-SC-Regular");
+    _fonts_CH[4] = CFAssetMake("娃娃体", "Wawati SC", "Wawati SC", 0, "DFWaWaSC-W5");
+    _fonts_CH[5] = CFAssetMake("魏碑简体", "Weibei SC", "Weibei SC", 0, "Weibei-SC-Bold");
+    _fonts_CH[6] = CFAssetMake("行楷简体", "Xingkai SC", "Xingkai SC", 0, "STXingkai-SC-Light");
+    _fonts_CH[7] = CFAssetMake("雅痞简体", "Yuppy SC", "Yuppy SC", 0, "YuppySC-Regular");
 }
 
 - (void)initFontsJA{
