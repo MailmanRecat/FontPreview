@@ -6,6 +6,10 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
+#define numberOfEN 774
+#define numberOfCH 1
+#define numberOfJA 4
+
 #import "CFAsset.h"
 
 CFAsset
@@ -21,9 +25,9 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
 }
 
 @interface CFonts(){
-    CFAsset _fonts_EN[774];
-    CFAsset _fonts_CH[10];
-    CFAsset _fonts_JA[4];
+    CFAsset _fonts_EN[numberOfEN];
+    CFAsset _fonts_CH[numberOfCH];
+    CFAsset _fonts_JA[numberOfJA];
 }
 
 @end
@@ -40,34 +44,24 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
     return self;
 }
 
-- (void)initFontsCH{
-    _fonts_CH[0] = CFAssetMake("", "", "", 0, "");
-}
-
-- (void)initFontsJA{
-    _fonts_JA[0] = CFAssetMake("Klee", "Klee", "Klee", 0, nil);
-    _fonts_JA[1] = CFAssetMake("YuMincho +36p Kana", "YuMincho +36p Kana", "YuMincho +36p Kana", 0, nil);
-    _fonts_JA[2] = CFAssetMake("Tsukushi A Round Gothic", "Tsukushi A Round Gothic", "Tsukushi A Round Gothic", 0, nil);
-    _fonts_JA[3] = CFAssetMake("Tsukushi B Round Gothic", "Tsukushi B Round Gothic", "Tsukushi B Round Gothic", 0, nil);
-}
 
 - (FontAsset *)fontAssetFronCFAsset:(CFAsset)c{
-    return [FontAsset assetFromName:[NSString stringWithFormat:@"%s", c.name]
-                      introFontName:[NSString stringWithFormat:@"%s", c.introName]
-                           fontName:[NSString stringWithFormat:@"%s", c.fontName]
+    return [FontAsset assetFromName:[NSString stringWithUTF8String:c.name]
+                      introFontName:[NSString stringWithUTF8String:c.introName]
+                           fontName:[NSString stringWithUTF8String:c.fontName]
                      postScriptName:[NSString stringWithFormat:@"%s", c.postScriptName]
                                type:c.type];
 }
 
 - (NSUInteger)numberOfFonts{
     if( [[FontsManager shareManager].lang isEqualToString:LANG_ENGLISH] ){
-        return 774;
+        return numberOfEN;
         
     }else if( [[FontsManager shareManager].lang isEqualToString:LANG_CHINESE] ){
-        return 0;
+        return numberOfCH;
         
     }else if( [[FontsManager shareManager].lang isEqualToString:LANG_JAPANESE] ){
-        return 4;
+        return numberOfJA;
         
     }
     
@@ -98,6 +92,49 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
     });
     
     return fonts;
+}
+
+- (NSArray *)searchFonts:(NSString *)key{
+    NSMutableArray *result = [[NSMutableArray alloc] init];
+    
+    if( [[FontsManager shareManager].lang isEqualToString:LANG_ENGLISH] ){
+        for( int i = 0; i < numberOfEN; i++ ){
+            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
+            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
+                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
+            }
+        }
+        
+    }else if( [[FontsManager shareManager].lang isEqualToString:LANG_CHINESE] ){
+        for( int i = 0; i < numberOfCH; i++ ){
+            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
+            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
+                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
+            }
+        }
+        
+    }else if( [[FontsManager shareManager].lang isEqualToString:LANG_JAPANESE] ){
+        for( int i = 0; i < numberOfJA; i++ ){
+            NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
+            if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
+                [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
+            }
+        }
+        
+    }
+    
+    return (NSArray *)result;
+}
+
+- (void)initFontsCH{
+    _fonts_CH[0] = CFAssetMake("苹方简体", "PingFang SC", "PingFang SC", 0, nil);
+}
+
+- (void)initFontsJA{
+    _fonts_JA[0] = CFAssetMake("Klee", "Klee", "Klee", 0, nil);
+    _fonts_JA[1] = CFAssetMake("YuMincho +36p Kana", "YuMincho +36p Kana", "YuMincho +36p Kana", 0, nil);
+    _fonts_JA[2] = CFAssetMake("Tsukushi A Round Gothic", "Tsukushi A Round Gothic", "Tsukushi A Round Gothic", 0, nil);
+    _fonts_JA[3] = CFAssetMake("Tsukushi B Round Gothic", "Tsukushi B Round Gothic", "Tsukushi B Round Gothic", 0, nil);
 }
 
 - (void)initFontsEN{

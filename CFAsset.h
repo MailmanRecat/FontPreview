@@ -28,5 +28,6 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
 - (NSUInteger)numberOfFonts;
 - (CFAsset)CFAssetAtIndex:(NSUInteger)index;
 - (FontAsset *)fontAssetFronCFAsset:(CFAsset)c;
+- (NSArray *)searchFonts:(NSString *)key;
 
 @end

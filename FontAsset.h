@@ -6,24 +6,6 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-//typedef struct FCAsset{
-//    char *name;
-//    char *introName;
-//    char *fontName;
-//    int   type;
-//    char *postScriptName;
-//} FCAsset;
-//
-//FCAsset FCAssetMake( char *name, char *introName, char *fontName, int type, char *postScriptName ){
-//    FCAsset asset;
-//    asset.name = name;
-//    asset.introName = introName;
-//    asset.fontName = fontName;
-//    asset.type = type;
-//    asset.postScriptName = postScriptName;
-//    return asset;
-//};
-
 #import <UIKit/UIKit.h>
 
 @interface FontAsset : NSObject

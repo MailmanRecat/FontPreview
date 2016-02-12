@@ -7,18 +7,18 @@
 //
 
 #import "CFAsset.h"
-//#import "FontsManager.h"
 
 #import "RootViewController.h"
 #import "PreviewController.h"
 #import "LanguageViewController.h"
 #import "FTranslate.h"
 
-@interface RootViewController()<UITableViewDataSource, UITableViewDelegate>
+@interface RootViewController()<UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
-@property( nonatomic, strong ) UISearchController *searchController;
+@property( nonatomic, strong ) UISearchController   *searchController;
 @property( nonatomic, strong ) UITableView *bear;
 @property( nonatomic, strong ) NSIndexPath *indexPath;
+@property( nonatomic, strong ) NSArray     *searchPool;
 
 @end
 
@@ -56,10 +56,12 @@
 //                                                                              style:UIBarButtonItemStylePlain
 //                                                                             target:nil
 //                                                                             action:nil];
-    
     self.searchController = ({
         UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
         searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
+        searchController.dimsBackgroundDuringPresentation = NO;
+        searchController.searchResultsUpdater = self;
+        searchController.delegate = self;
         searchController;
     });
     
@@ -83,6 +85,24 @@
     [self.bear.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
 
+- (void)willPresentSearchController:(UISearchController *)searchController{
+    self.searchPool = [NSArray new];
+    
+    [self.bear reloadData];
+}
+
+- (void)didDismissSearchController:(UISearchController *)searchController{
+    self.searchPool = nil;
+    
+    [self.bear reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+}
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    self.searchPool = [[CFonts shareFonts] searchFonts:searchController.searchBar.text];
+    
+    [self.bear reloadData];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 36.0f;
 }
@@ -96,8 +116,10 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-//    return [FontsManager shareManager].fonts.count;
-    return [[CFonts shareFonts] numberOfFonts];
+    if( self.searchPool )
+        return self.searchPool.count;
+    else
+        return [[CFonts shareFonts] numberOfFonts];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -119,16 +141,24 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+
+    CFAsset asset;
+    if( self.searchPool && self.searchPool.count != 0 ){
+        asset = [[CFonts shareFonts] CFAssetAtIndex:[((NSArray *)self.searchPool[indexPath.row]).lastObject integerValue]];
+    }else{
+        asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
+    }
     
-    CFAsset asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%s", asset.name];
+    cell.textLabel.text = [NSString stringWithUTF8String:asset.name];
     cell.textLabel.font = [UIFont fontWithName:[NSString stringWithFormat:@"%s", asset.introName] size:17];
-    
-//    cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
-//    cell.textLabel.font = [UIFont fontWithName:((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).introFontName size:17];
-    
+
     return cell;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if( self.searchController.active && self.searchPool.count != 0 ){
+        [self.searchController.searchBar resignFirstResponder];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated{
