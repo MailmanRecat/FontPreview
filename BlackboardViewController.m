@@ -11,7 +11,7 @@
 
 static NSString *const PREFER_BLACKBOARD_TYPE_KEY = @"PERFER_BLACKBOARD_TYPE_KEY";
 
-@interface BlackboardViewController ()
+@interface BlackboardViewController()
 
 @property( nonatomic, assign ) BOOL lock;
 @property( nonatomic, strong ) UIButton *lockBtn;
@@ -41,7 +41,12 @@ static NSString *const PREFER_BLACKBOARD_TYPE_KEY = @"PERFER_BLACKBOARD_TYPE_KEY
     [self changeBackgroundColor];
     
     UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(hideOrShowSetting)];
-    swipe.direction = UISwipeGestureRecognizerDirectionRight | UISwipeGestureRecognizerDirectionLeft;
+    
+    swipe.direction =
+    UISwipeGestureRecognizerDirectionDown  |
+    UISwipeGestureRecognizerDirectionLeft  |
+    UISwipeGestureRecognizerDirectionRight |
+    UISwipeGestureRecognizerDirectionUp;
     
     UITapGestureRecognizer   *tap   = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissSelf)];
     
@@ -185,8 +190,8 @@ static NSString *const PREFER_BLACKBOARD_TYPE_KEY = @"PERFER_BLACKBOARD_TYPE_KEY
         lock.transform = CGAffineTransformMakeRotation(M_PI_2);
         lock.titleLabel.font = [UIFont systemFontOfSize:17 weight:UIFontWeightRegular];
         [lock setTitle:@"Lock" forState:UIControlStateNormal];
-        [lock setTitleColor:[UIColor colorWithRed:0 green:122 / 255.0 blue:1 alpha:1] forState:UIControlStateNormal];
-        [lock setTitleColor:[UIColor colorWithRed:0 green:122 / 255.0 blue:1 alpha:0.4] forState:UIControlStateHighlighted];
+        [lock setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:1.0f] forState:UIControlStateNormal];
+        [lock setTitleColor:[UIColor colorWithWhite:51 / 255.0 alpha:0.4f] forState:UIControlStateHighlighted];
         lock.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self.settingContainer.contentView addSubview:lock];

@@ -7,7 +7,6 @@
 //
 
 #import "FontsManager.h"
-#import "Fonts.h"
 
 @implementation FontsManager
 
@@ -20,7 +19,6 @@
 }
 
 - (void)update{
-    self.fonts = [Fonts Fonts];
     self.lang  = [Fonts lang];
 }
 

@@ -8,7 +8,7 @@
 
 #define PREVIEW_TEXTVIEW_HEI 172
 #define PREVIEW_FONTSIZE_MIN 12
-#define PREVIEW_FONTSIZE_MAX 72
+#define PREVIEW_FONTSIZE_MAX 142
 
 #import <CoreText/CoreText.h>
 

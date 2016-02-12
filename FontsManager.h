@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Fonts.h"
 #import "FontAsset.h"
 
 static NSString *const FontLanguageEnglish  = @"Fonts";

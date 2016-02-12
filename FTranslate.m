@@ -66,7 +66,7 @@
                                    FTItemLang: @"中文",
                                    FTLangsType: @"种字体",
                                    FTPreviewText: [FCachePreviewText previewTextFromName:TEXT_PREVIEW_CHINESE_CACHE],
-                                   FTTextPreview: @"预览",
+                                   FTTextPreview: @"字体预览",
                                    FTFontSize: @"字体大小",
                                    FTFontWeight: @"字体重量",
                                    FTCancelDownload: @"取消下载",

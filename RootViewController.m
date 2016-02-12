@@ -6,7 +6,8 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-#import "FontsManager.h"
+#import "CFAsset.h"
+//#import "FontsManager.h"
 
 #import "RootViewController.h"
 #import "PreviewController.h"
@@ -56,20 +57,20 @@
 //                                                                             target:nil
 //                                                                             action:nil];
     
-//    self.searchController = ({
-//        UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-//        searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
-//        searchController;
-//    });
+    self.searchController = ({
+        UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+        searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
+        searchController;
+    });
     
-//    self.definesPresentationContext = YES;
+    self.definesPresentationContext = YES;
     
     self.bear = ({
         UITableView *bear = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
         bear.translatesAutoresizingMaskIntoConstraints = NO;
         bear.showsHorizontalScrollIndicator = NO;
         bear.allowsMultipleSelectionDuringEditing = NO;
-//        bear.tableHeaderView = self.searchController.searchBar;
+        bear.tableHeaderView = self.searchController.searchBar;
         bear.delegate = self;
         bear.dataSource = self;
         bear;
@@ -95,7 +96,8 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [FontsManager shareManager].fonts.count;
+//    return [FontsManager shareManager].fonts.count;
+    return [[CFonts shareFonts] numberOfFonts];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -118,8 +120,13 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
-    cell.textLabel.font = [UIFont fontWithName:((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).introFontName size:17];
+    CFAsset asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%s", asset.name];
+    cell.textLabel.font = [UIFont fontWithName:[NSString stringWithFormat:@"%s", asset.introName] size:17];
+    
+//    cell.textLabel.text = ((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).name;
+//    cell.textLabel.font = [UIFont fontWithName:((FontAsset *)[FontsManager shareManager].fonts[indexPath.row]).introFontName size:17];
     
     return cell;
 }
@@ -136,7 +143,10 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:[FontsManager shareManager].fonts[indexPath.row]
+        CFonts        *f = [CFonts shareFonts];
+        FontAsset *asset = [f fontAssetFronCFAsset:[f CFAssetAtIndex:indexPath.row]];
+        
+        [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:asset
                                                                                               lang:[FontsManager shareManager].lang]
                                              animated:YES];
         
