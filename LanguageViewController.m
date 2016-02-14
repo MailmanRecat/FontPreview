@@ -36,7 +36,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.QArray  = @[ @"Feedback", @"Rate this app", @"Author", @"Version" ];
+    self.QArray  = @[ @"Feedback", @"Rate Font Book", @"Author", @"Version" ];
     self.AArray  = @[ @"mailmanrecat@gmail.com", @"", @"mailman", @"9.0" ];
     self.ADArray = @[ @"todo list", @"note pad", @"class schedule", @"html man" ];
     self.AIArray = @[ @"icon120.png", @"noteicon120.png", @"classscheduleicon75x75.png", @"webicon75x75.png" ];
@@ -177,6 +177,7 @@
         APPADUITableViewCell *appad = [tableView dequeueReusableCellWithIdentifier:APP_AD_TABLEVIEW_CELL_IDENT];
         if( appad == nil ){
             appad =  [[APPADUITableViewCell alloc] initWithReuseString:APP_AD_TABLEVIEW_CELL_IDENT];
+            appad.switchControl.onTintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
             
             [appad.switchControl addTarget:self action:@selector(toAPPStore:) forControlEvents:UIControlEventValueChanged];
         }

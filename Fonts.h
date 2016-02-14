@@ -18,6 +18,4 @@ static NSString *const LANG_JAPANESE = @"JAPANESE";
 + (void)setLang:(NSString *)lang;
 + (NSString *)lang;
 
-+ (instancetype)shareFonts;
-
 @end

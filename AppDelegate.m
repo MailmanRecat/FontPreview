@@ -43,6 +43,7 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
     [[CacheFont standarCache] closeSqlite];
+    [[CacheFont standarCache] cleanCache];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

@@ -61,6 +61,7 @@
         UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
         searchController.searchBar.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
+//        searchController.searchBar.showsScopeBar = YES;
         searchController.dimsBackgroundDuringPresentation = NO;
         searchController.searchResultsUpdater = self;
         searchController.delegate = self;
@@ -87,16 +88,13 @@
     [self.bear.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor].active = YES;
 }
 
-- (void)willPresentSearchController:(UISearchController *)searchController{
-//    self.searchPool = [NSArray new];
-    
-//    [self.bear reloadData];
-}
-
 - (void)didDismissSearchController:(UISearchController *)searchController{
     self.searchPool = nil;
     
-    [self.bear reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.bear reloadData];
+    [self.bear scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]
+                     atScrollPosition:UITableViewScrollPositionTop
+                             animated:YES];
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
@@ -125,7 +123,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    if( self.searchPool )
+    if( self.searchController.active )
         return self.searchPool.count;
     else
         return [[CacheFont standarCache] numberOfFonts];
@@ -153,23 +151,23 @@
     
     FontAsset *fasset;
 
-//    CFAsset asset;
-    if( self.searchPool && self.searchPool.count != 0 ){
-        fasset = [self.searchPool objectAtIndex:indexPath.row];
+    if( self.searchPool && self.searchPool.count != 0 && self.searchController.active ){
+        NSArray *info = [self.searchPool objectAtIndex:indexPath.row];
+        fasset = info.firstObject;
         
-        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:fasset.name];
-        [att setAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:CLThemeRedlight alpha:1] }
-                     range:[fasset.name rangeOfString:self.searchController.searchBar.text]];
+        NSMutableAttributedString *attributeName = [[NSMutableAttributedString alloc] initWithString:fasset.name];
+        [attributeName setAttributes:@{
+                                       NSForegroundColorAttributeName: [UIColor colorWithHex:CLThemeRedlight alpha:1]
+                                       }
+                               range:[(NSValue *)info[1] rangeValue]];
         
-//        cell.textLabel.text = fasset.name;
-        cell.textLabel.attributedText = att;
+        cell.textLabel.attributedText = attributeName;
     }else{
         fasset = [[CacheFont standarCache] assetFromIndex:indexPath.row + 1];
         
         cell.textLabel.text = fasset.name;
     }
     
-//    cell.textLabel.font = [UIFont fontWithName:[NSString stringWithFormat:@"%s", asset.introName] size:17];
     cell.textLabel.font = [UIFont fontWithName:fasset.introFontName size:17];
 
     return cell;
@@ -177,7 +175,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if( self.searchController.active && self.searchPool.count != 0 ){
-        [self.searchController.searchBar resignFirstResponder];
+        [self.searchController.searchBar endEditing:YES];
     }
 }
 
@@ -193,7 +191,12 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        FontAsset *fasset = [[CacheFont standarCache] assetFromIndex:indexPath.row + 1];
+        FontAsset *fasset;
+        if( self.searchController.active ){
+            fasset = [[CacheFont standarCache] assetFromIndex:[((NSArray *)[self.searchPool objectAtIndex:indexPath.row]).lastObject integerValue]];
+        }else{
+            fasset = [[CacheFont standarCache] assetFromIndex:indexPath.row + 1];
+        }
         
         [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:fasset
                                                                                               lang:[FontsManager shareManager].lang]

@@ -383,7 +383,7 @@
         [self.downloadButton setTitleColor:[UIColor colorWithRed:250 / 255.0 green:17 / 255.0 blue:79 / 255.0 alpha:0.4]
                                   forState:UIControlStateDisabled];
         
-        [self asynchronouslySetFontName:self.fontAsset.fontName];
+//        [self asynchronouslySetFontName:self.fontAsset.fontName];
     }
 }
 
@@ -398,98 +398,98 @@
     [self.downloadButton setEnabled:YES];
 }
 
-- (void)asynchronouslySetFontName:(NSString *)fontName{
-    self.cancelDownload = NO;
-    
-    // Create a dictionary with the font's PostScript name.
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:fontName, kCTFontNameAttribute, nil];
-    
-    // Create a new font descriptor reference from the attributes dictionary.
-    CTFontDescriptorRef desc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attrs);
-    
-    NSMutableArray *descs = [NSMutableArray arrayWithCapacity:0];
-    [descs addObject:(__bridge id)desc];
-    CFRelease(desc);
-    
-    __block BOOL errorDuringDownload = NO;
-    
-    // Start processing the font descriptor..
-    // This function returns immediately, but can potentially take long time to process.
-    // The progress is notified via the callback block of CTFontDescriptorProgressHandler type.
-    // See CTFontDescriptor.h for the list of progress states and keys for progressParameter dictionary.
-    CTFontDescriptorMatchFontDescriptorsWithProgressHandler( (__bridge CFArrayRef)descs, NULL,  ^(CTFontDescriptorMatchingState state, CFDictionaryRef progressParameter) {
-        
-        double progressValue = [[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
-        
-        if (state == kCTFontDescriptorMatchingDidBegin) {
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                NSLog(@"Begin Matching");
-            });
-        } else if (state == kCTFontDescriptorMatchingDidFinish) {
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                // Log the font URL in the console
-                CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
-                CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
-                NSLog(@"%@", (__bridge NSString *)(fontURL));
-                CFRelease(fontURL);
-                CFRelease(fontRef);
-                
-                if (!errorDuringDownload) {
-                    NSLog(@"%@ downloaded", fontName);
-                    self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTFinishDownload];
-                    
-                    NSLog(@"MatchingFinished %d", [self fontSupport]);
-                    
-                    self.syncFont = NO;
-                    [self sortFontWeight];
-                    [self.bear reloadData];
-                }
-            });
-        } else if (state == kCTFontDescriptorMatchingWillBeginDownloading) {
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTStartDownload];
-            });
-        } else if (state == kCTFontDescriptorMatchingDidFinishDownloading) {
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                NSLog(@"Finish downloading");
-            });
-        } else if (state == kCTFontDescriptorMatchingDownloading) {
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                // Use the progress bar to indicate the progress of the downloading
-                NSLog(@"Downloading %.0f%% complete", progressValue);
-                self.infoLabel.text = [NSString stringWithFormat:@"%@ %.0f%%", [[FTranslate standarTranslate] stringFromString:FTStartDownload], progressValue];
-            });
-            
-            if( self.cancelDownload )
-                return NO;
-            
-        } else if (state == kCTFontDescriptorMatchingDidFailWithError) {
-            // An error has occurred.
-            // Get the error message
-            NSError *error = [(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingError];
-            if (error != nil) {
-//                _errorMessage = [error description];
-            } else {
-//                _errorMessage = @"ERROR MESSAGE IS NOT AVAILABLE!";
-            }
-            
-            errorDuringDownload = YES;
-            
-            dispatch_async( dispatch_get_main_queue(), ^ {
-                UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@""
-                                                                                    message:@""
-                                                                             preferredStyle:UIAlertControllerStyleAlert];
-                
-                NSLog(@"error");
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-            });
-        }
-        
-        return (bool)YES;
-    });
-    
-}
+//- (void)asynchronouslySetFontName:(NSString *)fontName{
+//    self.cancelDownload = NO;
+//    
+//    // Create a dictionary with the font's PostScript name.
+//    NSMutableDictionary *attrs = [NSMutableDictionary dictionaryWithObjectsAndKeys:fontName, kCTFontNameAttribute, nil];
+//    
+//    // Create a new font descriptor reference from the attributes dictionary.
+//    CTFontDescriptorRef desc = CTFontDescriptorCreateWithAttributes((__bridge CFDictionaryRef)attrs);
+//    
+//    NSMutableArray *descs = [NSMutableArray arrayWithCapacity:0];
+//    [descs addObject:(__bridge id)desc];
+//    CFRelease(desc);
+//    
+//    __block BOOL errorDuringDownload = NO;
+//    
+//    // Start processing the font descriptor..
+//    // This function returns immediately, but can potentially take long time to process.
+//    // The progress is notified via the callback block of CTFontDescriptorProgressHandler type.
+//    // See CTFontDescriptor.h for the list of progress states and keys for progressParameter dictionary.
+//    CTFontDescriptorMatchFontDescriptorsWithProgressHandler( (__bridge CFArrayRef)descs, NULL,  ^(CTFontDescriptorMatchingState state, CFDictionaryRef progressParameter) {
+//        
+//        double progressValue = [[(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingPercentage] doubleValue];
+//        
+//        if (state == kCTFontDescriptorMatchingDidBegin) {
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                NSLog(@"Begin Matching");
+//            });
+//        } else if (state == kCTFontDescriptorMatchingDidFinish) {
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                // Log the font URL in the console
+//                CTFontRef fontRef = CTFontCreateWithName((__bridge CFStringRef)fontName, 0., NULL);
+//                CFStringRef fontURL = CTFontCopyAttribute(fontRef, kCTFontURLAttribute);
+//                NSLog(@"%@", (__bridge NSString *)(fontURL));
+//                CFRelease(fontURL);
+//                CFRelease(fontRef);
+//                
+//                if (!errorDuringDownload) {
+//                    NSLog(@"%@ downloaded", fontName);
+//                    self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTFinishDownload];
+//                    
+//                    NSLog(@"MatchingFinished %d", [self fontSupport]);
+//                    
+//                    self.syncFont = NO;
+//                    [self sortFontWeight];
+//                    [self.bear reloadData];
+//                }
+//            });
+//        } else if (state == kCTFontDescriptorMatchingWillBeginDownloading) {
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                self.infoLabel.text = [[FTranslate standarTranslate] stringFromString:FTStartDownload];
+//            });
+//        } else if (state == kCTFontDescriptorMatchingDidFinishDownloading) {
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//                NSLog(@"Finish downloading");
+//            });
+//        } else if (state == kCTFontDescriptorMatchingDownloading) {
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                // Use the progress bar to indicate the progress of the downloading
+//                NSLog(@"Downloading %.0f%% complete", progressValue);
+//                self.infoLabel.text = [NSString stringWithFormat:@"%@ %.0f%%", [[FTranslate standarTranslate] stringFromString:FTStartDownload], progressValue];
+//            });
+//            
+//            if( self.cancelDownload )
+//                return NO;
+//            
+//        } else if (state == kCTFontDescriptorMatchingDidFailWithError) {
+//            // An error has occurred.
+//            // Get the error message
+//            NSError *error = [(__bridge NSDictionary *)progressParameter objectForKey:(id)kCTFontDescriptorMatchingError];
+//            if (error != nil) {
+////                _errorMessage = [error description];
+//            } else {
+////                _errorMessage = @"ERROR MESSAGE IS NOT AVAILABLE!";
+//            }
+//            
+//            errorDuringDownload = YES;
+//            
+//            dispatch_async( dispatch_get_main_queue(), ^ {
+//                UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@""
+//                                                                                    message:@""
+//                                                                             preferredStyle:UIAlertControllerStyleAlert];
+//                
+//                NSLog(@"error");
+//                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+//            });
+//        }
+//        
+//        return (bool)YES;
+//    });
+//    
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

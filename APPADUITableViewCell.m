@@ -25,7 +25,7 @@
         UISwitch *sc   = [[UISwitch alloc] init];
         sc.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:sc];
-        [sc.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-16].active = YES;
+        [sc.rightAnchor constraintEqualToAnchor:self.contentView.rightAnchor constant:-self.separatorInset.right - 16].active = YES;
         [sc.centerYAnchor constraintEqualToAnchor:self.contentView.centerYAnchor].active = YES;
         sc;
     });

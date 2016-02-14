@@ -19,11 +19,6 @@
 + (instancetype)assetFromName:(NSString *)name
                 introFontName:(NSString *)introFontName
                      fontName:(NSString *)fontName
-                         type:(NSUInteger)type;
-
-+ (instancetype)assetFromName:(NSString *)name
-                introFontName:(NSString *)introFontName
-                     fontName:(NSString *)fontName
                postScriptName:(NSString *)scriptName
                          type:(NSUInteger)type;
 

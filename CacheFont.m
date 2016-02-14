@@ -7,7 +7,7 @@
 //
 
 #define numberOfEN 774
-#define numberOfCH 8
+#define numberOfCH 9
 #define numberOfJA 4
 
 #import <sqlite3.h>
@@ -114,8 +114,6 @@ static sqlite3_stmt *_fsqlite3_statement;
                               postScriptName:pscrn
                                         type:type];
             
-            NSLog(@"%@", asset);
-            
             sqlite3_reset(_fsqlite3_statement);
         }else{
             sqlite3_reset(_fsqlite3_statement);
@@ -144,6 +142,7 @@ static sqlite3_stmt *_fsqlite3_statement;
     const char *query_stmt = [querySQL UTF8String];
     if( sqlite3_prepare_v2(_fsqlite3, query_stmt, -1, &_fsqlite3_statement, NULL) == SQLITE_OK ){
         FontAsset *asset;
+        NSRange    range;
         while( sqlite3_step(_fsqlite3_statement) == SQLITE_ROW ){
             NSUInteger index  = (const int)sqlite3_column_int(_fsqlite3_statement, 0);
             NSString   *name  = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(_fsqlite3_statement, 1)];
@@ -152,13 +151,16 @@ static sqlite3_stmt *_fsqlite3_statement;
             NSUInteger type   = (const int)sqlite3_column_int(_fsqlite3_statement, 4);
             NSString   *pscrn = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(_fsqlite3_statement, 5)];
             
-            asset = [FontAsset assetFromName:name
-                               introFontName:intro
-                                    fontName:fname
-                              postScriptName:pscrn
-                                        type:type];
-            
-            [result addObject:asset];
+            range = [[name lowercaseString] rangeOfString:like];
+            if( range.location != NSNotFound ){
+                asset = [FontAsset assetFromName:name
+                                   introFontName:intro
+                                        fontName:fname
+                                  postScriptName:pscrn
+                                            type:type];
+                
+                [result addObject:@[ asset, [NSValue valueWithRange:range], [NSNumber numberWithInteger:index] ]];
+            }
         }
         
         sqlite3_reset(_fsqlite3_statement);
@@ -169,7 +171,9 @@ static sqlite3_stmt *_fsqlite3_statement;
 }
 
 - (void)cleanCache{
-//    [self.fontsCacheEN ]
+    [self.fontsCacheEN removeAllObjects];
+    [self.fontsCacheCH removeAllObjects];
+    [self.fontsCacheJA removeAllObjects];
 }
 
 - (void)openSqlite{
