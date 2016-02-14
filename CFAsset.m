@@ -37,9 +37,21 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
 - (instancetype)init{
     self = [super init];
     if( self ){
-        [self initFontsEN];
+//        [self initFontsEN];
         [self initFontsCH];
         [self initFontsJA];
+        
+//        NSMutableString *re = [[NSMutableString alloc] init];
+//        for( int i = 0; i < numberOfEN; i++ ){
+//            CFAsset a = _fonts_EN[i];
+//            FontAsset *o = [self fontAssetFronCFAsset:a];
+//            [re appendFormat:@"insert into fonts ( name, introName, fontName, type, postScriptName ) values ( \"%@\", \"%@\", \"%@\", %ld, \"%@\" ); \n", o.name, o.introFontName, o.fontName, o.type, o.PostScriptName ];
+//        }
+//        
+//        [re writeToFile:@"/users/caine/downloads/fnstring.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+//        
+//        NSLog(@"over");
+        
     }
     return self;
 }
@@ -49,7 +61,7 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
     return [FontAsset assetFromName:[NSString stringWithUTF8String:c.name]
                       introFontName:[NSString stringWithUTF8String:c.introName]
                            fontName:[NSString stringWithUTF8String:c.fontName]
-                     postScriptName:[NSString stringWithFormat:@"%s", c.postScriptName]
+                     postScriptName:[NSString stringWithFormat:@"%s", c.postScriptName == NULL ? "unknow" : c.postScriptName]
                                type:c.type];
 }
 
@@ -109,9 +121,10 @@ CFAssetMake( char *name, char *introName, char *fontName, int type, char *postSc
     }
     
     for( int i = 0; i < edge; i++ ){
-        NSString *name = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
-        if( [name rangeOfString:[key lowercaseString]].location != NSNotFound ){
-            [result addObject:@[ name, [NSNumber numberWithInt:i] ]];
+        NSString *name  = [[NSString stringWithUTF8String:[self CFAssetAtIndex:i].name] lowercaseString];
+        NSRange   range = [name rangeOfString:key];
+        if( range.location != NSNotFound ){
+            [result addObject:@[ name, [NSNumber numberWithInt:i], [NSValue valueWithRange:range] ]];
         }
     }
     

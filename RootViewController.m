@@ -7,7 +7,9 @@
 //
 
 #import "CFAsset.h"
+#import "cacheFont.h"
 
+#import "UIColor+Theme.h"
 #import "RootViewController.h"
 #import "PreviewController.h"
 #import "LanguageViewController.h"
@@ -58,6 +60,7 @@
 //                                                                             action:nil];
     self.searchController = ({
         UISearchController *searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+        searchController.searchBar.tintColor = [UIColor colorWithWhite:51 / 255.0 alpha:1];
         searchController.searchBar.searchBarStyle = UISearchBarStyleProminent;
         searchController.dimsBackgroundDuringPresentation = NO;
         searchController.searchResultsUpdater = self;
@@ -98,7 +101,7 @@
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
-    self.searchPool = [[CFonts shareFonts] searchFonts:searchController.searchBar.text];
+    self.searchPool = [[CFonts shareFonts] searchFonts:[searchController.searchBar.text lowercaseString]];
     
     [self.bear reloadData];
 }
@@ -141,16 +144,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TABLEVIEW_CELL_ID];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
+    
+    FontAsset *fasset = [[cacheFont standarCache] assetFromIndex:indexPath.row + 1];
 
     CFAsset asset;
     if( self.searchPool && self.searchPool.count != 0 ){
-        asset = [[CFonts shareFonts] CFAssetAtIndex:[((NSArray *)self.searchPool[indexPath.row]).lastObject integerValue]];
+        asset = [[CFonts shareFonts] CFAssetAtIndex:[((NSArray *)self.searchPool[indexPath.row])[1] integerValue]];
+        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithUTF8String:asset.name]];
+        [att setAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:CLThemeRedlight alpha:1] }
+                               range:[((NSValue *)((NSArray *)self.searchPool[indexPath.row]).lastObject) rangeValue]];
+        
+        cell.textLabel.attributedText = att;
     }else{
-        asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
+//        asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
+        
+//        cell.textLabel.text = [NSString stringWithUTF8String:asset.name];
+        cell.textLabel.text = fasset.name;
     }
     
-    cell.textLabel.text = [NSString stringWithUTF8String:asset.name];
-    cell.textLabel.font = [UIFont fontWithName:[NSString stringWithFormat:@"%s", asset.introName] size:17];
+//    cell.textLabel.font = [UIFont fontWithName:[NSString stringWithFormat:@"%s", asset.introName] size:17];
+    cell.textLabel.font = [UIFont fontWithName:fasset.introFontName size:17];
 
     return cell;
 }
@@ -175,6 +188,7 @@
         
         CFonts        *f = [CFonts shareFonts];
         FontAsset *asset = [f fontAssetFronCFAsset:[f CFAssetAtIndex:indexPath.row]];
+        
         
         [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:asset
                                                                                               lang:[FontsManager shareManager].lang]

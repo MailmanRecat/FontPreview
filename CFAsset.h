@@ -6,7 +6,6 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-//#import <Foundation/Foundation.h>
 #import "FontsManager.h"
 
 struct CFAsset{
