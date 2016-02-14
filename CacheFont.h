@@ -9,10 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "FontsManager.h"
 
-@interface cacheFont : NSObject
+@interface CacheFont : NSObject
 
 + (instancetype)standarCache;
 
+- (NSUInteger)numberOfFonts;
 - (FontAsset *)assetFromIndex:(NSUInteger)index;
+
+- (NSArray *)searchFontsLike:(NSString *)like;
+
+- (void)cleanCache;
+- (void)openSqlite;
+- (void)closeSqlite;
 
 @end

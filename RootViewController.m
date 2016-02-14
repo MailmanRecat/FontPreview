@@ -6,8 +6,7 @@
 //  Copyright © 2016 com.caine. All rights reserved.
 //
 
-#import "CFAsset.h"
-#import "cacheFont.h"
+#import "CacheFont.h"
 
 #import "UIColor+Theme.h"
 #import "RootViewController.h"
@@ -89,9 +88,9 @@
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController{
-    self.searchPool = [NSArray new];
+//    self.searchPool = [NSArray new];
     
-    [self.bear reloadData];
+//    [self.bear reloadData];
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController{
@@ -101,7 +100,14 @@
 }
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController{
-    self.searchPool = [[CFonts shareFonts] searchFonts:[searchController.searchBar.text lowercaseString]];
+    if( [searchController.searchBar.text isEqualToString:@""] ){
+        self.searchPool = @[];
+        [self.bear reloadData];
+        
+        return;
+    }
+    
+    self.searchPool = [[CacheFont standarCache] searchFontsLike:[searchController.searchBar.text lowercaseString]];
     
     [self.bear reloadData];
 }
@@ -122,7 +128,7 @@
     if( self.searchPool )
         return self.searchPool.count;
     else
-        return [[CFonts shareFonts] numberOfFonts];
+        return [[CacheFont standarCache] numberOfFonts];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
@@ -145,20 +151,21 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    FontAsset *fasset = [[cacheFont standarCache] assetFromIndex:indexPath.row + 1];
+    FontAsset *fasset;
 
-    CFAsset asset;
+//    CFAsset asset;
     if( self.searchPool && self.searchPool.count != 0 ){
-        asset = [[CFonts shareFonts] CFAssetAtIndex:[((NSArray *)self.searchPool[indexPath.row])[1] integerValue]];
-        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithUTF8String:asset.name]];
-        [att setAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:CLThemeRedlight alpha:1] }
-                               range:[((NSValue *)((NSArray *)self.searchPool[indexPath.row]).lastObject) rangeValue]];
+        fasset = [self.searchPool objectAtIndex:indexPath.row];
         
+        NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:fasset.name];
+        [att setAttributes:@{ NSForegroundColorAttributeName: [UIColor colorWithHex:CLThemeRedlight alpha:1] }
+                     range:[fasset.name rangeOfString:self.searchController.searchBar.text]];
+        
+//        cell.textLabel.text = fasset.name;
         cell.textLabel.attributedText = att;
     }else{
-//        asset = [[CFonts shareFonts] CFAssetAtIndex:indexPath.row];
+        fasset = [[CacheFont standarCache] assetFromIndex:indexPath.row + 1];
         
-//        cell.textLabel.text = [NSString stringWithUTF8String:asset.name];
         cell.textLabel.text = fasset.name;
     }
     
@@ -186,11 +193,9 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        CFonts        *f = [CFonts shareFonts];
-        FontAsset *asset = [f fontAssetFronCFAsset:[f CFAssetAtIndex:indexPath.row]];
+        FontAsset *fasset = [[CacheFont standarCache] assetFromIndex:indexPath.row + 1];
         
-        
-        [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:asset
+        [self.navigationController pushViewController:[[PreviewController alloc] initWithFontAsset:fasset
                                                                                               lang:[FontsManager shareManager].lang]
                                              animated:YES];
         
